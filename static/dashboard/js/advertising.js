@@ -24,8 +24,6 @@ $(document).ready(function () {
             beforeSend:function(xhr){
                 xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
             },
-            success: function (data) {
-            }
           });
     });
 });
