@@ -6,7 +6,8 @@ $(document).ready(function () {
       $('.DateTime').datetimepicker(o)
     $(".submit").on('click', function () {
         data_AdsUpload = {
-            AdsName: $("#Ads_Name").val(),
+            Ads_Name: $("#Ads_Name").val(),
+            Tag: "搖滾",
             Source: $("#Source").val(),
             startTime: $("#startTime").val(),
             endTime: $("#endTime").val(),
@@ -24,6 +25,9 @@ $(document).ready(function () {
             beforeSend:function(xhr){
                 xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
             },
+            success: function (data) {
+                console.log(data)
+            }
           });
     });
 });
