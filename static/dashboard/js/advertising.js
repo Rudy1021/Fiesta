@@ -1,7 +1,9 @@
 $(document).ready(function () {
     var o={
         timeFormat: 'HH:mm',
-        dateFormat: 'yy-mm-dd'
+        dateFormat: 'yy-mm-dd',
+        minDate: "-0d"
+
     }
       $('.DateTime').datetimepicker(o)
     $(".submit").on('click', function () {
@@ -15,7 +17,7 @@ $(document).ready(function () {
                     content: '有欄位未填！',
                     buttons: {
                         確認: {
-                            btnClass: 'btn-warring',
+                            btnClass: 'btn-Warring',
                             action: function() {
                             }
                         }
@@ -24,6 +26,40 @@ $(document).ready(function () {
                 submit = false
                 break
             }
+        }
+        Now = new Date()
+        startTime = new Date(Date.parse($("#startTime").val()))
+        endTime = new Date(Date.parse($("#endTime").val()));
+        if(Now.getFullYear() > startTime.getFullYear()){
+            submit = false
+            wrongTime()
+        }else if(Now.getMonth()+1 > startTime.getMonth()+1){
+            submit = false
+            wrongTime()
+        }else if(Now.getDate() > startTime.getDate()){
+            submit = false
+            wrongTime()
+        }else if(Now.getHours() > startTime.getHours()){
+            submit = false
+            wrongTime()
+        }else if(Now.getMinutes() > startTime.getMinutes()){
+            submit = false
+            wrongTime()
+        }else if(startTime.getFullYear() > endTime.getFullYear()){
+            submit = false
+            wrongTime()
+        }else if(startTime.getMonth()+1 > endTime.getMonth()+1){
+            submit = false
+            wrongTime()
+        }else if(startTime.getDate() > endTime.getDate()){
+            submit = false
+            wrongTime()
+        }else if(startTime.getHours() > endTime.getHours()){
+            submit = false
+            wrongTime()
+        }else if(startTime.getMinutes() > endTime.getMinutes()){
+            submit = false
+            wrongTime()
         }
         if(submit == true){
         data_AdsUpload = {
@@ -53,3 +89,18 @@ $(document).ready(function () {
         }
     });
 });
+function wrongTime() {
+    $.confirm({
+        title: '錯誤！',
+        animation: 'zoom',
+        closeAnimation: 'scale',
+        content: '時間錯誤！',
+        buttons: {
+            確認: {
+                btnClass: 'btn-Warring',
+                action: function() {
+                }
+            }
+        }
+    })
+}
