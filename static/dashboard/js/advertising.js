@@ -5,6 +5,27 @@ $(document).ready(function () {
     }
       $('.DateTime').datetimepicker(o)
     $(".submit").on('click', function () {
+        submit = true
+        for(i = 0;i < $(".behoove").length;i++){
+            if($(".behoove").eq(i).val() == ""){
+                $.confirm({
+                    title: '錯誤！',
+                    animation: 'zoom',
+                    closeAnimation: 'scale',
+                    content: '有欄位未填！',
+                    buttons: {
+                        確認: {
+                            btnClass: 'btn-warring',
+                            action: function() {
+                            }
+                        }
+                    }
+                })
+                submit = false
+                break
+            }
+        }
+        if(submit == true){
         data_AdsUpload = {
             Ads_Name: $("#Ads_Name").val(),
             Tag: "搖滾",
@@ -29,5 +50,6 @@ $(document).ready(function () {
                 console.log(data)
             }
           });
+        }
     });
 });
