@@ -1,0 +1,280 @@
+{% extends 'base2.html' %}
+{% block title %}
+{% endblock title %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800 all-title act-title"></h1>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-lg font-weight-bold text-success text-uppercase mb-1">
+                                總收益
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800 earn-count">
+                                -
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
+                                獎品數量
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800 lotte-count">
+                                -
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-lg font-weight-bold text-info text-uppercase mb-1">
+                                參加人數
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800 join-count">
+                                        - / -
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info peoplebar" role="progressbar" style="width: 64%" aria-valuenow="50"aria-valuemin="0" aria-valuemax="79">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">
+                                問卷數量
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800 questionnaire">
+                                -
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-main">
+                        活動內容
+                    </h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">
+                                選擇動作
+                            </div>
+                            <a class="dropdown-item to-edit" href="javascript:;">
+                                編輯
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-2">
+                            開始時間
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control datetimepicker3 startTime editinput" readonly="readonly" disabled="disabled">
+                        </div>
+                        <div class="col-2">
+                            結束時間
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control datetimepicker3 endTime editinput" readonly="readonly" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            活動類別
+                        </div>
+                        <div class="col taglist">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+                            活動簡介
+                        </div>
+                        <div class="col">
+                            人數上限
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control peoplemax editinput" readonly="readonly" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <textarea readonly="readonly" disabled="disabled" class="form-control act_Description editinput" id="exampleFormControlTextarea1" rows="7">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="text-center mt-2 edit">
+                        <button class="btn btn-dark">取消</button>
+                        <button class="btn btn-primary btn-main save-input">儲存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-main">票卷販售種類</h6>
+                </div>
+                <div class="card-body onlyticket">
+                    <div class="chart-pie pt-4 pb-2 mt-3">
+                        <div class="chartjs-size-monitor">
+                          <div class="chartjs-size-monitor-expand">
+                            <div class=""></div>
+                          </div>
+                          <div class="chartjs-size-monitor-shrink">
+                            <div class=""></div>
+                          </div>
+                        </div>
+                        <canvas id="myPieChart" width="301" height="245" class="chartjs-render-monitor" style="display: block; width: 301px; height: 245px;"></canvas>
+                      </div>
+                      <div class="mt-4 text-center small mb-5 chart-text">
+                        <span class="mr-2">
+                          <i class="fas fa-circle text-main"></i> 早鳥票
+                        </span>
+                        <span class="mr-2">
+                          <i class="fas fa-circle text-success"></i> 優待票
+                        </span>
+                        <span class="mr-2">
+                          <i class="fas fa-circle text-info"></i> 一般票
+                        </span>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5 col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-main">活動照片</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">選擇動作</div>
+                            <a class="dropdown-item" href="#">編輯</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="pt-0 pb-2" style="height:22.4rem !important">
+                        <img class="img-profile actImg mw-100 mh-100" src="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-7 col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-main">活動地點</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">選擇動作</div>
+                            <a class="dropdown-item toedit" href="#">編輯</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="pt-0 pb-2" style="height:22.4rem !important">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58871.24661090306!2d120.32182016725068!3d22.748567239329926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd553c015717675a9!2z5qWg5qKT6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1591102272159!5m2!1szh-TW!2stw" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-main">驗票QRcode</h6>
+            </div>
+            <div class="card-body">
+                    <img src="" class="QRcode mw-100 mh-100">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-main">參加名單</h6>
+        </div>
+        <div class="card-body li-2">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>真實姓名</th>
+                            <th>暱稱</th>
+                            <th class="ticketitle">票種</th>
+                            <th>票卷使用狀態</th>
+                            <th>備註</th>
+                            <th>手動點名</th>
+                            <th>選項</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script src="{{ url_for('static',filename='dashboard/js/datatables.js') }}?version=1.43"></script>
+<script src="{{ url_for('static',filename='dashboard/js/chart-pie.js') }}?version=1.02"></script>
+{% endblock script %}
