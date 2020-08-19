@@ -1,4 +1,16 @@
 $(document).ready(function () {
+    $("#file").change(function (e) { 
+        readURL(this)
+    });
+    function readURL(input) {
+        if(input.files && input.files[0]){
+            var reader = new FileReader()
+            reader.onload = function (e) {
+                $("#file").attr("src", e.tar)
+            }
+            reader.readAsDataURL(input.files[0])
+        }
+    }
     var o={
         timeFormat: 'HH:mm',
         dateFormat: 'yy-mm-dd',
