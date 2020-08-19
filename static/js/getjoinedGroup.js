@@ -52,7 +52,8 @@ $.ajax({
             }
         });
         if(groupId == ''){
-            $("#warring").text("喔喔！你好像還沒創立群組喔！")
+            $("#warring").text("您尚未創立群組！")
+            $(".danger").show()
             $(".CreateGroup").show()
             $(".list").hide()
         }
