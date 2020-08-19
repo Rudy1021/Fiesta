@@ -1,7 +1,59 @@
 {% extends 'base2.html' %}
 {% block title %}廣告投放後台{% endblock title %}
 {% block content %}
+<link href="{{ url_for('static',filename='scss/style-dashboard.css') }}?version=1.14" rel="stylesheet">
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">已投放廣告</h6>
+          <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-header">選擇動作</div>
+              <a class="dropdown-item" href="#">編輯</a>
+              <a class="dropdown-item" href="#">刪除</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6 text-center">
+              <div class="change-img">               
+              </div>              
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col-md-12 adv-title">
+                  高雄科技大學開幕典禮
+                </div>
+              </div>
+              <div class="row ml-3">
+                <div class="col-md-12 float-left adv-text">
+                  廠商名稱：高雄科技大學<br>
+                  價　　格：1239 元<br>
+                  開始時間：2020-08-05 00:00<br>
+                  結束時間：2020-08-06 00:00                  
+                </div>                
+              </div>
+              <div class="row">
+                <div class="col-md-11 float-left  adv-text">
+                  <hr>
+                  普洛佩提烏斯告訴我們，墮入情網者的眼睛都是瞎的。這句話讓我們得到了一個全新的觀點去思考這個問題。在這種困難的抉擇下，本人思來想去，寢食難安。不難發現，問題在於該用什麼標準來做決定呢？我認為，培根講過一句值得人反覆尋思的話，一個人越啜飲世故的烈酒，就越沉醉於世故之中。這激勵了我。所謂貓咪，關鍵是貓咪需要如何解讀。
+                </div>
+              </div>            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
   <div class="row">
     <div class="col-12">
       <div class="card shadow mb-4">
@@ -24,7 +76,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-6 text-center">
-              <div class="change-img">                
+              <div class="change-img">
                 <div class="change-text">
                   <label class="pic-edit" for="file">編輯圖片<i class="fas fa-pencil-alt"></i></label>
                   <input type="file" name="file" id="file" class="position-absolute overflow-hidden"
@@ -41,37 +93,29 @@
             </div>
             <div class="col-6">
               <div class="row">
-                <div class="col-12">
-                  <div class="form-group">
-                    <label for="title">廣告標題</label>
-                    <input type="text" class="form-control behoove" id="Ads_Name" placeholder="請輸入廣告標題">
-                  </div>
+                <div class="form-group col-md-12">
+                  <input type="text" class="form-control behoove" id="Ads_Name" placeholder="請輸入廣告標題">
                 </div>
               </div>
               <div class="row">
-                <div class="col-2">廠商名稱</div>
-                <div class="col-4 text-center mt-2">
-                  <input type="text" class="form-control" id="Source" placeholder="廠商名稱">
+                <div class="form-group col-md-6 float-left">
+                  <input type="text" class="form-control" id="Source" placeholder="請輸入廠商名稱">
                 </div>
-                <div class="col-2">價錢</div>
-                <div class="col-4 text-center mt-2">
-                  <input type="text" class="form-control" id="Price" placeholder="價錢">
+                <div class="form-group col-md-6 float-left">
+                  <input type="text" class="form-control" id="Price" placeholder="請輸入價格">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12">時間</div>
+              <div class="row mt-2">
                 <div class="col-6 text-center">
-                  <input type="text" class="form-control DateTime" id="startTime" placeholder="開始時間">
+                  <input type="text" class="form-control DateTime" id="startTime" placeholder="請選擇開始時間">
                 </div>
                 <div class="col-6 text-center">
-                  <input type="text" class="form-control DateTime" id="endTime" placeholder="結束時間">
+                  <input type="text" class="form-control DateTime" id="endTime" placeholder="請選擇結束時間">
                 </div>
-              </div>              
-              <div class="row">
-                <div class="col-12">內容</div>
+              </div>
+              <div class="row mt-3">
                 <div class="col-12 text-center">
-                  <textarea class="form-control behoove" id="Content" rows="6"
-                    placeholder="請輸入廣告內容"></textarea>
+                  <textarea class="form-control behoove" id="Content" rows="6" placeholder="請輸入廣告內容"></textarea>
                 </div>
               </div>
               <div class="row">

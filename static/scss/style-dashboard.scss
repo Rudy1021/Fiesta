@@ -126,3 +126,46 @@ body{
   .edit-models{
     display:none;
   }
+.change-img {
+  background-image: url("../img/bg1.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 20rem;
+}
+
+.change-img:hover {
+  width: 101%;
+}
+.pic-edit{
+  position: relative;
+  bottom: -17rem;
+  cursor: pointer;
+  background: rgba($color: #fff, $alpha: 0.6);
+  width: 100%;
+}
+.pic-edit:hover{
+  background: rgb(250, 249, 249);
+}
+.text-primary{
+  color: #EB5F36 !important;
+}
+.btn-orange{
+  background: #EB5F36;
+  color: #fff;
+}
+.btn-orange:hover{
+  background: #EA3E36;
+  color: #fff;
+}
+.adv-title{  
+  border-left: 6px #EA3E36 solid;
+  font-size:1.8rem;
+  line-height: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.adv-text{
+  line-height: 2rem;
+  padding-left: 2rem;
+  margin-top: 0;
+}
