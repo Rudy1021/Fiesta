@@ -24,36 +24,37 @@
         <!-- Card Body -->
         <div class="card-body">
           <div class="row">
-            <div class="col-6 text-center">
-              <div class="change-img">               
-              </div>              
+            <div class="col-md-6 col-sm-12 text-center">
+              <div class="change-img">
+              </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12">
               <div class="row">
-                <div class="col-md-12 adv-title">
+                <div class="col-md-12 adv-title ml-4">
                   高雄科技大學開幕典禮
                 </div>
               </div>
               <div class="row ml-3">
-                <div class="col-md-12 float-left adv-text">
-                  廠商名稱：高雄科技大學<br>
-                  價　　格：1239 元<br>
-                  開始時間：2020-08-05 00:00<br>
-                  結束時間：2020-08-06 00:00                  
-                </div>                
+                <div class="col-md-12 float-left adv-text mt-2">
+                  <div class="adv-info float-left mr-3">
+                    活動地點：高雄市燕巢區大學路2號<br>
+                    時　　間：2020-08-10<br>
+                  </div>
+                  <div class="btn btn-info float-right adv-btn-info" data-toggle="modal" data-target="#adv-info">投放設定</div>
+                </div>
               </div>
               <div class="row">
                 <div class="col-md-11 float-left  adv-text">
                   <hr>
                   普洛佩提烏斯告訴我們，墮入情網者的眼睛都是瞎的。這句話讓我們得到了一個全新的觀點去思考這個問題。在這種困難的抉擇下，本人思來想去，寢食難安。不難發現，問題在於該用什麼標準來做決定呢？我認為，培根講過一句值得人反覆尋思的話，一個人越啜飲世故的烈酒，就越沉醉於世故之中。這激勵了我。所謂貓咪，關鍵是貓咪需要如何解讀。
                 </div>
-              </div>            
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>  
+  </div>
   <div class="row">
     <div class="col-12">
       <div class="card shadow mb-4">
@@ -75,7 +76,7 @@
         <!-- Card Body -->
         <div class="card-body">
           <div class="row">
-            <div class="col-6 text-center">
+            <div class="col-md-6 col-sm-12 text-center">
               <div class="change-img">
                 <div class="change-text">
                   <label class="pic-edit" for="file">編輯圖片<i class="fas fa-pencil-alt"></i></label>
@@ -91,7 +92,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12">
               <div class="row">
                 <div class="form-group col-md-12">
                   <input type="text" class="form-control behoove" id="Ads_Name" placeholder="請輸入廣告標題">
@@ -105,12 +106,20 @@
                   <input type="text" class="form-control" id="Price" placeholder="請輸入價格">
                 </div>
               </div>
-              <div class="row mt-2">
+              <div class="row">
                 <div class="col-6 text-center">
-                  <input type="text" class="form-control DateTime" id="startTime" placeholder="請選擇開始時間">
+                  <input type="text" class="form-control DateTime" id="startTime" placeholder="廣告投放開始時間">
                 </div>
                 <div class="col-6 text-center">
-                  <input type="text" class="form-control DateTime" id="endTime" placeholder="請選擇結束時間">
+                  <input type="text" class="form-control DateTime" id="endTime" placeholder="廣告投放結束時間">
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-6 text-center">
+                  <input type="text" class="form-control DateTime" id="startTime" placeholder="活動開始時間">
+                </div>
+                <div class="col-6 text-center">
+                  <input type="text" class="form-control DateTime" id="endTime" placeholder="活動結束時間">
                 </div>
               </div>
               <div class="row mt-3">
@@ -130,8 +139,27 @@
       </div>
     </div>
   </div>
-  <div class="text-center mb-3">
-    <button class="btn btn-orange btn-radius add schedule btn-lg">+</button>
+  <div class="modal fade" id="adv-info" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">投放設定</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body li-2">
+          廠商名稱：高雄科技大學<br>
+          價　　格：1239 元<br>
+          開始時間：2020-08-05 00:00<br>
+          結束時間：2020-08-06 00:00
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>          
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock content %}

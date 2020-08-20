@@ -151,10 +151,6 @@ textarea {
   height: 20rem;
 }
 
-.change-img:hover {
-  width: 101%;
-}
-
 .pic-edit {
   position: relative;
   bottom: -17rem;
@@ -192,5 +188,45 @@ textarea {
   line-height: 2rem;
   padding-left: 2rem;
   margin-top: 0;
+}
+
+.li-1 {
+  line-height: 2rem;
+}
+
+#adv-info .modal-title {
+  border-left: 6px #EA3E36 solid;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0rem;
+  margin-top: 0.2rem;
+}
+
+#adv-info .modal-body {
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+}
+
+.adv-btn-info {
+  margin-right: 3rem;
+}
+
+@media screen and (max-width: 480px) {
+  .adv-title {
+    border-left: 3px #EA3E36 solid;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.8rem;
+  }
+  .adv-text {
+    padding-left: 1rem;
+  }
+  .adv-btn-info {
+    margin-right: 0.5rem;
+  }
 }
 /*# sourceMappingURL=style-dashboard.css.map */

@@ -48,14 +48,14 @@ $(document).ready(function () {
                     if(i < 4){
                         act = '<span class="card">' +
                         '<img src="../static/img/bg1.jpg" class="card-img-top" alt="...">' +
-                        '<span class="card-body"><div class="card-title">尚無活動 <span class="badge badge-pill badge-danger float-right">已售完</span></div>' +
+                        '<span class="card-body"><div class="card-title">尚無活動</div>' +
                         '<div class="card-title-2"></div><div class="card-text"></div>' +
                         '<div class="card-date"><small class="text-muted"></small></div></span></span>'
                         $(".card-deck-area-1").append(act)
                     }else{
                         act = '<span class="card">' +
                         '<img src="../static/img/bg1.jpg" class="card-img-top" alt="...">' +
-                        '<span class="card-body"><div class="card-title">尚無活動 <span class="badge badge-pill badge-danger float-right">已售完</span></div>' +
+                        '<span class="card-body"><div class="card-title">尚無活動</div>' +
                         '<div class="card-title-2"></div><div class="card-text"></div>' +
                         '<div class="card-date"><small class="text-muted"></small></div></span></span>'
                         $(".card-deck-area-2").append(act)
@@ -69,7 +69,7 @@ $(document).ready(function () {
               <span class="card">
                 <img src="{{ url_for('static',filename='img/bg1.jpg') }}" class="card-img-top" alt="...">
                 <span class="card-body">
-                  <div class="card-title">尚無活動 <span class="badge badge-pill badge-danger float-right">已售完</span></div>
+                  <div class="card-title">尚無活動</div>
                   <div class="card-title-2"></div>
                   <div class="card-text"></div>
                   <div class="card-date"><small class="text-muted"></small></div>
