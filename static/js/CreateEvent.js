@@ -310,28 +310,41 @@ $("button.justSubmit").click(function (e) {
 
 $(document).on('click', ".options", function () {
     if($(this).hasClass("clicked")){
+        for(i = 0;i < define.length;i ++){
+            if($(this).text() == define[i].innerHTML){
+                $(define).eq(i).removeClass("define-circle")
+                $(define).eq(i).addClass("sort-circle")
+                $(define).eq(i).html("請選擇<br>類別")
+                break
+            }
+        }
+        $(this).css("background-color", "")
+        $(this).removeClass("clicked")
     }else if(define[0].innerHTML == "請選擇<br>類別"){
         $(this).css("background-color","#c3ddd2");
         define[0].innerHTML = $(this).text()
+        $(this).addClass("clicked");
         define[0].setAttribute("class", "define-circle define")
     }else if(define[1].innerHTML == "請選擇<br>類別"){
         $(this).css("background-color","#c3ddd2");
         define[1].innerHTML = $(this).text()
+        $(this).addClass("clicked");
         define[1].setAttribute("class", "define-circle define")
     }else if(define[2].innerHTML == "請選擇<br>類別"){
         $(this).css("background-color","#c3ddd2");
         define[2].innerHTML = $(this).text()
+        $(this).addClass("clicked");
         define[2].setAttribute("class", "define-circle define")
     }else if(define[3].innerHTML == "請選擇<br>類別"){
         $(this).css("background-color","#c3ddd2");
         define[3].innerHTML = $(this).text()
+        $(this).addClass("clicked");
         define[3].setAttribute("class", "define-circle define")
     }else{
         $.alert({
             content: "選項滿囉！"
         })
     }
-    $(this).addClass("clicked");
 });
 
 

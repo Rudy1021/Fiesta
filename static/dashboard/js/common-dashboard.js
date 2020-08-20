@@ -23,7 +23,24 @@ $(document).ready(function () {
                     $("#accordionSidebar").append(allActTitle)
                 });
                 if($.cookie("acid") == undefined || idlist.includes($.cookie("acid")) == false){
-                    $.cookie("acid", $("span.id").eq(0).html(), {path: '/' })
+                    if(idlist.length == 0){
+                        $.confirm({
+                            title: '錯誤！',
+                            animation: 'zoom',
+                            closeAnimation: 'scale',
+                            content: '尚未創建活動！',
+                            buttons: {
+                                確認: {
+                                    btnClass: 'btn-warning',
+                                    action: function() {
+                                        location.href = "/"
+                                    }
+                                }
+                            }
+                        })
+                    }else {
+                        $.cookie("acid", $("span.id").eq(0).html(), {path: '/' })
+                    }
                 }
                 for(k = 0;k < $(".id").length;k++){
                     if($.cookie("acid") == $(".id").eq(k).html()){

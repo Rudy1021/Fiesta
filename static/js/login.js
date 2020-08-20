@@ -5,7 +5,6 @@ $(document).ready(function(){
             logintest()
         }
       });
-
     function logintest(){
         if($("#userId").val() != "" && $("#userPassword").val() != ""){
             AJAX();

@@ -5,6 +5,8 @@ $(document).ready(function() {
     dateFormat: 'yy-mm-dd'
 }
   $('.datetimepicker3').datetimepicker(o)
+  if($.cookie("acid") == undefined){
+
   dataSelect = {
     Id: $.cookie("acid")
   }
@@ -234,5 +236,5 @@ $(document).ready(function() {
     $(".editinput").removeAttr("readonly")
     $(".editinput").removeAttr("disabled")
   });
-
+  }
 });

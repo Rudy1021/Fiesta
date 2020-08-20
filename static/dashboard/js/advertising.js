@@ -4,9 +4,13 @@ $(document).ready(function () {
     });
     function readURL(input) {
         if(input.files && input.files[0]){
+            console.log(input.files[0])
             var reader = new FileReader()
+            img = $(input).parent().parent()
             reader.onload = function (e) {
-                $("#file").attr("src", e.tar)
+                $(img).css("background-image","url(" + e.target.result + ")")
+                $(img).css("cursor", "grab")
+                
             }
             reader.readAsDataURL(input.files[0])
         }
@@ -29,7 +33,7 @@ $(document).ready(function () {
                     content: '有欄位未填！',
                     buttons: {
                         確認: {
-                            btnClass: 'btn-Warring',
+                            btnClass: 'btn-warning',
                             action: function() {
                             }
                         }
@@ -116,3 +120,55 @@ function wrongTime() {
         }
     })
 }
+function cropInit(){
+    cr = $croppie.croppie({
+      viewport: {
+        width: img_w,
+        height: img_h
+      },
+      boundary: {
+        width: img_w,
+        height: img_h
+      },
+      mouseWheelZoom: false,
+      enableOrientation: true
+    });
+    
+    $(".cr-slider-wrap").append('<button id="cr-rotate" onClick="cropRotate(-90);">↻ Rotate</button>');
+    
+    bindCropImg();
+  }
+  //綁定圖片
+  function bindCropImg() {
+    cr.croppie('bind', {
+      url: cr_img
+    });
+  }
+  //旋轉按鈕
+  function cropRotate(deg) {
+    cr.croppie('rotate', parseInt(deg));
+  }
+  //取消裁切
+  function cropCancel() {
+    if($upload.is(':hidden')){
+      $upload.fadeIn(300).siblings().hide();
+      fileselect.value = "";
+      isCrop = 0;
+    }
+  }
+  //圖片裁切
+  function cropResult() {
+    if(!isCrop){
+      isCrop = 1;
+      cr.croppie('result', {
+        type: 'canvas', // canvas(base64)|html
+        size: {width:img_w, height:img_h}, //'viewport'|'original'|{width:500, height:500}
+        format: 'jpeg', //'jpeg'|'png'|'webp'
+        quality: 1 //0~1
+      }).then(function (resp) {
+        $crop.hide();
+        $result.find('img').attr('src', resp);
+        $result.fadeIn(300);
+      });
+    }
+  }
