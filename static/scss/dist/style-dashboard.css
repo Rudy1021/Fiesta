@@ -1,12 +1,11 @@
 @charset "UTF-8";
 body * {
-  font-family: Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji","微軟正黑體";
+  font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "微軟正黑體";
 }
 
 .card-body {
   line-height: 3rem;
 }
-
 .card-body .tag {
   float: left;
   background: #d0f1eb;
@@ -18,7 +17,7 @@ body * {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   border-radius: 0 0.8rem 0 0.1rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .li-2 {
@@ -49,8 +48,8 @@ body * {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -61,8 +60,8 @@ body * {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -70,12 +69,12 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  -webkit-box-shadow: 0 0 1px #EB5F36;
-          box-shadow: 0 0 1px #EB5F36;
+  box-shadow: 0 0 1px #EB5F36;
 }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
   transform: translateX(35px);
 }
 
@@ -198,7 +197,6 @@ textarea {
   margin-bottom: 0rem;
   margin-top: 0.2rem;
 }
-
 .adv-info .modal-body {
   font-size: 1.1rem;
   margin-left: 0.5rem;
@@ -216,14 +214,15 @@ textarea {
     margin-bottom: 0.5rem;
     margin-top: 0.8rem;
   }
+
   .adv-text {
     padding-left: 1rem;
   }
+
   .adv-btn-info {
     margin-right: 0.5rem;
   }
 }
-
 .adv-test {
   line-height: 2rem;
   padding-left: 2rem;
@@ -241,12 +240,10 @@ textarea {
   padding-left: 0.4rem;
   background: #3d5351;
   border-radius: 0.1rem 0.8rem 0.1rem 0.1rem;
-  -webkit-box-shadow: 0.1rem 0.1rem #5f5f5f;
-          box-shadow: 0.1rem 0.1rem #5f5f5f;
+  box-shadow: 0.1rem 0.1rem #5f5f5f;
   margin: 0.5rem;
   color: #e9e9e9;
   letter-spacing: 0.1rem;
   float: left;
   cursor: pointer;
 }
-/*# sourceMappingURL=style-dashboard.css.map */

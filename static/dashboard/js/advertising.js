@@ -1,4 +1,23 @@
 $(document).ready(function () {
+    $.ajax({
+        type: "GET",
+        url: "https://fiesta.nkust.edu.tw/Fiestadb/Tag/select",
+        beforeSend:function(xhr){
+            xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
+        },
+        success: function (data) {
+            $.each(data.result, function (indexInArray, content) {
+                for(i = 0;i<content.length;i++) {
+                    sort = '<div class="tag-box">' + content[i] + '</div>'
+                    $("div.tag-list").append(sort)
+                    
+                }
+            });
+            $(".tag-box").on('click', function () {
+                $("#tag").val($(this).text() + ";" + $("#tag").val())
+            });
+        }
+    });
     $("#file").change(function (e) { 
         readURL(this)
     });
@@ -95,6 +114,7 @@ $(document).ready(function () {
             data: JSON.stringify(data_AdsUpload),
             contentType: "application/json",
             datatype: JSON,
+            async:false,
             beforeSend:function(xhr){
                 xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
             },
