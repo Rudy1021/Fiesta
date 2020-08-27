@@ -194,7 +194,7 @@ textarea {
   line-height: 2rem;
 }
 
-#adv-info .modal-title {
+.adv-info .modal-title {
   border-left: 6px #EA3E36 solid;
   font-size: 1.3rem;
   line-height: 1.3rem;
@@ -205,7 +205,7 @@ textarea {
   margin-top: 0.2rem;
 }
 
-#adv-info .modal-body {
+.adv-info .modal-body {
   font-size: 1.1rem;
   margin-left: 0.5rem;
 }
