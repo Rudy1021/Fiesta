@@ -5,7 +5,7 @@ $(document).ready(function() {
     dateFormat: 'yy-mm-dd'
 }
   $('.datetimepicker3').datetimepicker(o)
-  if($.cookie("acid") == undefined){
+  if($.cookie("acid") != undefined){
 
   dataSelect = {
     Id: $.cookie("acid")

@@ -16,10 +16,10 @@ $(document).ready(function () {
         success: function (data) {
             if(data.code != "013"){
                 $.each(data.result, function (indexInArray, content) {
-                    idlist.push(content.Id)
+                    idlist.push(content.act_Id)
                     allActTitle = '<li class="nav-item"><a class="nav-link collapsed " href="javascript:;">' +
                         '<i class="fas fa-fw fa-bullhorn"></i>' +
-                        '<span class="all-act-title">' + content.act_Name + '</span><span class="id">' + content.Id + '</span></a></li>'
+                        '<span class="all-act-title">' + content.act_Name + '</span><span class="id">' + content.act_Id + '</span></a></li>'
                     $("#accordionSidebar").append(allActTitle)
                 });
                 if($.cookie("acid") == undefined || idlist.includes($.cookie("acid")) == false){
