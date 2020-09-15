@@ -15,7 +15,7 @@ $(document).ready(function () {
         }
       });
       $(".tag-box").on('click', function () {
-        $("#tag").val($(this).text() + ";" + $("#tag").val());
+        $("#tag").val($(this).text() + "," + $("#tag").val());
       });
     }
   });
@@ -67,70 +67,98 @@ $(document).ready(function () {
     }
 
     Now = new Date();
-    startTime = new Date(Date.parse($("#startTime").val()));
+    start = new Date(Date.parse($("#startTime").val()));
     endTime = new Date(Date.parse($("#endTime").val()));
 
-    if (Now.getFullYear() > startTime.getFullYear()) {
-      submit = false;
-      wrongTime();
-    } else if (Now.getMonth() + 1 > startTime.getMonth() + 1) {
-      submit = false;
-      wrongTime();
-    } else if (Now.getDate() > startTime.getDate()) {
-      submit = false;
-      wrongTime();
-    } else if (Now.getHours() > startTime.getHours()) {
-      submit = false;
-      wrongTime();
-    } else if (Now.getMinutes() > startTime.getMinutes()) {
-      submit = false;
-      wrongTime();
-    } else if (startTime.getFullYear() > endTime.getFullYear()) {
-      submit = false;
-      wrongTime();
-    } else if (startTime.getMonth() + 1 > endTime.getMonth() + 1) {
-      submit = false;
-      wrongTime();
-    } else if (startTime.getDate() > endTime.getDate()) {
-      submit = false;
-      wrongTime();
-    } else if (startTime.getHours() > endTime.getHours()) {
-      submit = false;
-      wrongTime();
-    } else if (startTime.getMinutes() > endTime.getMinutes()) {
-      submit = false;
-      wrongTime();
+    if (Now.getMonth() + 1 < 10) {
+      NowMonth = "0" + (Now.getMonth() + 1).toString();
     }
 
-    if (submit == true) {
-      data_AdsUpload = {
-        Ads_Name: $("#Ads_Name").val(),
-        Tag: "搖滾",
-        Source: $("#Source").val(),
-        startTime: $("#startTime").val(),
-        endTime: $("#endTime").val(),
-        Price: $("#Price").val(),
-        Content: $("#Content").val(),
-        viewStatus: "true",
-        Useable: "true"
-      };
-      $.ajax({
-        type: "POST",
-        url: "http://163.18.42.222:8888/Fiestadb/Ads/upload",
-        data: JSON.stringify(data_AdsUpload),
-        contentType: "application/json",
-        datatype: JSON,
-        async: false,
-        beforeSend: function beforeSend(xhr) {
-          xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"));
-        },
-        success: function success(data) {
-          console.log(data);
-        }
-      });
+    if (Now.getDate() < 10) {
+      NowDate = "0" + Now.getDate().toString();
     }
+
+    NowTime = Now.getFullYear().toString() + NowMonth + NowDate;
+
+    if (start.getMonth() + 1 < 10) {
+      startMonth = "0" + (start.getMonth() + 1).toString();
+    }
+
+    if (start.getDate() < 10) {
+      startDate = "0" + start.getDate().toString();
+    }
+
+    startTime = start.getFullYear().toString() + startMonth + startDate;
+
+    if (Now > startTime) {
+      wrongTime();
+    } else if (Now == startTime) {} else if (Now < startTime) {
+      submitAd();
+    }
+    /*
+    if(Now.getFullYear() > startTime.getFullYear()){
+        submit = false
+        wrongTime()
+    }else if(Now.getMonth() > startTime.getMonth() && Now.getFullYear() >= startTime.getFullYear()){
+        submit = false
+        wrongTime()
+    }else if(Now.getDate() > startTime.getDate() && Now.getFullYear() >= startTime.getFullYear() && Now.getMonth() >= startTime.getMonth()){
+        submit = false
+        wrongTime()
+    }else if(Now.getHours() > startTime.getHours()){
+        submit = false
+        wrongTime()
+    }else if(Now.getMinutes() > startTime.getMinutes()){
+        submit = false
+        wrongTime()
+    }else if(startTime.getFullYear() > endTime.getFullYear()){
+        submit = false
+        wrongTime()
+    }else if(startTime.getMonth()+1 > endTime.getMonth()+1){
+        submit = false
+        wrongTime()
+    }else if(startTime.getDate() > endTime.getDate()){
+        submit = false
+        wrongTime()
+    }else if(startTime.getHours() > endTime.getHours()){
+        submit = false
+        wrongTime()
+    }else if(startTime.getMinutes() > endTime.getMinutes()){
+        submit = false
+        wrongTime()
+    }
+    */
+
   });
 });
+
+function submitAd() {
+  data_AdsUpload = {
+    Ads_Name: $("#Ads_Name").val(),
+    Tag: $("#tag").val(),
+    Source: $("#Source").val(),
+    startTime: $("#startTime").val(),
+    endTime: $("#endTime").val(),
+    Price: $("#Price").val(),
+    Content: $("#Content").val(),
+    viewStatus: "true",
+    Useable: "true"
+  };
+  $.ajax({
+    type: "POST",
+    url: "http://163.18.42.222:8888/Fiestadb/Ads/upload",
+    data: JSON.stringify(data_AdsUpload),
+    contentType: "application/json",
+    datatype: JSON,
+    async: false,
+    beforeSend: function beforeSend(xhr) {
+      xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"));
+    },
+    success: function success(data) {
+      console.log(data);
+    }
+  });
+}
 
 function wrongTime() {
   $.confirm({

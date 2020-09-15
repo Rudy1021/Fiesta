@@ -128,6 +128,11 @@ def advertising():
     return render_template("advertising.html")
 
 
+@app.route("/photo")
+def photo():
+    return render_template("photo.html")
+
+
 # Run App
 if __name__ == "__main__":
     app.jinja_env.auto_reload = True

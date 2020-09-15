@@ -2,59 +2,7 @@
 {% block title %}廣告投放後台{% endblock title %}
 {% block content %}
 <link href="{{ url_for('static',filename='scss/style-dashboard.css') }}?version=1.14" rel="stylesheet">
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">已投放廣告</h6>
-          <div class="dropdown no-arrow">
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-              <div class="dropdown-header">選擇動作</div>
-              <a class="dropdown-item" href="#">編輯</a>
-              <a class="dropdown-item" href="#">刪除</a>
-            </div>
-          </div>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6 col-sm-12 text-center">
-              <div class="change-img">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <div class="row">
-                <div class="col-md-12 adv-title ml-4">
-                  高雄科技大學開幕典禮
-                </div>
-              </div>
-              <div class="row ml-3">
-                <div class="col-md-12 float-left adv-test">
-                  <div class="adv-info float-left mr-3">
-                    活動地點：高雄市燕巢區大學路2號<br>
-                    時　　間：2020-08-10<br>
-                  </div>
-                  <div class="btn btn-info float-right adv-btn-info" data-toggle="modal" data-target="#adv-info">投放設定</div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-11 float-left adv-text">
-                  <hr>
-                  普洛佩提烏斯告訴我們，墮入情網者的眼睛都是瞎的。這句話讓我們得到了一個全新的觀點去思考這個問題。在這種困難的抉擇下，本人思來想去，寢食難安。不難發現，問題在於該用什麼標準來做決定呢？我認為，培根講過一句值得人反覆尋思的話，一個人越啜飲世故的烈酒，就越沉醉於世故之中。這激勵了我。所謂貓咪，關鍵是貓咪需要如何解讀。
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container-fluid advertising">
   <div class="row">
     <div class="col-12">
       <div class="card shadow mb-4">
@@ -91,45 +39,63 @@
                   </small>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
+              <hr>
               <div class="row">
-                <div class="form-group col-md-12">
-                  <input type="text" class="form-control behoove" id="Ads_Name" placeholder="請輸入廣告標題">
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-group col-md-6 float-left">
-                  <input type="text" class="form-control" id="Source" placeholder="請輸入廠商名稱">
-                </div>
-                <div class="form-group col-md-6 float-left">
-                  <input type="text" class="form-control" id="Price" placeholder="請輸入價格">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6 text-center">
-                  <input type="text" class="form-control DateTime" id="startTime" placeholder="廣告投放開始時間">
-                </div>
-                <div class="col-6 text-center">
-                  <input type="text" class="form-control DateTime" id="endTime" placeholder="廣告投放結束時間">
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-12 text-center">
-                  <input type="text" class="form-control" id="tag"" placeholder="標籤">
-                  <div class="bg-light tag-list text-left">
+                <div class="col">
+                  <div class="form-group mb-0">
+                    <label class="float-left mb-0">廣告標題</label>
+                    <input type="text" class="form-control behoove" id="Ads_Name" placeholder="">
                   </div>
                 </div>
               </div>
-              <div class="row mt-3">
+              <div class="row">
+                <div class="col-12">
+                  <label class="float-left mb-0">活動內容</label>
+                  <textarea class="form-control behoove" id="Content" rows="7"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="row">
+                <div class="form-group col-md-6 float-left mb-0">
+                  <label class="float-left mb-0">廠商名稱</label>
+                  <input type="text" class="form-control" id="Source">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6 float-left mb-0">
+                  <label class="float-left mb-0">價格</label>
+                  <input type="text" class="form-control" id="Price">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6 float-left mb-0">
+                  <label class="float-left mb-0">開始時間</label>
+                  <input type="text" class="form-control DateTime" id="startTime">
+                </div>
+                <div class="form-group col-md-6 float-left mb-0">
+                  <label class="float-left mb-0">結束時間</label>
+                  <input type="text" class="form-control DateTime" id="endTime">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12 float-left mb-0">
+                  <label class="float-left mb-0">活動連結</label>
+                  <input type="text" class="form-control" id="">
+                </div>
+              </div>
+              <div class="row">
                 <div class="col-12 text-center">
-                  <textarea class="form-control behoove" id="Content" rows="6" placeholder="請輸入廣告內容"></textarea>
+                  <label class="float-left mb-0">標籤</label>
+                  <input type="text" class="form-control mb-3" id="tag">
+                  <div class="bg-light tag-list text-left">
+                  </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col text-center">
                   <button type="button" class="btn btn-secondary m-3">清除</button>
-                  <button type="button" class="btn btn-primary m-3 submit">送出</button>
+                  <button type="button" class="btn btn-orange m-3 submit">送出</button>
                 </div>
               </div>
             </div>
@@ -155,7 +121,7 @@
           結束時間：2020-08-06 00:00
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>          
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
         </div>
       </div>
     </div>
