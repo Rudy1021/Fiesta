@@ -151,7 +151,7 @@ function getAd() {
                 '<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">' +
                 '<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i></a>' +
                 '<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">' +
-                '<div class="dropdown-header">選擇動作</div><a class="dropdown-item" href="#">編輯</a>' +
+                '<div class="dropdown-header">選擇動作</div><a class="dropdown-item ad-edit" href="#">編輯</a>' +
                 '<a class="dropdown-item" href="#">刪除</a></div></div></div>' +
                 '<div class="card-body"><div class="row"><div class="col-md-6 col-sm-12 text-center">' +
                 '<div class="change-img" style="background-image:url(' + "'" + content.Photo + "'" + ');"></div></div><div class="col-md-6 col-sm-12">' +

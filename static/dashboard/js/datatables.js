@@ -6,7 +6,6 @@ $(document).ready(function() {
 }
   $('.datetimepicker3').datetimepicker(o)
   if($.cookie("acid") != undefined){
-
   dataSelect = {
     Id: $.cookie("acid")
   }

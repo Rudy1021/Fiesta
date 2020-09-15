@@ -318,7 +318,36 @@ $(document).ready(function () {
                 xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
             },
             success: function (data) {
-                if(data.code != "018"){
+                if(data.code == "018"){
+                    $.confirm({
+                        title: '警告',
+                        animation: 'zoom',
+                        closeAnimation: 'scale',
+                        content: '已經加入此活動',
+                        buttons: {
+                            確定: {
+                                btnClass: 'btn-success',
+                                action: function() {
+                                }
+                            }
+                        }
+                    })
+                }else if(data.code == "020"){
+                    $.confirm({
+                        title: '警告',
+                        animation: 'zoom',
+                        closeAnimation: 'scale',
+                        content: '尚未驗證此會員',
+                        buttons: {
+                            確定: {
+                                btnClass: 'btn-success',
+                                action: function() {
+                                    location.href = "/setting"
+                                }
+                            }
+                        }
+                    })
+                }else{
                     $("button.join-btn").html("已加入").prop("disabled", "disabled")
                     $("button.group-btn").html("已加入").prop("disabled", "disabled")
                 }
