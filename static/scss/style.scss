@@ -737,18 +737,26 @@ span#mid {
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
+#ticket{
+    height: 100%;
+}
+.text-justify{
+    text-align: justify;
+}
 .act-tag{
-    width: 4rem;
-    height: auto;
-    padding: 0.1rem;
-    padding-left: 0.4rem;
-    background: rgb(61, 83, 81);
-    border-radius: 0.1rem 0.8rem 0.1rem 0.1rem;
-    box-shadow: 0.1rem 0.1rem rgb(95, 95, 95);
+    height: 2rem;
+    background: #EA3E36;
+    border-radius: 2rem;
+    -webkit-box-shadow: 0.1rem 0.1rem #aaaaaa;
+    box-shadow: 0.1rem 0.1rem #aaaaaa;
     margin: 0.5rem;
     color: #e9e9e9;
     letter-spacing: 0.1rem;
     float: left;
+    line-height: 2rem;
+    cursor: pointer;
+    padding-left: 0.5rem;
+    padding-right: 0.3rem;
 }
 .showAct-area{
     border:1px solid #d6d6d6;
@@ -788,8 +796,54 @@ ul.social-buttons li a:hover{
 .search-2{
     display: none;
 }
+.adv-show {
+    text-align: justify;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  .a{
+      position: absolute;
+      bottom: 0;
+      z-index: 3;
+      background:rgba(0, 0, 0, 0.3);
+      width: 100%;
+      font-size:1.5rem;
+      color:#fff;
+  }
+  .tag-box {
+    height: 2rem;
+    background: #EA3E36;
+    border-radius: 2rem;
+    -webkit-box-shadow: 0.1rem 0.1rem #aaaaaa;
+    box-shadow: 0.1rem 0.1rem #aaaaaa;
+    margin: 0.5rem;
+    color: #e9e9e9;
+    letter-spacing: 0.1rem;
+    float: left;
+    line-height: 2rem;
+    cursor: pointer;
+    padding-left: 0.5rem;
+    padding-right: 0.3rem;
+}
+.tag-show{
+    width: 100%;
+    text-align: right;
+}
+.card-img-2{
+    overflow: hidden;
+    height: 15rem;
+}
+.adv-show-img{
+    overflow: hidden;
+    height: 70%;
+}
 /* ---------------------------------------------------  */
 @media screen and (max-width:480px){
+    .adv-show-img{
+        overflow: hidden;
+        height: 100%;
+    }    
     .search{
         display: none;
     }
@@ -802,13 +856,14 @@ ul.social-buttons li a:hover{
     }    
     #about{
         padding-top: 2rem;
-        padding-bottom: 2rem;    
+        padding-bottom: 2rem;
+        height: auto;
     }
     .btn-cart{
         margin-top: 3.5rem;
     }
     .modal-body{
-        height: 36rem;
+        height: auto;
         overflow: scroll;
     }
     .hot-activity{
@@ -913,11 +968,13 @@ ul.social-buttons li a:hover{
         background: #c0c0c0;
         width: 3rem;
         height: 3rem;
-        margin-top: 80rem;
+        margin-top: 40rem;
         border-radius: 10rem;
+        position: absolute;
+        right: -0.7rem;
     }
     .carousel-control-prev-2{
-        margin-top: 80em;
+        margin-top: 40em;
         margin-left: -3rem !important ;    
         background: #c0c0c0;
         width: 3rem;

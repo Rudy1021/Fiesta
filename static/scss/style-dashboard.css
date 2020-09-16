@@ -207,7 +207,6 @@ textarea {
 .adv-btn-info {
   margin-right: 3rem;
 }
-
 @media screen and (max-width: 480px) {
   .adv-title {
     border-left: 3px #EA3E36 solid;
