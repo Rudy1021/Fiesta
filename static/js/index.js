@@ -16,7 +16,9 @@ $(document).ready(function () {
                     if(content.Useable != "0"){
                         if(count < 4){
                             act = '<span class="card act">' +
+                            '<div class="card-img">'+
                             '<img src=' + content.Photo + ' class="card-img-top" alt="...">' +
+                            '</div>'+
                             '<span class="card-body">' +
                             '<div class="card-title">' + content.act_Name + '</div>' + '<span class="id">' + content.Id + '</span>' +
                             '<div class="card-title-2"></div><div class="card-text"></div>' +
@@ -25,7 +27,9 @@ $(document).ready(function () {
                             $(".card-deck-area-1").append(act)
                         }else{
                             act = '<span class="card act">' +
+                            '<div class="card-img">'+
                             '<img src=' + content.Photo + ' class="card-img-top" alt="...">' +
+                            '</div>'+
                             '<span class="card-body">' +
                             '<div class="card-title">' + content.act_Name + '<span class="id">' + content.Id + '</span></div>' +
                             '<div class="card-title-2"></div><div class="card-text"></div>' +

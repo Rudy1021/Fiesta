@@ -896,6 +896,13 @@ ul.social-buttons li a:hover {
   display: none;
 }
 
+.adv-show {
+  text-align: justify;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
 /* ---------------------------------------------------  */
 @media screen and (max-width: 480px) {
   .search {
