@@ -1483,6 +1483,7 @@ img.img {
   padding-bottom: 2rem;
   border: 1px solid #cccccc;
   border-radius: 0.1rem;
+  display: none;
 }
 .check-user .title{
   color: #64A600;
@@ -1527,6 +1528,10 @@ span.step.now{
 .font-weight-light {
   line-height: 1.5;
   letter-spacing: 0.003rem;
+}
+.fail .title{
+  font-size: 2rem;
+  color: rgb(214, 72, 72)
 }
 /*
 input{

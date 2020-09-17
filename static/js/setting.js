@@ -116,6 +116,9 @@ $('#profile-Birthday').datepicker(opt)
         }
     });
 });
+
+
+
 $("#setting-edit").click(function(e) {
     if($("#contry-number").val() == "886"){
         if($("#profile-Phone").val().length == 9){

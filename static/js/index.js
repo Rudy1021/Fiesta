@@ -65,14 +65,3 @@ $(document).ready(function () {
         }
     });
 });
-/* 
-              <span class="card">
-                <img src="{{ url_for('static',filename='img/bg1.jpg') }}" class="card-img-top" alt="...">
-                <span class="card-body">
-                  <div class="card-title">尚無活動</div>
-                  <div class="card-title-2"></div>
-                  <div class="card-text"></div>
-                  <div class="card-date"><small class="text-muted"></small></div>
-                </span>
-              </span>
-*/
