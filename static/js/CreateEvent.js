@@ -25,7 +25,7 @@ groupId = ''
 //sort
 $.ajax({
     type: "GET",
-    url: "https://fiesta.nkust.edu.tw/Fiestadb/Tag/select",
+    url: "http://163.18.42.222:8888/Fiestadb/Tag/select",
     beforeSend:function(xhr){
         xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
     },
@@ -94,9 +94,9 @@ $(document).on('click', ".next", function () {
             $("div#choose-activity").show()
         }
     }else if($(this).hasClass("location")){
-        if($("span#gid").html() == ""){
+        /*if($("span#gid").html() == ""){
             $("span#locerror").show()
-        }else{
+        }else*/{
             $('html,body').animate({ scrollTop: 0 }, 'slow');
             $("div#choose-select").show()
             $("div#choose-activity").hide()
@@ -107,8 +107,17 @@ $(document).on('click', ".next", function () {
         if($(this).html() == "下一步"){
             for(k = modnum.length-1;k>=0;k--){
                 if(modnum[k] == '6'){
+                    $("button.next.ticket").html("下一步")
+                    $("button.next.ticket").addClass("btn-primary")
+                    $("button.next.ticket").removeClass("btn-success")
+                    $("button.next.schedule").html("下一步")
+                    $("button.next.schedule").addClass("btn-primary")
+                    $("button.next.schedule").removeClass("btn-success")
                     break
                 }else if(modnum[k] == '4'){
+                    $("button.next.ticket").html("下一步")
+                    $("button.next.ticket").addClass("btn-primary")
+                    $("button.next.ticket").removeClass("btn-success")
                     $("button.next.schedule").html("送出")
                     $("button.next.schedule").removeClass("btn-primary")
                     $("button.next.schedule").addClass("btn-success")
@@ -244,7 +253,7 @@ $(document).on('click', ".previous", function () {
             if(modnum[i] == "3"){
                 $("div#choose-ticket").show()
                 break
-            }else if(i == modnum.length){
+            }else if(i == modnum.length - 1){
                 $("div#choose-select").show()
                 break
             }
@@ -373,7 +382,7 @@ $("#temgroupName").change(function (e) {
             }
             $.ajax({
                 type: "POST",
-                url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/FIndName",
+                url: "http://163.18.42.222:8888/Fiestadb/Group/FIndName",
                 data: JSON.stringify(data),
                 beforeSend:function(xhr){
                     xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
@@ -391,7 +400,7 @@ $("#temgroupName").change(function (e) {
         }
         $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/ValidateLogin",
+            url: "http://163.18.42.222:8888/Fiestadb/Account/ValidateLogin",
             beforeSend:function(xhr){
                 xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
             },
@@ -428,7 +437,7 @@ $(".add-group-member").click(function (e) {
             }
             $.ajax({
                 type: "POST",
-                url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/Search",
+                url: "http://163.18.42.222:8888/Fiestadb/Account/Search",
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 beforeSend:function(xhr){
@@ -519,12 +528,14 @@ function submitData() {
     for(i = 0;i < modnum.length;i++){
         mod = mod + modnum[i] + ","
     }
+    /*
     b = $("span#gid").html().split(",")
     a = b[0].split("(")
     lat = a[1]
     a = b[1].split(")")
     a = a[0].split(" ")
     long = a[1]
+    */
     mod = mod.substring(mod, mod.length-1)
     var startTime = $('#datetimepicker1').datepicker('getDate');
     var endTime = $('#datetimepicker2').datepicker('getDate');
@@ -572,7 +583,7 @@ function submitData() {
         }
         $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/upload",
+            url: "http://163.18.42.222:8888/Fiestadb/Group/upload",
             data: JSON.stringify(data),
             contentType: "application/json",
             async:false,
@@ -592,7 +603,7 @@ function submitData() {
                             }
                             $.ajax({
                                 type: "POST",
-                                url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/Member/upload",
+                                url: "http://163.18.42.222:8888/Fiestadb/Group/Member/upload",
                                 data: JSON.stringify(data),
                                 async:false,
                                 contentType: "application/json",
@@ -620,8 +631,8 @@ function submitData() {
             joinedCount: "0",
             peopleMaxium: $("#peoplemax").val(),
             Models: mod,
-            Latitude: lat,
-            Longitude: long,
+            Latitude: "1222223",
+            Longitude: "42",
             viewStatus: "true"
         }
     }else if(side == 'right'){
@@ -642,14 +653,14 @@ function submitData() {
             joinedCount: "0",
             peopleMaxium: $("#peoplemax").val(),
             Models: mod,
-            Latitude: lat,
-            Longitude: long,
+            Latitude: "22.755572650107254",
+            Longitude: "120.32928692750852",
             viewStatus: "true"
         }
     }
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/upload",
+        url: "http://163.18.42.222:8888/Fiestadb/Activity/upload",
         data: JSON.stringify(data),
         contentType: "application/json",
         async:false,
@@ -658,6 +669,7 @@ function submitData() {
         },
         datatype: JSON,
         success: function (data) {
+            console.log(data)
             $.each(data.result, function (indexInArray, content) { 
                 act_Id = content.act_Id
             });
@@ -676,7 +688,7 @@ function submitData() {
                 xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
             },
             enctype: 'multipart/form-data',
-            url: "https://fiesta.nkust.edu.tw//Fiestadb/uploadImage?type=act&Id=" + act_Id,
+            url: "http://163.18.42.222:8888//Fiestadb/uploadImage?type=act&Id=" + act_Id,
             data: form_data,
             success: function (data) {
             }
@@ -698,7 +710,7 @@ function submitData() {
                 }
                     $.ajax({
                         type: "POST",
-                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/upload",
+                        url: "http://163.18.42.222:8888/Fiestadb/Ticket/upload",
                         data: JSON.stringify(data_3),
                         async:false,
                         contentType: "application/json",
@@ -727,7 +739,7 @@ function submitData() {
                 }
                 $.ajax({
                     type: "POST",
-                    url: "https://fiesta.nkust.edu.tw/Fiestadb/Show/upload",
+                    url: "http://163.18.42.222:8888/Fiestadb/Show/upload",
                     data: JSON.stringify(data_4),
                     async:false,
                     contentType: "application/json",
@@ -749,7 +761,7 @@ function submitData() {
                 }
                 $.ajax({
                     type: "POST",
-                    url: "https://fiesta.nkust.edu.tw/Fiestadb/Lotte/upload",
+                    url: "http://163.18.42.222:8888/Fiestadb/Lotte/upload",
                     data: JSON.stringify(data_6),
                     async:false,
                     contentType: "application/json",

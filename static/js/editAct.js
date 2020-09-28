@@ -33,7 +33,7 @@ $(document).ready(function () {
     }
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/Search",
+        url: "http://163.18.42.222:8888/Fiestadb/Activity/Search",
         data: JSON.stringify(data),
         contentType: "application/json",
         beforeSend:function(xhr){
@@ -89,7 +89,7 @@ $(document).ready(function () {
                                     
                                     $.ajax({
                                         type: "POST",
-                                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/SelectByAct",
+                                        url: "http://163.18.42.222:8888/Fiestadb/Ticket/SelectByAct",
                                         data: JSON.stringify(data_3),
                                         contentType: "application/json",
                                         beforeSend:function(xhr){
@@ -151,7 +151,7 @@ $(document).ready(function () {
                                                                     }
                                                                     $.ajax({
                                                                         type: "POST",
-                                                                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/delete",
+                                                                        url: "http://163.18.42.222:8888/Fiestadb/Ticket/delete",
                                                                         data: JSON.stringify(data_showdel),
                                                                         contentType: "application/json",
                                                                         beforeSend:function(xhr){
@@ -181,7 +181,7 @@ $(document).ready(function () {
                                     }
                                     $.ajax({
                                         type: "POST",
-                                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Show/select",
+                                        url: "http://163.18.42.222:8888/Fiestadb/Show/select",
                                         data: JSON.stringify(data_4),
                                         contentType: "application/json",
                                         beforeSend:function(xhr){
@@ -224,7 +224,7 @@ $(document).ready(function () {
                                                                             }
                                                                             $.ajax({
                                                                                 type: "POST",
-                                                                                url: "https://fiesta.nkust.edu.tw/Fiestadb/Show/delete",
+                                                                                url: "http://163.18.42.222:8888/Fiestadb/Show/delete",
                                                                                 data: JSON.stringify(data_showdel),
                                                                                 contentType: "application/json",
                                                                                 beforeSend:function(xhr){
@@ -273,7 +273,7 @@ $(document).ready(function () {
                                     }
                                     $.ajax({
                                         type: "POST",
-                                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Lotte/select",
+                                        url: "http://163.18.42.222:8888/Fiestadb/Lotte/select",
                                         data: JSON.stringify(data_6),
                                         contentType: "application/json",
                                         beforeSend:function(xhr){
@@ -312,7 +312,7 @@ $(document).ready(function () {
                                                                             }
                                                                             $.ajax({
                                                                                 type: "POST",
-                                                                                url: "https://fiesta.nkust.edu.tw/Fiestadb/Lotte/delete",
+                                                                                url: "http://163.18.42.222:8888/Fiestadb/Lotte/delete",
                                                                                 data: JSON.stringify(data_showdel),
                                                                                 contentType: "application/json",
                                                                                 beforeSend:function(xhr){
@@ -371,7 +371,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/QRcode",
+            url: "http://163.18.42.222:8888/Fiestadb/QRcode",
             data: JSON.stringify(data),
             contentType: "application/json",
             datatype: JSON,
@@ -434,7 +434,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/update",
+            url: "http://163.18.42.222:8888/Fiestadb/Activity/update",
             data: JSON.stringify(data),
             beforeSend:function(xhr){
                 xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
@@ -502,7 +502,7 @@ $("button.minus-ticket").click(function (e) {
                         }
                         $.ajax({
                             type: "POST",
-                            url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/delete",
+                            url: "http://163.18.42.222:8888/Fiestadb/Ticket/delete",
                             data: JSON.stringify(data_showdel),
                             contentType: "application/json",
                             beforeSend:function(xhr){
@@ -572,7 +572,7 @@ $("button.minus-schedule").click(function (e) {
                         }
                         $.ajax({
                             type: "POST",
-                            url: "https://fiesta.nkust.edu.tw/Fiestadb/Show/delete",
+                            url: "http://163.18.42.222:8888/Fiestadb/Show/delete",
                             data: JSON.stringify(data_showdel),
                             contentType: "application/json",
                             beforeSend:function(xhr){
@@ -821,7 +821,7 @@ function submitData() {
     }
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/update",
+        url: "http://163.18.42.222:8888/Fiestadb/Activity/update",
         data: JSON.stringify(data),
         contentType: "application/json",
         beforeSend:function(xhr){
@@ -850,7 +850,7 @@ function submitData() {
                                     $.ajax({
                                         type: "POST",
                                         async: false,
-                                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/update",
+                                        url: "http://163.18.42.222:8888/Fiestadb/Ticket/update",
                                         data: JSON.stringify(data_1),
                                         contentType: "application/json",
                                         beforeSend:function(xhr){
@@ -874,7 +874,7 @@ function submitData() {
                                             $.ajax({
                                                 type: "POST",
                                                 async: false,
-                                                url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/upload",
+                                                url: "http://163.18.42.222:8888/Fiestadb/Ticket/upload",
                                                 data: JSON.stringify(data_3),
                                                 contentType: "application/json",
                                                 beforeSend:function(xhr){
@@ -903,7 +903,7 @@ function submitData() {
                             $.ajax({
                                 type: "POST",
                                 async: false,
-                                url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/upload",
+                                url: "http://163.18.42.222:8888/Fiestadb/Ticket/upload",
                                 data: JSON.stringify(data_3),
                                 contentType: "application/json",
                                 beforeSend:function(xhr){
@@ -935,7 +935,7 @@ function submitData() {
                                     $.ajax({
                                         type: "POST",
                                         async: false,
-                                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Show/update",
+                                        url: "http://163.18.42.222:8888/Fiestadb/Show/update",
                                         data: JSON.stringify(data_11),
                                         contentType: "application/json",
                                         beforeSend:function(xhr){
@@ -964,7 +964,7 @@ function submitData() {
                                             $.ajax({
                                                 type: "POST",
                                                 async: false,
-                                                url: "https://fiesta.nkust.edu.tw/Fiestadb/Show/upload",
+                                                url: "http://163.18.42.222:8888/Fiestadb/Show/upload",
                                                 data: JSON.stringify(data_12),
                                                 contentType: "application/json",
                                                 beforeSend:function(xhr){
@@ -994,7 +994,7 @@ function submitData() {
                         }
                         $.ajax({
                             type: "POST",
-                            url: "https://fiesta.nkust.edu.tw/Fiestadb/Show/upload",
+                            url: "http://163.18.42.222:8888/Fiestadb/Show/upload",
                             data: JSON.stringify(data_4),
                             async: false,
                             contentType: "application/json",
@@ -1020,7 +1020,7 @@ function submitData() {
                                     $.ajax({
                                         type: "POST",
                                         async: false,
-                                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Lotte/update",
+                                        url: "http://163.18.42.222:8888/Fiestadb/Lotte/update",
                                         data: JSON.stringify(data_9),
                                         contentType: "application/json",
                                         beforeSend:function(xhr){
@@ -1041,7 +1041,7 @@ function submitData() {
                                         $.ajax({
                                             type: "POST",
                                             async: false,
-                                            url: "https://fiesta.nkust.edu.tw/Fiestadb/Lotte/upload",
+                                            url: "http://163.18.42.222:8888/Fiestadb/Lotte/upload",
                                             data: JSON.stringify(data_10),
                                             contentType: "application/json",
                                             beforeSend:function(xhr){
@@ -1066,7 +1066,7 @@ function submitData() {
                             $.ajax({
                                 type: "POST",
                                 async: false,
-                                url: "https://fiesta.nkust.edu.tw/Fiestadb/Lotte/upload",
+                                url: "http://163.18.42.222:8888/Fiestadb/Lotte/upload",
                                 data: JSON.stringify(data_6),
                                 contentType: "application/json",
                                 beforeSend:function(xhr){

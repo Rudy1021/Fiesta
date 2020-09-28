@@ -3,7 +3,7 @@ $(document).ready(function () {
     token = token.substr(13)
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/ValidateEmail?token=" + token,
+        url: "http://163.18.42.222:8888/Fiestadb/Account/ValidateEmail?token=" + token,
         success: function (response) {
             console.log(response)
             if(response.code == "001"){

@@ -4,6 +4,9 @@ hrefname = location.href.split("/")
 if(hrefname[3] != "Activity"){
     $.removeCookie("acid")
 }
+if(location.pathname != "/dashboard"){
+    $.removeCookie("actid")
+}
 if(location.href == '/'){
     $.removeCookie("acdid")
     $.removeCookie("type")
@@ -13,7 +16,7 @@ $(".emailtest").on('click', function () {
     id = $(this).prop("id")
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/getReviewStatus",
+        url: "http://163.18.42.222:8888/Fiestadb/Account/getReviewStatus",
         beforeSend:function(xhr){
             xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
         },
@@ -35,27 +38,7 @@ $(".emailtest").on('click', function () {
                 })
             }else{
                 if(id == "Create"){
-                    data_2 = {authId: $.cookie("Id")}
-                    $.ajax({
-                        type: "POST",
-                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/getJoinedGroup",
-                        data: JSON.stringify(data_2),
-                        contentType: "application/json",
-                        datatype: JSON,
-                        beforeSend:function(xhr){
-                            xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-                        },
-                        success: function (data) {
-                            $.each(data.result, function (indexInArray, content) {
-                                groupId = content.groupId
-                                if(groupId.length == 0){
-                                    window.location.href = "/Group"
-                                }else{
-                                    window.location.href = "/CreateEvent"
-                                }
-                            });
-                        }
-                    });
+                    location.href = "/CreateEvent"
                 }else if(id == "Group"){
                     location.href = "/Group"
                 }else if(id == "MyTicket"){
@@ -66,7 +49,7 @@ $(".emailtest").on('click', function () {
                     }
                     $.ajax({
                         type: "POST",
-                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/getCreateAct",
+                        url: "http://163.18.42.222:8888/Fiestadb/Account/getCreateAct",
                         data: JSON.stringify(data_getCreate),
                         contentType: "application/json",
                         beforeSend:function(xhr){
@@ -82,7 +65,6 @@ $(".emailtest").on('click', function () {
                                 location.href = "/dashboard"
                             }else{
                                 $.confirm({
-
                                 })
                             }
                         }
@@ -123,7 +105,7 @@ function SearchFunc(){
             }
             $.ajax({
                 type: "POST",
-                url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/Search",
+                url: "http://163.18.42.222:8888/Fiestadb/Activity/Search",
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 datatype: JSON,
@@ -148,10 +130,11 @@ function SearchFunc(){
                             '</div><div class="col-8 search-text-parent"><div class="search-text"><div class="title" id="title-' + i + '">' +
                             acName + '</div><div id="location-' + i + '/">100m</div>' +
                             '<div id="content-'+ i +'">' + acDescription + '</div>' +
-                            '<div id="ST-' + i + '">' + acST + '</div><span class="id">' + id + '</span><br>'
+                            '<div id="ST-' + i + '">' + acST + '</div><span class="actId">' + id + '</span><br>'
                             $("div.search-content").append(search)
                             $("div.search-row").click(function (e) {
                                 title = $(this).children(".search-text-parent").children(".search-text").children(".title").html()
+                                $.cookie("acid", $(this).children(".search-text-parent").children(".search-text").children(".actId").html(), {path: "/"})
                                 location.href = '/Activity/' + title
                             });
                         }

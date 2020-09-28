@@ -22,7 +22,7 @@ $("#sendforgot").click(function (e) {
     }
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/SendConfirm",
+        url: "http://163.18.42.222:8888/Fiestadb/Account/SendConfirm",
         data: JSON.stringify(data_5),
         contentType: "application/json",
         datatype: JSON,
@@ -60,7 +60,7 @@ $("#sendforgot").click(function (e) {
     }
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/select",
+        url: "http://163.18.42.222:8888/Fiestadb/Account/select",
         data: JSON.stringify(data),
         contentType: "application/json",
         datatype: JSON,
@@ -82,11 +82,7 @@ $("#sendforgot").click(function (e) {
                     }
                 }
                 if(code == "002"){
-                    $(".alert-danger").html("密碼錯誤");
-                    $(".alert-danger").show()
-                }
-                if(code == "003"){
-                    $(".alert-danger").html("無此帳號");
+                    $(".alert-danger").html("帳號或密碼錯誤");
                     $(".alert-danger").show()
                 }
             });

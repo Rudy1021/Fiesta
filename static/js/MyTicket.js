@@ -4,7 +4,7 @@ $(document).ready(function () {
     }
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/getUnexpiredAct",
+        url: "http://163.18.42.222:8888/Fiestadb/Account/getUnexpiredAct",
         data: JSON.stringify(data_get_ticket),
         contentType: "application/json",
         datatype: JSON,
@@ -44,7 +44,7 @@ $(document).ready(function () {
                             Photo = data.result[i][key]
                         }
                     }
-                    ticket = '<div class="ticket-all">' +
+                    ticket = '<div class="ticket-all"  data-toggle="modal" data-target="#QRModal">' +
                             '<span class="id">' +
                                 act_Id +
                             '</span>' +
@@ -79,7 +79,7 @@ $(document).ready(function () {
         }
           $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/QRcode",
+            url: "http://163.18.42.222:8888/Fiestadb/QRcode",
             data: JSON.stringify(data_getQRcode),
             contentType: "application/json",
             datatype: JSON,

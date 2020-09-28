@@ -28,7 +28,7 @@
                 <label class="text-dark mt-3">理想活動範圍<span id="range-val" >25</span></label>
                 <input type="range" class="custom-range" min="0" max="50" step="5" id="Distance">
                 <div class="text-center mt-3 mb-3">
-                    <input type="checkbox" class="form-check-input policy"><span>我同意</span><a href="/policy" target="_blank">隱私權與個人資料保護政策</a>
+                    <input type="checkbox" class="form-check-input policy" id="policy"><span>我同意</span><a href="/policy" target="_blank">隱私權與個人資料保護政策</a>
                     <br>
                     <br>
                     <button class="btn btn-success" id="signup">註冊</button>
@@ -39,5 +39,5 @@
 </section>
 {% endblock content %}
 {% block script %}
-<script src="{{ url_for('static',filename='js/signup.js') }}?version=1.13"></script>
+<script src="{{ url_for('static',filename='js/signup.js') }}?version=1.14"></script>
 {% endblock %}

@@ -20,15 +20,11 @@ def make_session_permanet():
 def acme_challenge(id):
     return "CA458801FED4ED705BA89934A14069D70A6F3CC9557739C32174B2F46974187B\ncomodoca.com\n23df8aa640cb466"
 
+
 # index
 @app.route("/")
 def index():
     return render_template('index.html')
-
-
-@app.route('/logout')
-def logout():
-    return redirect(url_for("index"))
 # ---------------------------------------------------
 
 

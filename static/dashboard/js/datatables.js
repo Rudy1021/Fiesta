@@ -5,13 +5,13 @@ $(document).ready(function() {
     dateFormat: 'yy-mm-dd'
 }
   $('.datetimepicker3').datetimepicker(o)
-  if($.cookie("acid") != undefined){
+  if($.cookie("actid") != undefined){
   dataSelect = {
-    Id: $.cookie("acid")
+    Id: $.cookie("actid")
   }
   $.ajax({
     type: "POST",
-    url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/select",
+    url: "http://163.18.42.222:8888/Fiestadb/Activity/select",
     data: JSON.stringify(dataSelect),
     contentType: "application/json",
     async:false,
@@ -46,11 +46,11 @@ $(document).ready(function() {
     }
   });
   dataList = {
-    act_Id: $.cookie("acid")
+    act_Id: $.cookie("actid")
   }
   $.ajax({
     type: "POST",
-    url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/getJoinedList",
+    url: "http://163.18.42.222:8888/Fiestadb/Activity/getJoinedList",
     data: JSON.stringify(dataList),
     contentType: "application/json",
     async:false,
@@ -97,11 +97,11 @@ $(document).ready(function() {
         }
       });
       data_getQRcode = {
-        Input: location.protocol + "//" + location.hostname + "/check?id=" + $.cookie("acid")
+        Input: location.protocol + "//" + location.hostname + "/check?id=" + $.cookie("actid")
     }
       $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/QRcode",
+        url: "http://163.18.42.222:8888/Fiestadb/QRcode",
         data: JSON.stringify(data_getQRcode),
         contentType: "application/json",
         datatype: JSON,
@@ -115,12 +115,12 @@ $(document).ready(function() {
       $(".checkin").change(function (e) {
         if($(this).prop("checked") == true){
           data_change = {
-            act_Id: $.cookie("acid"),
+            act_Id: $.cookie("actid"),
             authId: $(this).prev().html()
           }
           $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/vaild",
+            url: "http://163.18.42.222:8888/Fiestadb/Ticket/vaild",
             data: JSON.stringify(data_change),
             contentType: "application/json",
             async:false,
@@ -133,7 +133,7 @@ $(document).ready(function() {
         }else{
           use = $(this).parent().parent().prev().prev()
           data_regret = {
-            act_Id: $.cookie("acid"),
+            act_Id: $.cookie("actid"),
             authId: $(this).prev().html()
           }
           $.confirm({
@@ -147,7 +147,7 @@ $(document).ready(function() {
                     action: function() {
                       $.ajax({
                         type: "POST",
-                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/updateTicketStatusFalse",
+                        url: "http://163.18.42.222:8888/Fiestadb/Ticket/updateTicketStatusFalse",
                         data: JSON.stringify(data_regret),
                         contentType: "application/json",
                         async:false,
@@ -181,12 +181,12 @@ $(document).ready(function() {
                   btnClass: 'btn-danger',
                   action: function() {
                     data_del = {
-                      act_Id: $.cookie("acid"),
+                      act_Id: $.cookie("actid"),
                       authId: Id
                     }
                     $.ajax({
                       type: "POST",
-                      url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/deleteJoinedList",
+                      url: "http://163.18.42.222:8888/Fiestadb/Activity/deleteJoinedList",
                       data: JSON.stringify(data_del),
                       contentType: "application/json",
                       async:false,
@@ -210,7 +210,7 @@ $(document).ready(function() {
   //function
   $(".save-input").on('click', function () {
     data_save = {
-      act_Id: $.cookie("acid"),
+      act_Id: $.cookie("actid"),
       startTime: $(".startTime").val(),
       endTime: $(".endTime").val(),
       peopleMaxium: $(".peoplemax").val(),
@@ -218,7 +218,7 @@ $(document).ready(function() {
     }
     $.ajax({
       type: "POST",
-      url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/update",
+      url: "http://163.18.42.222:8888/Fiestadb/Activity/update",
       data: JSON.stringify(data_save),
       contentType: "application/json",
       datatype: JSON,

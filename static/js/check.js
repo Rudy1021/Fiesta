@@ -16,7 +16,7 @@ $(document).ready(function () {
         console.log(typeof(id))
         $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/vaild",
+            url: "http://163.18.42.222:8888/Fiestadb/Ticket/vaild",
             data: JSON.stringify(data),
             async:false,
             contentType: "application/json",
@@ -25,7 +25,7 @@ $(document).ready(function () {
                 xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
             },
             success: function (data) {
-                console.log(data)
+                $.cookie("code", data.code, { path: '/' })
                 setInterval(function(){
                     location.href = '/success';
                 },1500);

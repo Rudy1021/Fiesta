@@ -1,13 +1,14 @@
 $(document).ready(function () {
     actid = []
     getRecommend()
+    //getAds()
     function getRecommend() {
         data = {
             act_Id: actid
         }
         $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/getRecommend",
+            url: "http://163.18.42.222:8888/Fiestadb/Activity/getRecommend",
             data: JSON.stringify(data),
             contentType: "application/json",
             datatype: JSON,
@@ -15,6 +16,7 @@ $(document).ready(function () {
                 xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
             },
             success: function (data) {
+                console.log(data)
                 if(data.code != '013'){
                 $.each(data.result, function (indexInArray, content) {
                     if(content.Useable != "0"){
@@ -35,9 +37,6 @@ $(document).ready(function () {
                         $(".actlist").append(act)
                     }
                     actid.push(content.Id)
-                    if(indexInArray % 3 == 0){
-                        
-                    }
                 });
                 $("div.card").click(function (e) {
                     $.cookie("acid", $(this).children(".card-body").children("span.id").html(), { expires: 7 })
@@ -62,3 +61,50 @@ $(document).ready(function () {
         });
     }
 });
+function getAds() {
+    Ads_id = []
+    data_Ads = {
+        Ads_Id: Ads_id
+    }
+    $.ajax({
+        type: "POST",
+        url: "http://163.18.42.222:8888/Fiestadb/Ads/getRand",
+        data: JSON.stringify(data_Ads),
+        contentType: "application/json",
+        datatype: JSON,
+        success: function (data) {
+            if(data.code == "001"){
+                if($(".activity").length >= 3){
+                    act = 2
+                    $.each(data.result, function (indexInArray, content) {
+                        Ads = '<div class="card justify-content-md-center activity card-outline-Act">' +
+                        '<div class="card-body"><span class="id">' + content.Ads_Id +
+                        '</span><h5 class="card-title all-title activity-title">'+ content.Ads_Name + 
+                        '</h5><p class="card-text"></p><div class="row"><div class="col-lg-5 col-sm-12"><img src="' + content.Photo +
+                        '" class="card-img-top"></div><div class="col-lg-7 col-sm-12"><div class="row font-7 mt-2">' +
+                        '<div class="col-2 ml-2 mt-1"><i class="fas fa-store"></i></div><div class="col">' + content.Source +
+                        '</div></div><div class="row font-7 mt-2"><div class="col-2 ml-2 mt-1"><i class="far fa-comment-dots"></i></i></div>' +
+                        '<div class="col-6">' + content.Content + '</div></div><div class="row mt-2">' +
+                        '<div class="col mt-2 taglist"><div class="act-tag">搖滾</div>' + '</div></div></div></div><p></p></div></div>'
+                        $(".activity").eq(act).after(Ads)
+                        act += 3
+                    })
+                }else{
+                    $.each(data.result, function (indexInArray, content) {
+                        Ads = '<div class="card justify-content-md-center activity card-outline-Act">' +
+                        '<div class="card-body"><span class="id">' + content.Ads_Id +
+                        '</span><h5 class="card-title all-title activity-title">'+ content.Ads_Name + 
+                        '</h5><p class="card-text"></p><div class="row"><div class="col-lg-5 col-sm-12"><img src="' + content.Photo +
+                        '" class="card-img-top"></div><div class="col-lg-7 col-sm-12"><div class="row font-7 mt-2">' +
+                        '<div class="col-2 ml-2 mt-1"><i class="fas fa-store"></i></div><div class="col">' + content.Source +
+                        '</div></div><div class="row font-7 mt-2"><div class="col-2 ml-2 mt-1"><i class="far fa-comment-dots"></i></i></div>' +
+                        '<div class="col-6">' + content.Content + '</div></div><div class="row mt-2">' +
+                        '<div class="col mt-2 taglist"><div class="act-tag">搖滾</div>' + '</div></div></div></div><p></p></div></div>'
+                        $(".activity").append(Ads)
+                        return false
+                    })
+                }
+            }
+        }
+    });
+}

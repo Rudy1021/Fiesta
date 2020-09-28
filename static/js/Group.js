@@ -9,7 +9,7 @@ $(document).ready(function () {
                 }
                 $.ajax({
                     type: "POST",
-                    url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/FIndName",
+                    url: "http://163.18.42.222:8888/Fiestadb/Group/FIndName",
                     data: JSON.stringify(data),
                     beforeSend:function(xhr){
                         xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
@@ -18,17 +18,13 @@ $(document).ready(function () {
                     datatype: JSON,
                     success: function (data) {
                         if(data.code == "005"){
-                            $.alert({
-                                title: "喔不！",
-                                content: "名稱重複了！"
-                            })
                         }
                     },
                 });
             }
             $.ajax({
                 type: "POST",
-                url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/ValidateLogin",
+                url: "http://163.18.42.222:8888/Fiestadb/Account/ValidateLogin",
                 beforeSend:function(xhr){
                     xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
                 },
@@ -66,7 +62,7 @@ $(document).ready(function () {
         $.ajax({
             async: false,
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/select",
+            url: "http://163.18.42.222:8888/Fiestadb/Group/select",
             data: JSON.stringify(data_Group_Select),
             contentType: "application/json",
             beforeSend:function(xhr){
@@ -85,7 +81,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             async: false,
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/Member/select",
+            url: "http://163.18.42.222:8888/Fiestadb/Group/Member/select",
             data: JSON.stringify(data_Group_Select),
             contentType: "application/json",
             beforeSend:function(xhr){
@@ -123,7 +119,7 @@ $(document).ready(function () {
                 }
                 $.ajax({
                     type: "POST",
-                    url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/Search",
+                    url: "http://163.18.42.222:8888/Fiestadb/Account/Search",
                     data: JSON.stringify(data),
                     beforeSend:function(xhr){
                         xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
@@ -182,12 +178,12 @@ $(document).ready(function () {
             content: '確定要刪除嗎？無法恢復',
             buttons: {
                 確認: {
-                    btnClass: 'btn-danger',
+                    btnClass: 'btn-danger confirm',
                     action: function() {
                         data = {groupId: delgroupid}
                         $.ajax({
                             type: "POST",
-                            url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/delete",
+                            url: "http://163.18.42.222:8888/Fiestadb/Group/delete",
                             data: JSON.stringify(data),
                             contentType: "application/json",
                             beforeSend:function(xhr){
@@ -218,7 +214,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             async: false,
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/select",
+            url: "http://163.18.42.222:8888/Fiestadb/Group/select",
             data: JSON.stringify(data_Group_Select),
             contentType: "application/json",
             beforeSend:function(xhr){
@@ -237,7 +233,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             async: false,
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/Member/select",
+            url: "http://163.18.42.222:8888/Fiestadb/Group/Member/select",
             data: JSON.stringify(data_Group_Select),
             contentType: "application/json",
             beforeSend:function(xhr){
@@ -290,7 +286,7 @@ $(document).ready(function () {
                         }
                         $.ajax({
                             type: "POST",
-                            url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/Member/delete",
+                            url: "http://163.18.42.222:8888/Fiestadb/Group/Member/delete",
                             data: JSON.stringify(data),
                             contentType: "application/json",
                             beforeSend:function(xhr){
@@ -326,7 +322,7 @@ $(document).ready(function () {
             }
             $.ajax({
                 type: "POST",
-                url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/upload",
+                url: "http://163.18.42.222:8888/Fiestadb/Group/upload",
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 beforeSend:function(xhr){
@@ -334,12 +330,37 @@ $(document).ready(function () {
                 },
                 datatype: JSON,
                 success: function (response) {
-                    $.alert({
-                        title: "建立成功",
-                        content: "立刻去建立活動吧！"
-                    })
-                    $(".CreateGroup").hide()
-                    $(".list").show()
+                    if(response.code == "005"){
+                        $.confirm({
+                            title: '失敗！',
+                            animation: 'zoom',
+                            closeAnimation: 'scale',
+                            content: '群組名稱重複！',
+                            buttons: {
+                                確定: {
+                                    btnClass: 'btn-success confirm',
+                                    action: function() {
+                                        $(".groupName").val("")
+                                    }
+                                }
+                            }
+                        })
+                    }else if(response.code == "001"){
+                        $.confirm({
+                            title: '成功',
+                            animation: 'zoom',
+                            closeAnimation: 'scale',
+                            content: '立刻去建立活動吧！',
+                            buttons: {
+                                確定: {
+                                    btnClass: 'btn-success confirm',
+                                    action: function() {
+                                        location.reload()
+                                    }
+                                }
+                            }
+                        })
+                    }
                 }
             });
         }
@@ -356,7 +377,7 @@ $(document).ready(function () {
             }
             $.ajax({
                 type: "POST",
-                url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/update",
+                url: "http://163.18.42.222:8888/Fiestadb/Group/update",
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 beforeSend:function(xhr){
@@ -377,7 +398,7 @@ $(document).ready(function () {
                 }
                 $.ajax({
                     type: "POST",
-                    url: "https://fiesta.nkust.edu.tw/Fiestadb/Group/Member/upload",
+                    url: "http://163.18.42.222:8888/Fiestadb/Group/Member/upload",
                     data: JSON.stringify(data),
                     contentType: "application/json",
                     beforeSend:function(xhr){

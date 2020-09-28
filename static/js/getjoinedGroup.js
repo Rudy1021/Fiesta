@@ -3,7 +3,7 @@ groupId = ''
 k = 1
 $.ajax({
     type: "POST",
-    url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/getJoinedGroup",
+    url: "http://163.18.42.222:8888/Fiestadb/Account/getJoinedGroup",
     data: JSON.stringify(data),
     contentType: "application/json",
     datatype: JSON,

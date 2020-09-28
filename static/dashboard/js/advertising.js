@@ -2,7 +2,7 @@ $(document).ready(function () {
     getAd()
     $.ajax({
         type: "GET",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Tag/select",
+        url: "http://163.18.42.222:8888/Fiestadb/Tag/select",
         beforeSend:function(xhr){
             xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
         },
@@ -211,55 +211,86 @@ function deleteAds(id){
 
 
 function uploadimg(id) {
-    var file_data = $('#file').prop('files')[0]
-    var form_data = new FormData();
-    form_data.append('file', file_data);
-    $.ajax({
-        type: "POST",
-        url: "http://163.18.42.222:8888/Fiestadb/uploadImage?type=Ads&Id=" + id,
-        data: form_data,
-        async:false,
-        enctype: 'multipart/form-data',
-        contentType: false,
-        processData: false,
-        beforeSend:function(xhr){
-            xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-        },
-        success: function (data) {
-            location.reload()
-        }
-      });
+    if($('#file').prop('files')[0] != undefined){
+        var file_data = $('#file').prop('files')[0]
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        $.ajax({
+            type: "POST",
+            url: "http://163.18.42.222:8888/Fiestadb/uploadImage?type=Ads&Id=" + id,
+            data: form_data,
+            async:false,
+            enctype: 'multipart/form-data',
+            contentType: false,
+            processData: false,
+            beforeSend:function(xhr){
+                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
+            },
+            success: function (data) {
+                location.reload()
+            }
+          });
+    }
 }
 
 
 function submitAd() {
-    data_AdsUpload = {
-        Ads_Name: $("#Ads_Name").val(),
-        Tag: $("#tag").val(),
-        Source: $("#Source").val(),
-        startTime: $("#startTime").val(),
-        endTime: $("#endTime").val(),
-        Price: $("#Price").val(),
-        Content: $("#Content").val(),
-        viewStatus: "true",
-        Useable: "true",
-        url: $("#url").val()
-    }
-    $.ajax({
-        type: "POST",
-        url: "http://163.18.42.222:8888/Fiestadb/Ads/upload",
-        data: JSON.stringify(data_AdsUpload),
-        contentType: "application/json",
-        datatype: JSON,
-        async:false,
-        beforeSend:function(xhr){
-            xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-        },
-        success: function (data) {
-            id = data.result[0]
+    if($(".submit").prop("id") == ""){
+        data_AdsUpload = {
+            Ads_Name: $("#Ads_Name").val(),
+            Tag: $("#tag").val(),
+            Source: $("#Source").val(),
+            startTime: $("#startTime").val(),
+            endTime: $("#endTime").val(),
+            Price: $("#Price").val(),
+            Content: $("#Content").val(),
+            viewStatus: "true",
+            Useable: "true",
+            url: $("#url").val()
         }
-      });
-      return id.Ads_Id
+        $.ajax({
+            type: "POST",
+            url: "http://163.18.42.222:8888/Fiestadb/Ads/upload",
+            data: JSON.stringify(data_AdsUpload),
+            contentType: "application/json",
+            datatype: JSON,
+            async:false,
+            beforeSend:function(xhr){
+                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
+            },
+            success: function (data) {
+                id = data.result[0]
+                id = id.Ads_Id
+            }
+          });
+    }else {
+        data_Adsupdate = {
+            Ads_Name: $("#Ads_Name").val(),
+            Tag: $("#tag").val(),
+            Source: $("#Source").val(),
+            startTime: $("#startTime").val(),
+            endTime: $("#endTime").val(),
+            Price: $("#Price").val(),
+            Content: $("#Content").val(),
+            url: $("#url").val(),
+            Ads_Id: $(".submit").prop("id")
+        }
+        $.ajax({
+            type: "POST",
+            url: "http://163.18.42.222:8888/Fiestadb/Ads/update",
+            data: JSON.stringify(data_Adsupdate),
+            contentType: "application/json",
+            datatype: JSON,
+            async:false,
+            beforeSend:function(xhr){
+                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
+            },
+            success: function (data) {
+                id = $(".submit").prop("id")
+            }
+          });
+    }
+      return id
 }
 
 

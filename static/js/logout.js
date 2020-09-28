@@ -1,8 +1,7 @@
 $(document).ready(function () {
     $("#logout").click(function (e) { 
-        $.removeCookie('userName');
-        $.removeCookie('Id');
-        $.removeCookie('qsacw');
+        $.removeCookie('Id', { path: '/' });
+        $.removeCookie('qsacw', { path: '/' });
         location.href = '/'
     });
 });

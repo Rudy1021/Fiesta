@@ -2,7 +2,7 @@ Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,Bli
 Chart.defaults.global.defaultFontColor = '#858796';
 
 data_ticketbyAct = {
-  act_Id: $.cookie("acid")
+  act_Id: $.cookie("actid")
 }
 label = []
 data_Mount = []

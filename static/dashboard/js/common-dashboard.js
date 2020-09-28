@@ -5,7 +5,7 @@ $(document).ready(function () {
     }
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/getCreateAct",
+        url: "http://163.18.42.222:8888/Fiestadb/Account/getCreateAct",
         data: JSON.stringify(data),
         contentType: "application/json",
         beforeSend:function(xhr){
@@ -14,7 +14,8 @@ $(document).ready(function () {
         async:false,
         datatype: JSON,
         success: function (data) {
-            if(data.code != "013"){
+            console.log(data)
+            if(data.code == "001"){
                 $.each(data.result, function (indexInArray, content) {
                     idlist.push(content.act_Id)
                     allActTitle = '<li class="nav-item"><a class="nav-link collapsed " href="javascript:;">' +
@@ -22,28 +23,11 @@ $(document).ready(function () {
                         '<span class="all-act-title">' + content.act_Name + '</span><span class="id">' + content.act_Id + '</span></a></li>'
                     $("#accordionSidebar").append(allActTitle)
                 });
-                if($.cookie("acid") == undefined || idlist.includes($.cookie("acid")) == false){
-                    if(idlist.length == 0){
-                        $.confirm({
-                            title: '錯誤！',
-                            animation: 'zoom',
-                            closeAnimation: 'scale',
-                            content: '尚未創建活動！',
-                            buttons: {
-                                確認: {
-                                    btnClass: 'btn-warning',
-                                    action: function() {
-                                        location.href = "/"
-                                    }
-                                }
-                            }
-                        })
-                    }else {
-                        $.cookie("acid", $("span.id").eq(0).html(), {path: '/' })
-                    }
+                if($.cookie("actid") == undefined || idlist.includes($.cookie("actid")) == false){
+                        $.cookie("actid", $("span.id").eq(0).html(), {path: '/' })
                 }
                 for(k = 0;k < $(".id").length;k++){
-                    if($.cookie("acid") == $(".id").eq(k).html()){
+                    if($.cookie("actid") == $(".id").eq(k).html()){
                         $(".id").eq(k).parent().parent().addClass("active")
                         $(".id").eq(k).parent().append('<i class="fas fa-angle-down"></i>')
                         model = '<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionSidebar">' +
@@ -65,13 +49,28 @@ $(document).ready(function () {
                 });
 
                 $(".all-act-title").click(function (e) {
-                    $.cookie("acid", $(this).next().html(), {path: '/' })
+                    $.cookie("actid", $(this).next().html(), {path: '/' })
                     if(location.href != location.hostname + '/dashboard'){
                         location.href = '/dashboard'
                     }else{
                         location.reload()
                     }
                 });
+            }else if(data.code == "013"){
+                $.confirm({
+                    title: '錯誤！',
+                    animation: 'zoom',
+                    closeAnimation: 'scale',
+                    content: '尚未創建活動！',
+                    buttons: {
+                        確認: {
+                            btnClass: 'btn-warning',
+                            action: function() {
+                                location.href = "/"
+                            }
+                        }
+                    }
+                })
             }
         }
     });

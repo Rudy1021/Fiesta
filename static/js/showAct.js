@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    a = "一般票"
+    console.log(a.charCodeAt())
+    console.log(String.fromCharCode(a))
     tickind = ''
     modnum = []
     D = new Date()
@@ -14,7 +17,7 @@ $(document).ready(function () {
     }
     $.ajax({
         type: "POST",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/select",
+        url: "http://163.18.42.222:8888/Fiestadb/Activity/select",
         data: JSON.stringify(data_Select),
         async: false,
         contentType: "application/json",
@@ -52,13 +55,13 @@ $(document).ready(function () {
             }
             for(i = 0;i < mod.length;i++){
                 if(mod[i] == '3'){
-                    $(".join-btn").remove()
+                    $(".join-btn").hide()
                     data_SelectByAct = {
                         act_Id: $.cookie("acid")
                     }
                     $.ajax({
                         type: "POST",
-                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Ticket/SelectByAct",
+                        url: "http://163.18.42.222:8888/Fiestadb/Ticket/SelectByAct",
                         data: JSON.stringify(data_SelectByAct),
                         contentType: "application/json",
                         datatype: JSON,
@@ -95,7 +98,7 @@ $(document).ready(function () {
                     }
                     $.ajax({
                         type: "POST",
-                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Show/select",
+                        url: "http://163.18.42.222:8888/Fiestadb/Show/select",
                         data: JSON.stringify(data_Schedule),
                         contentType: "application/json",
                         datatype: JSON,
@@ -200,7 +203,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/QRcode",
+            url: "http://163.18.42.222:8888/Fiestadb/QRcode",
             data: JSON.stringify(data),
             contentType: "application/json",
             datatype: JSON,
@@ -274,7 +277,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/FeedBack/Score/Act/upload",
+            url: "http://163.18.42.222:8888/Fiestadb/FeedBack/Score/Act/upload",
             data: JSON.stringify(data),
             async: false,
             contentType: "application/json",
@@ -288,9 +291,6 @@ $(document).ready(function () {
                 $("#real-time").hide()
             }
         });
-    });
-    $('.ticketsub').on('click', function () {
-        $.cookie('kind', $(this).parent().prev().prev().prev().html(), { expires: 7 })
     });
     $(".tick-sub").click(function (e) {
         if($.cookie('kind')){
@@ -309,7 +309,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "POST",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/Activity/setJoinedList",
+            url: "http://163.18.42.222:8888/Fiestadb/Activity/setJoinedList",
             data: JSON.stringify(data),
             contentType: "application/json",
             datatype: JSON,
@@ -342,18 +342,65 @@ $(document).ready(function () {
                             確定: {
                                 btnClass: 'btn-success',
                                 action: function() {
-                                    location.href = "/setting"
+                                    location.href = "/MyProfile"
                                 }
                             }
                         }
                     })
-                }else{
+                }else if(data.code == "019"){
+                    $.confirm({
+                        title: '錯誤',
+                        animation: 'zoom',
+                        closeAnimation: 'scale',
+                        content: '憑證過期，請重新登入',
+                        buttons: {
+                            確定: {
+                                btnClass: 'btn-success',
+                                action: function() {
+                                    $("#logout").click()
+                                }
+                            }
+                        }
+                    })
+                }else if(data.code == "001"){
+                    $.confirm({
+                        title: '成功',
+                        animation: 'zoom',
+                        closeAnimation: 'scale',
+                        content: '報名成功！',
+                        buttons: {
+                            確定: {
+                                btnClass: 'btn-success confirm',
+                                action: function() {
+                                }
+                            }
+                        }
+                    })
                     $("button.join-btn").html("已加入").prop("disabled", "disabled")
-                    $("button.group-btn").html("已加入").prop("disabled", "disabled")
+                    $(".ticket").html("已加入").prop("disabled", "disabled")
+                }else {
+                    $.confirm({
+                        title: '失敗',
+                        animation: 'zoom',
+                        closeAnimation: 'scale',
+                        content: '未知錯誤！ 請稍後再試！',
+                        buttons: {
+                            確定: {
+                                btnClass: 'btn-success',
+                                action: function() {
+                                    location.reload()
+                                }
+                            }
+                        }
+                    })
                 }
             }
         });
         $.removeCookie('kind');
         $(".close-sub").click()
     });
+});
+$(document).on('click', '.ticketsub', function () {
+    $.cookie('kind', $(this).parent().prev().prev().prev().html())
+    $(".join-btn").click()
 });

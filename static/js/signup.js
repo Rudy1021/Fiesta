@@ -28,7 +28,7 @@ $(document).ready(function () {
         sch = sch[0]
         $.ajax({
             type: "GET",
-            url: "https://fiesta.nkust.edu.tw/Fiestadb/getSchool",
+            url: "http://163.18.42.222:8888/Fiestadb/getSchool",
             success: function (data) {
                 for (var i = 0, l = data.result.length; i < l; i++) { //這邊的i是指目前算到第幾個json
                     for (var key in data.result[i]) {
@@ -47,7 +47,19 @@ $(document).ready(function () {
     });
     $("button#signup").click(function (e) {
         if($("#userId").val() == "" || $("#userPassword").val() == "" || $("#userName").val() == "" || $("#Mail_1").val() == "" || $("#Phone").val() == ""){
-
+            $.confirm({
+                title: '錯誤！',
+                animation: 'zoom',
+                closeAnimation: 'scale',
+                content: '請填寫完整！！',
+                buttons: {
+                    確認: {
+                        btnClass: 'btn-success confirm',
+                        action: function() {
+                        }
+                    }
+                }
+            })
         }else if($("#userId").val() == $("#userPassword").val()){
             $.confirm({
                 title: '錯誤！',
@@ -56,7 +68,7 @@ $(document).ready(function () {
                 content: '帳號與密碼不得相同！',
                 buttons: {
                     確認: {
-                        btnClass: 'btn-success',
+                        btnClass: 'btn-success confirm',
                         action: function() {
                             $("#userName").val("")
                             $("#userPassword").val("")
@@ -72,11 +84,13 @@ $(document).ready(function () {
                 content: '請打勾隱私權政策！',
                 buttons: {
                     確認: {
+                        btnClass: 'btn-success confirm',
+                        action: function() {
+                        }
                     }
                 }
             })
         }else{
-            
             if($("#nickName").val() == ""){
                 NN = $("#userName").val()
             }else{
@@ -95,170 +109,144 @@ $(document).ready(function () {
             }
             $.ajax({
                 type: "POST",
-                url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/upload",
+                url: "http://163.18.42.222:8888/Fiestadb/Account/upload",
                 data: JSON.stringify(data),
                 async: false,
                 contentType: "application/json",
                 datatype: JSON,
                 success: function (data_0) {
-
                     if(data_0.code == "001"){
-                    data_2 = {
-                        userId: $("#userId").val(),
-                        type: "1"
-                    }
-                    $.ajax({
-                        type: "POST",
-                        url: "https://fiesta.nkust.edu.tw/Fiestadb/Account/SendConfirm",
-                        data: JSON.stringify(data_2),
-                        contentType: "application/json",
-                        datatype: JSON,
-                        async: false,
-                        success: function (data_5) {
-                            $.confirm({
-                                title: '成功！',
-                                animation: 'zoom',
-                                closeAnimation: 'scale',
-                                content: '請去信箱驗證會員呦！',
-                                buttons: {
-                                    確認: {
-                                        btnClass: 'btn-success',
-                                        action: function() {
-                                            location.href = "/"
-                                        }
-                                    }
-                                }
-                            })
+                        data_2 = {
+                            userId: $("#userId").val(),
+                            type: "1"
                         }
-                    });
-                }else if(data_0.code == "005"){
-                            $.confirm({
-                                title: '錯誤！',
-                                animation: 'zoom',
-                                closeAnimation: 'scale',
-                                content: '該帳號已被註冊！',
-                                buttons: {
-                                    確認: {
-                                        btnClass: 'btn-success',
-                                        action: function() {
-                                            $("#userName").val("")
+                        $.ajax({
+                            type: "POST",
+                            url: "http://163.18.42.222:8888/Fiestadb/Account/SendConfirm",
+                            data: JSON.stringify(data_2),
+                            contentType: "application/json",
+                            datatype: JSON,
+                            async: false,
+                            success: function (data_5) {
+                                $.confirm({
+                                    title: '成功！',
+                                    animation: 'zoom',
+                                    closeAnimation: 'scale',
+                                    content: '請去信箱驗證會員呦！',
+                                    buttons: {
+                                        確認: {
+                                            btnClass: 'btn-success confirm',
+                                            action: function() {
+                                                location.href = "/"
+                                            }
                                         }
                                     }
-                                }
-                            })
-                }else if(data_0.code == "008"){
-                            $.confirm({
-                                title: '錯誤！',
-                                animation: 'zoom',
-                                closeAnimation: 'scale',
-                                content: '學校信箱驗證錯誤！',
-                                buttons: {
-                                    確認: {
-                                        btnClass: 'btn-success',
-                                        action: function() {
-                                            $("#Mail_1").val("")
+                                })
+                            }
+                        });
+                    }else if(data_0.code == "005"){
+                                $.confirm({
+                                    title: '錯誤！',
+                                    animation: 'zoom',
+                                    closeAnimation: 'scale',
+                                    content: '該帳號已被註冊！',
+                                    buttons: {
+                                        確認: {
+                                            btnClass: 'btn-success confirm',
+                                            action: function() {
+                                                $("#userId").val("")
+                                            }
                                         }
                                     }
-                                }
-                            })
-                }else if(data_0.code == "0041"){
-                                                $.confirm({
-                                title: '錯誤！',
-                                animation: 'zoom',
-                                closeAnimation: 'scale',
-                                content: '姓名未填！',
-                                buttons: {
-                                    確認: {
-                                        btnClass: 'btn-success',
-                                        action: function() {
+                                })
+                    }else if(data_0.code == "008"){
+                                $.confirm({
+                                    title: '錯誤！',
+                                    animation: 'zoom',
+                                    closeAnimation: 'scale',
+                                    content: '學校信箱驗證錯誤！',
+                                    buttons: {
+                                        確認: {
+                                            btnClass: 'btn-success confirm',
+                                            action: function() {
+                                                $("#Mail_1").val("")
+                                            }
                                         }
                                     }
-                                }
-                            })
-                }else if(data_0.code == "0042"){
-                            $.confirm({
-                                title: '錯誤！',
-                                animation: 'zoom',
-                                closeAnimation: 'scale',
-                                content: '帳號未填！',
-                                buttons: {
-                                    確認: {
-                                        btnClass: 'btn-success',
-                                        action: function() {
+                                })
+                    }else if(data_0.code == "0041"){
+                                                    $.confirm({
+                                    title: '錯誤！',
+                                    animation: 'zoom',
+                                    closeAnimation: 'scale',
+                                    content: '姓名未填！',
+                                    buttons: {
+                                        確認: {
+                                            btnClass: 'btn-success confirm',
+                                            action: function() {
+                                            }
                                         }
                                     }
-                                }
-                            })
-                }else if(data_0.code == "0043"){
-                            $.confirm({
-                                title: '錯誤！',
-                                animation: 'zoom',
-                                closeAnimation: 'scale',
-                                content: '密碼未填！',
-                                buttons: {
-                                    確認: {
-                                        btnClass: 'btn-success',
-                                        action: function() {
+                                })
+                    }else if(data_0.code == "0042"){
+                                $.confirm({
+                                    title: '錯誤！',
+                                    animation: 'zoom',
+                                    closeAnimation: 'scale',
+                                    content: '帳號未填！',
+                                    buttons: {
+                                        確認: {
+                                            btnClass: 'btn-success confirm',
+                                            action: function() {
+                                            }
                                         }
                                     }
-                                }
-                            })
-                }else if(data_0.code == "0044"){
-                                                $.confirm({
-                                title: '錯誤！',
-                                animation: 'zoom',
-                                closeAnimation: 'scale',
-                                content: '學校信箱未填！',
-                                buttons: {
-                                    確認: {
-                                        btnClass: 'btn-success',
-                                        action: function() {
+                                })
+                    }else if(data_0.code == "0043"){
+                                $.confirm({
+                                    title: '錯誤！',
+                                    animation: 'zoom',
+                                    closeAnimation: 'scale',
+                                    content: '密碼未填！',
+                                    buttons: {
+                                        確認: {
+                                            btnClass: 'btn-success confirm',
+                                            action: function() {
+                                            }
                                         }
                                     }
-                                }
-                            })
-
-                }else{
-                            $.confirm({
-                                title: '錯誤！',
-                                animation: 'zoom',
-                                closeAnimation: 'scale',
-                                content: '發生未知錯誤，請稍後再試！',
-                                buttons: {
-                                    確認: {
-                                        btnClass: 'btn-success',
-                                        action: function() {
-                                        }
+                                })
+                    }else if(data_0.code == "0044"){
+                        $.confirm({
+                            title: '錯誤！',
+                            animation: 'zoom',
+                            closeAnimation: 'scale',
+                            content: '學校信箱未填！',
+                            buttons: {
+                                確認: {
+                                    btnClass: 'btn-success confirm',
+                                    action: function() {
                                     }
                                 }
-                            })
-                }
+                            }
+                        })
+                    }else{
+                        $.confirm({
+                            title: '錯誤！',
+                            animation: 'zoom',
+                            closeAnimation: 'scale',
+                            content: '發生未知錯誤，請稍後再試！',
+                            buttons: {
+                                確認: {
+                                    btnClass: 'btn-success confirm',
+                                    action: function() {
+                                    }
+                                }
+                            }
+                        })
+                    }
                 }
             });
         }
-        /*
-        userId userPassword userName Mail_1 Phone ID_CARD Distance /nickName
-        */
     });
 });
-
-/*
-    $( "input#check" ).checkboxradio();
-    $.ajax({
-        type: "GET",
-        url: "https://fiesta.nkust.edu.tw/Fiestadb/Tag/select",
-        beforeSend:function(xhr){
-            xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-        },
-        success: function (data) {
-            $.each(data.result, function (indexInArray, content) { 
-                for(i = 0;i < content.length;i++){
-                    tagcheck = '<label for="check' + i + '">'+
-                    '<input type="checkbox" class="checktag" name="check' + i + '" id="check' + i + '">' +
-                    '</label>'
-                    $("#tagselect").append(tageheck)
-                }
-            });
-        }
-    }); 這只能放setting了
-*/
