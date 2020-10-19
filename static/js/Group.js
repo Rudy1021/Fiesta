@@ -1,442 +1,472 @@
-
-$(document).ready(function () {
-    $("#groupName").change(function (e) {
-        $("div.member-list").children().remove(".createmember")
-        if($("#groupName").val() != ""){
-            if(!$("#groupName").val().match(/^\s+/)){
-                data = {
-                    groupName: $(this).val()
-                }
-                $.ajax({
-                    type: "POST",
-                    url: "http://163.18.42.222:8888/Fiestadb/Group/FIndName",
-                    data: JSON.stringify(data),
-                    beforeSend:function(xhr){
-                        xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-                    },
-                    contentType: "application/json",
-                    datatype: JSON,
-                    success: function (data) {
-                        if(data.code == "005"){
-                        }
-                    },
-                });
-            }
-            $.ajax({
-                type: "POST",
-                url: "http://163.18.42.222:8888/Fiestadb/Account/ValidateLogin",
-                beforeSend:function(xhr){
-                    xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-                },
-                success: function (data) {
-                    $.each(data.result, function (indexInArray, content) {
-                        $.cookie("qsacw", content.token, { expires: 7 })
-                        if(content.Address != "None"){
-                            $("#groupAddress").val(content.Address)    
-                        }
-                        if(content.Phone != "None"){
-                            $("#groupPhone").val(content.Phone)    
-                        }
-                        if(content.Mail_1 != "None"){
-                        $("#groupEmail").val(content.Mail_1)    
-                        }
-                    })
-                },
-            });
-        }
-        member = '<hr class="createmember"><div class="row createmember"><div class="col-2"><div class="test"></div></div>' +
-            '<div class="col-3"><h6 class="lh-3">' + "你" +'</h6></div>' +
-            '</div>'
-        $("div.member-list").prepend(member)
-    });
-    $(".btn-info").on('click', function () {
-        $('html,body').animate({ scrollTop: 0 }, 'slow');
-        $("p#member-line").hide()
-        $(".member-hr").show()
-        $("div.member-list").children().remove()
-        $("h5.title-group").html("群組資料")
-        $("span#gid").html($(this).next().next().next().html())
-        data_Group_Select = {
-            groupId: $("span#gid").html()
-        }
-        $.ajax({
-            async: false,
-            type: "POST",
-            url: "http://163.18.42.222:8888/Fiestadb/Group/select",
-            data: JSON.stringify(data_Group_Select),
-            contentType: "application/json",
-            beforeSend:function(xhr){
-                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-            },
-            datatype: JSON,
-            success: function (data) {
-                $.each(data.result, function (indexInArray, content) { 
-                    $("#groupName").val(content.groupName).prop("disabled", "disabled").prop("readonly", "readonly")
-                    $("#groupAddress").val(content.Address).prop('disabled', 'disabled').prop('readonly', 'readonly')
-                    $("#groupEmail").val(content.Mail).prop('disabled', 'disabled').prop('readonly', 'readonly')
-                    $("#groupPhone").val(content.Phone).prop('disabled', 'disabled').prop('readonly', 'readonly')
-                });
-            }
-        });
-        $.ajax({
-            type: "POST",
-            async: false,
-            url: "http://163.18.42.222:8888/Fiestadb/Group/Member/select",
-            data: JSON.stringify(data_Group_Select),
-            contentType: "application/json",
-            beforeSend:function(xhr){
-                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-            },
-            datatype: JSON,
-            success: function (data) {
-                for (var i = 0, l = data.result.length; i < l; i++) {
-                    authId = ''
-                    nickName = ''
-                    for (var key in data.result[i]) {
-                        if(key == "authId"){
-                            authId = data.result[i][key]
-                        }else if(key == "nickName"){
-                            nickName = data.result[i][key]
-                        }
-                    }
-                    memberlist = '<div class="row"><div class="col-2"><span class="id">' + authId + '</span></div>' +
-                        '<div class="col-3"><h6 class="lh-3">' + nickName +'</h6></div></div>'
-                    $(".member-list").append(memberlist)
-                }
-            },
-        });
-        $("#groupCreate").hide()
-        $(".list").hide()
-        $(".CreateGroup").show()
-        $("#back").show()
-    });
-    $("button.add-group-member").click(function (e) { 
-        if($("input#member").val() != ""){
-            if(!$("input#member").val().match(/^\s+/))
-            {
-                data = {
-                    Search: $("input#member").val()
-                }
-                $.ajax({
-                    type: "POST",
-                    url: "http://163.18.42.222:8888/Fiestadb/Account/Search",
-                    data: JSON.stringify(data),
-                    beforeSend:function(xhr){
-                        xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-                    },
-                    contentType: "application/json",
-                    datatype: JSON,
-                    success: function (data) {
-                        if(data.code == "013")
-                        {
-                        $.alert({
-                            title: "喔不！",
-                            content: "查無此會員！"
-                        })
-                        }else {
-                            $.each(data.result, function (indexInArray, content) {
-                                memberid = content.Id
-                            });
-                            member = '<div class="row"><div class="col-2"><div class="test"></div></div>' +
-                            '<div class="col-3"><h6 class="lh-3">' + $("input#member").val() +'</h6></div>' +
-                            '<div class="col-7"><button class="btn btn-danger btn-group add-group-member  del-member m-0 mt-2 p-1 float-right">' +
-                            '<i class="fas fa-times"></i></button></div>' + '<span class="member-id">'
-                             + memberid + '</span></div>'
-                            $("div.member-list").append(member)
-                            $("input#member").val("")
-                            $("button.del-member").click(function (e) {
-                                par = $(this).parent().parent()
-                                $.confirm({
-                                    title: '警告',
-                                    animation: 'zoom',
-                                    closeAnimation: 'scale',
-                                    content: '確定要刪除嗎？無法恢復',
-                                    buttons: {
-                                        確認: {
-                                            btnClass: 'btn-danger',
-                                            action: function() {
-                                                par.remove()
-                                            }
-                                        },
-                                        我再想想: function() {
-                                        }
-                                    }
-                                })
-                            });
-                        }
-                    },
-                });
-            }
-        }
-    });
-    $(".del-group").on('click', function () {
-        delgroupid = $(this).next().html()
-        $.confirm({
-            title: '警告',
-            animation: 'zoom',
-            closeAnimation: 'scale',
-            content: '確定要刪除嗎？無法恢復',
-            buttons: {
-                確認: {
-                    btnClass: 'btn-danger confirm',
-                    action: function() {
-                        data = {groupId: delgroupid}
-                        $.ajax({
-                            type: "POST",
-                            url: "http://163.18.42.222:8888/Fiestadb/Group/delete",
-                            data: JSON.stringify(data),
-                            contentType: "application/json",
-                            beforeSend:function(xhr){
-                                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-                            },
-                            datatype: JSON,
-                            success: function (response) {
-                                location.reload()
-                            }
-                        });
-                    }
-                },
-                我再想想: function() {
-                }
-            }
-        })
-    });
-
-    $(".btn-edit").on('click', function () {
-        $('html,body').animate({ scrollTop: 0 }, 'slow');
-        $("div.member-list").children().remove()
-        $("h5.title-group").html("編輯群組")
-        $("#groupCreate").html("更新")
-        $("span#gid").html($(this).next().next().html())
-        data_Group_Select = {
-            groupId: $("span#gid").html()
-        }
-        $.ajax({
-            type: "POST",
-            async: false,
-            url: "http://163.18.42.222:8888/Fiestadb/Group/select",
-            data: JSON.stringify(data_Group_Select),
-            contentType: "application/json",
-            beforeSend:function(xhr){
-                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-            },
-            datatype: JSON,
-            success: function (data) {
-                $.each(data.result, function (indexInArray, content) { 
-                    $("#groupName").val(content.groupName).removeAttr("disabled").removeAttr("readonly")
-                    $("#groupAddress").val(content.Address).removeAttr("disabled").removeAttr("readonly")
-                    $("#groupEmail").val(content.Mail).removeAttr("disabled").removeAttr("readonly")
-                    $("#groupPhone").val(content.Phone).removeAttr("disabled").removeAttr("readonly")
-                });
-            }
-        });
-        $.ajax({
-            type: "POST",
-            async: false,
-            url: "http://163.18.42.222:8888/Fiestadb/Group/Member/select",
-            data: JSON.stringify(data_Group_Select),
-            contentType: "application/json",
-            beforeSend:function(xhr){
-                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-            },
-            datatype: JSON,
-            success: function (data) {
-                for (var i = 0, l = data.result.length; i < l; i++) {
-                    authId = ''
-                    nickName = ''
-                    for (var key in data.result[i]) {
-                        if(key == "authId"){
-                            authId = data.result[i][key]
-                        }else if(key == "nickName"){
-                            nickName = data.result[i][key]
-                        }
-                    }
-                    memberlist = '<div class="row"><div class="col-2"><span class="id">' + authId + '</span></div>' +
-                    '<div class="col-3"><h6 class="lh-3">' + nickName +'</h6></div>' +
-                    '<div class="col-7"><button class="btn btn-danger btn-group del-member m-0 mt-2 p-1 float-right">' +
-                    '<i class="fas fa-times"></i></button></div>'
-                    $(".member-list").append(memberlist)
-                }
-            },
-        });
-        $(".list").hide()
-        $("#back").show()
-        $("button#Add").show()
-        $("#groupCreate").show()
-        $("p#member-line").show()
-        $("div.member-list").show()
-        $(".CreateGroup").show()
-    });
-    $(".del-member").on('click', function () {
-        temp = ''
-        par = $(this).parent().parent()
-        memberid = $(this).next().html()
-        $.confirm({
-            title: '警告',
-            animation: 'zoom',
-            closeAnimation: 'scale',
-            content: '確定要刪除嗎？無法恢復',
-            buttons: {
-                確認: {
-                    btnClass: 'btn-danger',
-                    action: function() {
-                        data = {
-                            authId: memberid,
-                            groupId: $("span#gid").html()
-                        }
-                        $.ajax({
-                            type: "POST",
-                            url: "http://163.18.42.222:8888/Fiestadb/Group/Member/delete",
-                            data: JSON.stringify(data),
-                            contentType: "application/json",
-                            beforeSend:function(xhr){
-                                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-                            },
-                            datatype: JSON,
-                            success: function (data) {
-                                par.remove()
-                            },
-                        });
-                    }
-                },
-                我再想想: function() {
-                }
-            }
-        })
-    });
-    $("#groupCreate").click(function (e) {
-        if($("#groupCreate").html() == "創建"){
-            if($("#groupName").val() == "")
-            {
-                $(".grouperrer").html("活動名稱未填!")
-                $(".grouperror").show()
-            }else{
-            Id = parseInt($.cookie("Id"))
-            data = {
-                authId : [Id],
-                groupName : $("#groupName").val(),
-                Address : $("#groupAddress").val(),
-                Mail : $("#groupEmail").val(),
-                Phone : $("#groupPhone").val(),
-                Useable : "true"
-            }
-            $.ajax({
-                type: "POST",
-                url: "http://163.18.42.222:8888/Fiestadb/Group/upload",
-                data: JSON.stringify(data),
-                contentType: "application/json",
-                beforeSend:function(xhr){
-                    xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-                },
-                datatype: JSON,
-                success: function (response) {
-                    if(response.code == "005"){
-                        $.confirm({
-                            title: '失敗！',
-                            animation: 'zoom',
-                            closeAnimation: 'scale',
-                            content: '群組名稱重複！',
-                            buttons: {
-                                確定: {
-                                    btnClass: 'btn-success confirm',
-                                    action: function() {
-                                        $(".groupName").val("")
-                                    }
-                                }
-                            }
-                        })
-                    }else if(response.code == "001"){
-                        $.confirm({
-                            title: '成功',
-                            animation: 'zoom',
-                            closeAnimation: 'scale',
-                            content: '立刻去建立活動吧！',
-                            buttons: {
-                                確定: {
-                                    btnClass: 'btn-success confirm',
-                                    action: function() {
-                                        location.reload()
-                                    }
-                                }
-                            }
-                        })
-                    }
-                }
-            });
-        }
-        }else {
-            if($("#groupName").val() == ""){
-
-            }else{
-            data = {
-                groupId: $("span#gid").html(),
-                groupName : $("#groupName").val(),
-                Address : $("#groupAddress").val(),
-                Mail : $("#groupEmail").val(),
-                Phone : $("#groupPhone").val()
-            }
-            $.ajax({
-                type: "POST",
-                url: "http://163.18.42.222:8888/Fiestadb/Group/update",
-                data: JSON.stringify(data),
-                contentType: "application/json",
-                beforeSend:function(xhr){
-                    xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-                },
-                datatype: JSON,
-                success: function (response) {
-                    $.alert({
-                        content: "更新成功！"
-                    })
-                },
-            });
-            groupmemberid = $("span.member-id").html()
-            for(i = 0;i < groupmemberid.length;i++){
-                data = {
-                    groupId: $("span#gid").html(),
-                    authId: groupmemberid[i]
-                }
-                $.ajax({
-                    type: "POST",
-                    url: "http://163.18.42.222:8888/Fiestadb/Group/Member/upload",
-                    data: JSON.stringify(data),
-                    contentType: "application/json",
-                    beforeSend:function(xhr){
-                        xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-                    },
-                    datatype: JSON,
-                    success: function (response) {
-                    },
-                });
-            }
-        }
-    }
-    });
-
-
-    $(".group-create").click(function (e) { 
-        $("h5.title-group").html("創建一個永久群組")
-        $("div.member-list").children().remove()
-        $("p#member-line").show()
-        $("div.member-list").show()
-        $("#groupName").val("").removeAttr("disabled").removeAttr("readonly")
-        $("#groupAddress").val("").removeAttr("disabled").removeAttr("readonly")
-        $("#groupEmail").val("").removeAttr("disabled").removeAttr("readonly")
-        $("#groupPhone").val("").removeAttr("disabled").removeAttr("readonly")
-        $("#groupCreate").html("創建")
-        $(".CreateGroup").show()
-        $(".list").hide()
-        $("#back").show()
-        $("#groupCreate").show()
-        $("button#Add").show()
-    });
-
-
-    $("#back").click(function (e) {
-        $(".CreateGroup").hide()
-        $(".list").show()
-        $("h6.group-Act").remove()
-    });
-
-
+$('#groupName').change(function() {
+  findName();
 });
+
+
+$(document).on('click', 'button.add-group-member', function() {
+  addGroupMember();
+});
+
+
+$(document).on('click', '.btn-edit', function() {
+  groupInfo($(this).parent().prop('id'), 'edit');
+});
+
+
+$(document).on('click', '.btn-info', function() {
+  groupInfo($(this).parent().prop('id'), 'info');
+});
+
+
+$(document).on('click', 'button.del-member', function() {
+  parent = $(this).parent();
+  if ($(this).hasClass('exist')) {
+    delMember(parent.prop('id'), $('.member-list').prop('id'), 'exist');
+  } else {
+    delMember(parent.prop('id'), '', 'none');
+  }
+});
+
+
+$(document).on('click', '.del-group', function() {
+  delGroup($(this).parent().prop('id'));
+});
+
+
+$(document).on('click', '#groupCreate', function() {
+  uploadGroup();
+});
+
+// 返回
+$(document).on('click', '#back', function() {
+  $('div.member-list').children().remove();
+  $('.CreateGroup').hide();
+  $('.list').show();
+  $('member-list').prop('id', '');
+  $('.groupInput').val('').removeAttr('readonly');
+  $('#groupCreate').hide();
+  $('p#member-line').hide();
+});
+
+
+$(document).on('click', '.group-create', function() {
+  groupInfo('', 'create');
+});
+
+
+/**
+ * 查詢是否有名稱重複的群組
+ */
+function findName() {
+  $('div.member-list').children().remove('.createmember');
+  if ($('#groupName').val() != '' && !$('#groupName').val().match(/^\s+/)) {
+    dataFindName = {
+      groupName: $('#groupName').val(),
+    };
+    $.ajax({
+      type: 'POST',
+      url: 'http://163.18.42.222:8888/Fiestadb/Group/FIndName',
+      data: JSON.stringify(dataFindName),
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+      },
+      contentType: 'application/json',
+      datatype: JSON,
+      success: function(data) {
+        if (data.code == '005') {
+          $.confirm({
+            title: '失敗！',
+            animation: 'zoom',
+            closeAnimation: 'scale',
+            content: '群組名稱重複！',
+            buttons: {
+              確定: {
+                btnClass: 'btn-success confirm',
+                action: function() {
+                  $('.groupName').val('');
+                },
+              },
+            },
+          });
+        } else if (data.code == '001') {
+          insertProfile();
+        }
+      },
+    });
+  }
+}
+
+
+/**
+ * 若群組名稱沒重複，則把個人檔案的值填入表單
+ */
+function insertProfile() {
+  $.ajax({
+    type: 'POST',
+    url: 'http://163.18.42.222:8888/Fiestadb/Account/ValidateLogin',
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+    },
+    success: function(data) {
+      $.each(data.result, function(indexInArray, content) {
+        $.cookie('qsacw', content.token, {expires: 7}, {path: '/'});
+        if (content.Address != 'None') {
+          $('#groupAddress').val(content.Address);
+        }
+        if (content.Phone != 'None') {
+          $('#groupPhone').val(content.Phone);
+        }
+        if (content.Mail_1 != 'None') {
+          $('#groupEmail').val(content.Mail_1);
+        }
+        member = '<hr class="createmember"><div class="row createmember">' +
+        '<div class="col-2"><div class="test"></div></div>' +
+        '<div class="col-3"><h6 class="lh-3">' + content.userName +
+        '</h6></div></div>';
+        $('div.member-list').prepend(member);
+        $('div.createmember').children('.col-2').children('.test').css(
+            'background-image', 'url("' + content.Photo + '")');
+      });
+    },
+  });
+}
+
+
+/**
+ * 查看群組內容
+ * @param {string} id 群組id
+ * @param {string} name 看是編輯或是查看
+ */
+function groupInfo(id, name) {
+  $('html,body').animate({scrollTop: 0}, 'slow');
+  $('.CreateGroup').show();
+  $('.list').hide();
+  if (name == 'info') {
+    $('h5.title-group').html('群組資料');
+    $('.groupInput').prop('readonly', 'readonly');
+  } else if (name == 'edit') {
+    $('#groupCreate').show().html('更新');
+    $('button#Add').show();
+    $('p#member-line').show();
+    $('h5.title-group').html('編輯群組');
+    $('.member-list').prop('id', id);
+  }
+  if (name == 'create') {
+    $('h5.title-group').html('創建一個永久群組');
+    $('p#member-line').show();
+    $('#groupCreate').show().html('創建');
+  } else {
+    dataGroupSelect = {
+      groupId: id,
+    };
+    $.ajax({
+      async: false,
+      type: 'POST',
+      url: 'http://163.18.42.222:8888/Fiestadb/Group/select',
+      data: JSON.stringify(dataGroupSelect),
+      contentType: 'application/json',
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+      },
+      datatype: JSON,
+      success: function(data) {
+        $.each(data.result, function(indexInArray, content) {
+          $('#groupName').val(content.groupName);
+          $('#groupAddress').val(content.Address);
+          $('#groupEmail').val(content.Mail);
+          $('#groupPhone').val(content.Phone);
+        });
+      },
+    });
+    $.ajax({
+      type: 'POST',
+      async: false,
+      url: 'http://163.18.42.222:8888/Fiestadb/Group/Member/select',
+      data: JSON.stringify(dataGroupSelect),
+      contentType: 'application/json',
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+      },
+      datatype: JSON,
+      success: function(data) {
+        if (data.code == '001') {
+          $.each(data.result, function(indexInArray, content) {
+            if (name == 'info') {
+              memberlist = '<div class="row" id="member-' + (indexInArray + 1) +
+              '"><div class="col-2"><div ' +
+              'class="test" id="member-pic-' + (indexInArray + 1) +
+              '"></div></div>' +
+              '<div class="col-3"><h6 class="lh-3">' + content.nickName +
+              '</h6></div></div>';
+            } else if (name == 'edit') {
+              memberlist = '<div class="row"><div class="col-2"><div ' +
+              'class="test" id="member-pic-' + (indexInArray + 1) +
+              '"></div></div>' +
+              '<div class="col-3"><h6 class="lh-3">' + content.nickName +
+              '</h6></div><div class="col-7" id="' + content.authId +
+              '"><button class="btn btn-danger ' +
+              'btn-group del-member m-0 mt-2 p-1 float-right exist">' +
+              '<i class="fas fa-times"></i></button></div></div>';
+            }
+            $('.member-list').append(memberlist);
+            $('#member-pic-' + (indexInArray+
+              1)).css('background-image', 'url("' + content.Photo + '")');
+          });
+        }
+      },
+    });
+  }
+}
+
+
+/**
+ * 刪除會員
+ * @param {string} id 群組id
+ * @param {string} groupNum 群組id
+ * @param {string} method 看該成員是否存在
+ */
+function delMember(id, groupNum, method) {
+  $.confirm({
+    title: '警告',
+    animation: 'zoom',
+    closeAnimation: 'scale',
+    content: '確定要刪除嗎？無法恢復',
+    buttons: {
+      確認: {
+        btnClass: 'btn-danger',
+        action: function() {
+          if (method == 'exist') {
+            dataMemberDelete = {
+              authId: id,
+              groupId: groupNum,
+            };
+            $.ajax({
+              type: 'POST',
+              url: 'http://163.18.42.222:8888/Fiestadb/Group/Member/delete',
+              data: JSON.stringify(dataMemberDelete),
+              contentType: 'application/json',
+              beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization',
+                    'Bearer ' + $.cookie('qsacw'));
+              },
+              datatype: JSON,
+              success: function(data) {
+                $('#' + id).parent().remove();
+              },
+            });
+          } else if (method == 'none') {
+            $('#' + id).parent().remove();
+          }
+        },
+      },
+      我再想想: function() {
+      },
+    },
+  });
+}
+
+
+/**
+ * 加入群組成員
+ */
+function addGroupMember() {
+  if ($('input#member').val() != '' && !$('input#member').val().match(/^\s+/)) {
+    dataMember = {
+      Search: $('input#member').val(),
+    };
+    $.ajax({
+      type: 'POST',
+      url: 'http://163.18.42.222:8888/Fiestadb/Account/Search',
+      data: JSON.stringify(dataMember),
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+      },
+      contentType: 'application/json',
+      datatype: JSON,
+      success: function(data) {
+        if (data.code == '013') {
+          $.alert({
+            title: '喔不！',
+            content: '查無此會員！',
+          });
+        } else if (data.code == '001') {
+          console.log(data);
+          $.each(data.result, function(indexInArray, content) {
+            member = '<div class="row"><div class="col-2">' +
+            '<div class="test" id="add-member-' + (indexInArray + 1) +
+            '"></div></div><div class="col-3"><h6 class="lh-3">' +
+            content.nickName +'</h6></div><div class="col-7 tempGroupMember" ' +
+            'id ="' + content.Id + '">' +
+            '<button class="btn btn-danger btn-group del-member ' +
+            'm-0 mt-2 p-1 float-right"><i class="fas fa-times">' +
+            '</i></button></div></div>';
+            $('div.member-list').append(member);
+            $('#add-member-' + (indexInArray + 1)).css(
+                'background-image', 'url("' + content.Photo + '")');
+          });
+          $('input#member').val('');
+        }
+      },
+    });
+  }
+}
+
+/**
+ * 刪除群組
+ * @param {string} GroupNum 群組id
+ */
+function delGroup(GroupNum) {
+  $.confirm({
+    title: '警告',
+    animation: 'zoom',
+    closeAnimation: 'scale',
+    content: '確定要刪除嗎？無法恢復',
+    buttons: {
+      確認: {
+        btnClass: 'btn-danger confirm',
+        action: function() {
+          dataGroupDelete = {groupId: GroupNum};
+          $.ajax({
+            type: 'POST',
+            url: 'http://163.18.42.222:8888/Fiestadb/Group/delete',
+            data: JSON.stringify(dataGroupDelete),
+            contentType: 'application/json',
+            beforeSend: function(xhr) {
+              xhr.setRequestHeader('Authorization',
+                  'Bearer ' + $.cookie('qsacw'));
+            },
+            datatype: JSON,
+            success: function(response) {
+              location.reload();
+            },
+          });
+        },
+      },
+      我再想想: function() {
+      },
+    },
+  });
+}
+
+/**
+ * 上傳或更新群組資料
+ */
+function uploadGroup() {
+  if ($('#groupCreate').html() == '創建') {
+    if ($('#groupName').val() == '') {
+      $('#warring').html('活動名稱未填!');
+      $('#warring').show();
+    } else {
+      Id = [];
+      Id.push(parseInt($.cookie('Id')));
+      for (i = 0; i < $('.tempGroupMember').length; i++) {
+        Id.push(parseInt($('.tempGroupMember').eq(i).prop('id')));
+      }
+      dataGroupUpload = {
+        authId: Id,
+        groupName: $('#groupName').val(),
+        Address: $('#groupAddress').val(),
+        Mail: $('#groupEmail').val(),
+        Phone: $('#groupPhone').val(),
+        Useable: 'true',
+      };
+      $.ajax({
+        type: 'POST',
+        url: 'http://163.18.42.222:8888/Fiestadb/Group/upload',
+        data: JSON.stringify(dataGroupUpload),
+        contentType: 'application/json',
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+        },
+        datatype: JSON,
+        success: function(data) {
+          if (data.code == '001') {
+            $.confirm({
+              title: '成功',
+              animation: 'zoom',
+              closeAnimation: 'scale',
+              content: '立刻去建立活動吧！',
+              buttons: {
+                確定: {
+                  btnClass: 'btn-success confirm',
+                  action: function() {
+                    location.reload();
+                  },
+                },
+              },
+            });
+          }
+        },
+      });
+    }
+  } else if ($('#groupCreate').html() == '更新') {
+    if ($('#groupName').val() == '') {
+      $.confirm({
+        title: '錯誤',
+        animation: 'zoom',
+        closeAnimation: 'scale',
+        content: '群組名稱不得為空',
+        buttons: {
+          確定: {
+            btnClass: 'btn-success confirm',
+            action: function() {
+            },
+          },
+        },
+      });
+    } else {
+      dataGroupUpdate = {
+        groupId: $('.member-list').prop('id'),
+        groupName: $('#groupName').val(),
+        Address: $('#groupAddress').val(),
+        Mail: $('#groupEmail').val(),
+        Phone: $('#groupPhone').val(),
+      };
+      $.ajax({
+        type: 'POST',
+        url: 'http://163.18.42.222:8888/Fiestadb/Group/update',
+        data: JSON.stringify(dataGroupUpdate),
+        contentType: 'application/json',
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+        },
+        datatype: JSON,
+        success: function(response) {
+        },
+      });
+      for (i = 0; i < $('.tempGroupMember').length; i++) {
+        dataMemberUpload = {
+          groupId: $('.member-list').prop('id'),
+          authId: $('.tempGroupMember').eq(i).prop('id'),
+        };
+        $.ajax({
+          type: 'POST',
+          url: 'http://163.18.42.222:8888/Fiestadb/Group/Member/upload',
+          data: JSON.stringify(dataMemberUpload),
+          contentType: 'application/json',
+          beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization',
+                'Bearer ' + $.cookie('qsacw'));
+          },
+          datatype: JSON,
+          success: function(response) {
+          },
+        });
+      }
+    }
+    $.confirm({
+      title: '成功',
+      animation: 'zoom',
+      closeAnimation: 'scale',
+      content: '更新成功！',
+      buttons: {
+        確認: {
+          btnClass: 'btn-success confirm',
+          action: function() {
+            location.reload();
+          },
+        },
+      },
+    });
+  }
+}

@@ -1,92 +1,130 @@
-$(document).ready(function(){
-    $("input").keypress(function(e){
-        code = (e.keyCode ? e.keyCode : e.which);
-        if (code == 13){
-            logintest()
-        }
-      });
-    function logintest(){
-        if($("#userId").val() != "" && $("#userPassword").val() != ""){
-            AJAX();
-        }
-    }
-    $("#backtologin").click(function (e) { 
-        $(".loginlist").show()
-        $(".forgot-pwdlist").hide()
-        
-    });
-$("#sendforgot").click(function (e) {
-    data_5 = {
-        userId: $("#forgotId").val(),
-        type: "2"
-    }
-    $.ajax({
-        type: "POST",
-        url: "http://163.18.42.222:8888/Fiestadb/Account/SendConfirm",
-        data: JSON.stringify(data_5),
-        contentType: "application/json",
-        datatype: JSON,
-        success: function (data_5) {
-            $.confirm({
-                title: '成功！',
-                animation: 'zoom',
-                closeAnimation: 'scale',
-                content: '請去信箱收信呦！',
-                buttons: {
-                    確認: {
-                        btnClass: 'btn-success',
-                        action: function() {
-                        }
-                    }
-                }
-            })
-        }
-    });
-    
+$(document).on('click', '#sendforgot', function() {
+  forgot();
 });
-    $(".forgot-pwd").click(function (e) { 
-        $(".loginlist").hide()
-        $(".forgot-pwdlist").show()
-        
-    });
-    $("#login2").click(function (e) { 
-        logintest()
-        
-    });
-    function AJAX(){
-    data = {
-        userId: $("#userId").val(),
-        userPassword: $("#userPassword").val()
+
+
+$('input').keypress(function(e) {
+  code = (e.keyCode ? e.keyCode : e.which);
+  if (code == 13) {
+    if ($('.loginlist').css('display') == 'none') {
+      forgot();
+    } else {
+      login();
     }
-    $.ajax({
-        type: "POST",
-        url: "http://163.18.42.222:8888/Fiestadb/Account/select",
-        data: JSON.stringify(data),
-        contentType: "application/json",
-        datatype: JSON,
-        success: function(data) {
-            code = data.code
-            $.each(data.result, function (indexInArray, content) {
-                if(code == "001"){
-                    var userName = content.userName
-                    var userId = content.userId
-                    var userPassword = content.userPassword
-                    var Id = content.Id
-                    var token = content.token
-                    $.cookie("qsacw", token, { expires: 7 })
-                    $.cookie("Id", Id, { expires: 7 })
-                    if($.cookie("type") == "check"){
-                        location.href = "/check?id=" + $.cookie("acdid") 
-                    }else{
-                        location.href="/"
-                    }
-                }
-                if(code == "002"){
-                    $(".alert-danger").html("帳號或密碼錯誤");
-                    $(".alert-danger").show()
-                }
-            });
-        },
-    });
-    }
-})
+  }
+});
+
+
+$(document).on('click', '#forgot-pwd', function() {
+  changePage($(this).prop('id'));
+});
+
+
+$(document).on('click', '#login2', function() {
+  if ($('#userId').val() != '' && $('#userPassword').val() != '') {
+    login();
+  }
+});
+
+
+$(document).on('click', '#backtologin', function() {
+  changePage($(this).prop('id'));
+});
+
+
+/**
+ * 切換頁面
+ * @param {string} id
+ */
+function changePage(id) {
+  if (id == 'forgot-pwd') {
+    $('.loginlist').hide();
+    $('.forgot-pwdlist').show();
+  } else if (id == 'backtologin') {
+    $('.loginlist').show();
+    $('.forgot-pwdlist').hide();
+  }
+}
+
+
+/**
+ * 忘記密碼
+ */
+function forgot() {
+  dataForgot = {
+    userId: $('#forgotId').val(),
+    type: '2',
+  };
+  $.ajax({
+    type: 'POST',
+    url: 'http://163.18.42.222:8888/Fiestadb/Account/SendConfirm',
+    data: JSON.stringify(dataForgot),
+    contentType: 'application/json',
+    datatype: JSON,
+    success: function(data) {
+      if (data.code == '002') {
+        $.confirm({
+          title: '錯誤！',
+          animation: 'zoom',
+          closeAnimation: 'scale',
+          content: '請確定電子郵件正確！',
+          buttons: {
+            確認: {
+              btnClass: 'btn-success',
+              action: function() {
+              },
+            },
+          },
+        });
+      } else if (data.code == '001') {
+        $.confirm({
+          title: '成功！',
+          animation: 'zoom',
+          closeAnimation: 'scale',
+          content: '請去信箱收信呦！',
+          buttons: {
+            確認: {
+              btnClass: 'btn-success',
+              action: function() {
+              },
+            },
+          },
+        });
+      }
+    },
+  });
+}
+
+
+/**
+   * 登入function
+   */
+function login() {
+  dataLogin = {
+    userId: $('#userId').val(),
+    userPassword: $('#userPassword').val(),
+  };
+  $.ajax({
+    type: 'POST',
+    url: 'http://163.18.42.222:8888/Fiestadb/Account/select',
+    data: JSON.stringify(dataLogin),
+    contentType: 'application/json',
+    datatype: JSON,
+    success: function(data) {
+      if (data.code == '001') {
+        $.each(data.result, function(indexInArray, content) {
+          $.cookie('qsacw', content.token, {expires: 7}, {path: '/'});
+          $.cookie('Id', content.Id, {expires: 7}, {path: '/'});
+        });
+        if ($.cookie('check') != undefined) {
+          location.href = 'check?id=' + $.cookie('check');
+        } else {
+          location.href = '/';
+        }
+      } else if (data.code == '002') {
+        $('.alert-danger').html('帳號或密碼錯誤');
+        $('.alert-danger').show();
+      }
+    },
+  });
+}

@@ -1,94 +1,81 @@
-$(document).ready(function () {
-    data_get_ticket = {
-        Id: $.cookie("Id")
-    }
-    $.ajax({
-        type: "POST",
-        url: "http://163.18.42.222:8888/Fiestadb/Account/getUnexpiredAct",
-        data: JSON.stringify(data_get_ticket),
-        contentType: "application/json",
-        datatype: JSON,
-        beforeSend:function(xhr){
-            xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-        },
-        success: function (data) {
-            if(data.code == "020"){
-                $.confirm({
-                    title: '喔不！',
-                    animation: 'zoom',
-                    closeAnimation: 'scale',
-                    content: '有欄位未填！',
-                    buttons: {
-                        確認: {
-                            btnClass: 'btn-success',
-                            action: function() {
-                            }
-                        }
-                    }
-                })
-            }else if(data.code != "012"){
-                for (var i = 0, l = data.result.length; i < l; i++) { //這邊的i是指目前算到第幾個json
-                    for (var key in data.result[i]) {
-                        if(key == 'ticketKinds'){
-                            ticketKinds = data.result[i][key]
-                            if(ticketKinds == "None"){
-                                ticketKinds = '普通票'
-                            }
-                        }else if(key == 'act_Id'){
-                            act_Id = data.result[i][key]
-                        }else if(key == 'act_Name'){
-                            act_Name = data.result[i][key]
-                        }else if(key == 'startTime'){
-                            startTime = data.result[i][key]
-                        }else if(key == 'Photo'){
-                            Photo = data.result[i][key]
-                        }
-                    }
-                    ticket = '<div class="ticket-all"  data-toggle="modal" data-target="#QRModal">' +
-                            '<span class="id">' +
-                                act_Id +
-                            '</span>' +
-                                '<div class="img-area">' +
-                                    '<img src="' + Photo + '" class="img">' +
-                                '</div>' +
-                                '<div class="text-area">' +
-                                    '<div class="number">' +
-                                        'No.' + i +
-                                    '</div>' +
-                                    '<div class="big clear-float">' +
-                                        act_Name +
-                                    '</div>' +
-                                    '<div class="content">' +
-                                        '<div class="type">' +
-                                            ticketKinds +
-                                        '</div>' +
-                                    '<div class="time">' +
-                                        startTime +
-                                    '</div>' +
-                                '</div>' +
-                            '</div>' +
-                        '</div>'
-                    $(".ticketlist").append(ticket)
-                }
-            }
-        }
-    });
-    $(document).on('click', $(".ticket-all"), function () {
-        data_getQRcode = {
-            Input: location.href
-        }
-          $.ajax({
-            type: "POST",
-            url: "http://163.18.42.222:8888/Fiestadb/QRcode",
-            data: JSON.stringify(data_getQRcode),
-            contentType: "application/json",
-            datatype: JSON,
-            beforeSend:function(xhr){
-                xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("qsacw"))
-            },
-            success: function (data) {
-              $(".QRcode").prop("src", "data:image/bmp;base64," + data)
-            }
-          });
-    });
+$(document).ready(function() {
+  getTicket();
 });
+
+
+$(document).on('click', $('.ticket-all'), function() {
+  showQrcode();
+});
+
+
+/**
+ * 取得會員票
+ */
+function getTicket() {
+  dataGetticket = {
+    Id: $.cookie('Id'),
+  };
+  $.ajax({
+    type: 'POST',
+    url: 'http://163.18.42.222:8888/Fiestadb/Account/getUnexpiredAct',
+    data: JSON.stringify(dataGetticket),
+    contentType: 'application/json',
+    datatype: JSON,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+    },
+    success: function(data) {
+      if (data.code == '001') {
+        $.each(data.result, function(indexInArray, content) {
+          if (content.ticketKinds == 'None') {
+            ticket = '<div class="ticket-all"  data-toggle="modal"' +
+            ' data-target="#QRModal"><span class="id">' +
+            content.act_Id + '</span><div class="img-area">' +
+            '<img src="' + content.Photo + '" class="img">' +
+            '</div><div class="text-area"><div class="number">' +
+            'No.' + (indexInArray+1) + '</div>' +
+            '<div class="big clear-float">' + content.act_Name +
+            '</div><div class="content"><div class="type">' +
+            '免費票' + '</div>' + '<div class="time">' +
+            content.startTime + '</div></div></div></div>';
+          } else {
+            ticket = '<div class="ticket-all"  data-toggle="modal"' +
+            ' data-target="#QRModal"><span class="id">' +
+            content.act_Id + '</span><div class="img-area">' +
+            '<img src="' + content.Photo + '" class="img">' +
+            '</div><div class="text-area"><div class="number">' +
+            'No.' + (indexInArray+1) + '</div>' +
+            '<div class="big clear-float">' + content.act_Name +
+            '</div><div class="content"><div class="type">' +
+            content.ticketKinds + '</div>' + '<div class="time">' +
+            content.startTime + '</div></div></div></div>';
+          }
+          $('.ticketlist').append(ticket);
+        });
+      }
+    },
+  });
+}
+
+
+/**
+ * 顯示Qrcode
+ */
+function showQrcode() {
+  dataGetQRcode = {
+    Input: location.href,
+  };
+  $.ajax({
+    type: 'POST',
+    url: 'http://163.18.42.222:8888/Fiestadb/QRcode',
+    data: JSON.stringify(dataGetQRcode),
+    contentType: 'application/json',
+    datatype: JSON,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+    },
+    success: function(data) {
+      $('.QRcode').prop('src', 'data:image/bmp;base64,' + data);
+    },
+  });
+}

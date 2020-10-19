@@ -18,7 +18,8 @@ def make_session_permanet():
 
 @app.route('/.well-known/pki-validation/<id>')
 def acme_challenge(id):
-    return "CA458801FED4ED705BA89934A14069D70A6F3CC9557739C32174B2F46974187B\ncomodoca.com\n23df8aa640cb466"
+    string = 'CA458801FED4ED705BA89934A14069D70A6F3CC9557739C32174B2F46974187B'
+    return string + "\ncomodoca.com\n23df8aa640cb466"
 
 
 # index
@@ -44,8 +45,8 @@ def CreateEvent():
 
 
 @app.route('/MyProfile', methods=['GET'])
-def setting():
-    return render_template("setting.html")
+def MyProfile():
+    return render_template("MyProfile.html")
 
 
 @app.route('/MyTicket', methods=['GET'])
@@ -110,7 +111,9 @@ def dashboardId():
 
 @app.route("/apple-app-site-association")
 def apple():
-    response = make_response(send_file(".well-known/apple-app-site-association", mimetype='application/pkcs7-mime'))
+    response = make_response(
+                            send_file(".well-known/apple-app-site-association",
+                                      mimetype='application/pkcs7-mime'))
     return response
 
 

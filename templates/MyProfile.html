@@ -54,22 +54,8 @@
                             <input type="text" disabled readonly class="form-control" id="profile-School">
                         </div>
                         <div class="form-group row">
-                            <label for="profile-phone">手機</label>
-                            <div class="row">
-                                <div class="col-3 clear-float m-0 p-0 ml-3 mr-3">
-                                    
-                                        <label class="sr-only" for="inlineFormInputGroup"></label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">+</div>
-                                            </div>
-                                            <input type="tel" id="contry-number" class="form-control">
-                                        </div>
-                                </div>
-                                <div class="col clear-float p-0 ml-3">
-                                    <input type="tel" class="form-control" id="profile-Phone">
-                                </div>
-                            </div>
+                          <label for="profile-phone">手機</label>
+                          <input type="tel" class="form-control" id="profile-Phone">
                         </div>
                         <div class="form-group row clear-float">
                             <label for="profile-Birthday">生日</label>
@@ -97,5 +83,5 @@
 </section>
 {% endblock content %}
 {% block script %}
-<script src="{{ url_for('static',filename='js/Setting.js') }}?version=1.12"></script>
+<script src="{{ url_for('static',filename='js/MyProfile.js') }}?version=1.12"></script>
 {% endblock %}
