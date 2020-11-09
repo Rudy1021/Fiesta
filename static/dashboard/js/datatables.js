@@ -61,6 +61,11 @@ function selectAct() {
   });
 }
 
+$(document).on('click', '.QRcode', function() {
+  $.cookie('QRcode', $.cookie('actid'));
+  location.href = '/QRcode';
+});
+
 /**
  * 取得參加名單
  */

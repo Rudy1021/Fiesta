@@ -3,9 +3,8 @@ $(document).ready(function() {
   removeCookie();
 });
 
-
 $(document).on('change', 'input', function() {
-  re = /select|update|delete|exec|count|'|"|=|;|>|<|%|\*|-/;
+  re = /select|update|delete|exec|count|'|"|=|;|>|<|%|\*/;
   if ($(this).val().match(re)) {
     $.confirm({
       title: '錯誤！',
@@ -20,10 +19,9 @@ $(document).on('change', 'input', function() {
         },
       },
     });
-    $(this).val('');
+    // $(this).val('');
   }
 });
-
 
 /**
  * 檢查該網址並刪除cookie
@@ -35,6 +33,9 @@ function removeCookie() {
   }
   if (location.pathname != '/dashboard') {
     $.removeCookie('actid', {path: '/'});
+  }
+  if (location.pathname != '/QRcode') {
+    $.removeCookie('QRcode', {path: '/'});
   }
   if (location.href != '/check') {
     $.removeCookie('acdid', {path: '/'});

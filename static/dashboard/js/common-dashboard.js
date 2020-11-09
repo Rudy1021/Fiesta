@@ -1,8 +1,10 @@
 $(document).ready(function() {
   getCreateAct();
 });
+
+
 $(document).on('change', 'input', function() {
-  re = /select|update|delete|exec|count|'|"|=|;|>|<|%|\*|-/;
+  re = /select|update|delete|exec|count|'|"|=|;|>|<|%|\*/;
   if ($(this).val().match(re)) {
     $.confirm({
       title: '錯誤！',
@@ -17,9 +19,10 @@ $(document).on('change', 'input', function() {
         },
       },
     });
-    $(this).val('');
+    // $(this).val('');
   }
 });
+
 
 /**
  * 取得已創建未過期活動

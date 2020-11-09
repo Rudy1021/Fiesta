@@ -262,4 +262,8 @@ textarea {
   border-radius: 3rem;
   width: 7rem;
 }
+
+.QRcode {
+  cursor: pointer;
+}
 /*# sourceMappingURL=style-dashboard.css.map */

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body * {
-  font-family: Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji","微軟正黑體";
+  font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "微軟正黑體";
 }
 
 .card-body {
@@ -8,84 +8,80 @@ body * {
 }
 
 .card-body .tag {
-  float: left;
   background: #d0f1eb;
+  border-radius: 0 .8rem 0 .1rem;
   color: #155c3b;
-  margin-right: 0.5rem;
+  float: left;
   height: 2rem;
-  line-height: 0rem;
-  padding: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  border-radius: 0 0.8rem 0 0.1rem;
+  line-height: 0;
+  margin-right: .5rem;
   margin-top: .5rem;
+  padding: 1rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .li-2 {
   line-height: 2rem;
 }
 
-/* The switch - the box around the slider */
 .switch {
-  position: relative;
   display: inline-block;
-  width: 60px;
   height: 25px;
+  position: relative;
+  width: 60px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
+  height: 0;
   opacity: 0;
   width: 0;
-  height: 0;
 }
 
-/* The slider */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
   position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
+  right: 0;
+  top: 0;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
-input:checked + .slider {
-  background-color: #EB5F36;
-}
-
-input:focus + .slider {
-  -webkit-box-shadow: 0 0 1px #EB5F36;
-          box-shadow: 0 0 1px #EB5F36;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(35px);
-  transform: translateX(35px);
-}
-
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.slider.round::before {
   border-radius: 50%;
+}
+
+.slider::before {
+  background-color: #fff;
+  bottom: 4px;
+  content: '';
+  height: 18px;
+  left: 4px;
+  position: absolute;
+  -webkit-transition: .4s;
+  transition: .4s;
+  width: 18px;
+}
+
+input:checked + .slider {
+  background-color: #eb5f36;
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translateX(35px);
+  transform: translateX(35px);
+}
+
+input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #eb5f36;
+          box-shadow: 0 0 1px #eb5f36;
 }
 
 .bg-gradient-primary {
@@ -94,17 +90,17 @@ input:checked + .slider:before {
 }
 
 .text-main {
-  color: #EB5F36 !important;
+  color: #eb5f36 !important;
 }
 
 .all-title {
-  border-left: 4px solid #EB5F36;
+  border-left: 4px solid #eb5f36;
   padding-left: 1rem;
 }
 
 .btn-main {
-  background: #EB5F36 !important;
-  border-color: #EB5F36 !important;
+  background: #eb5f36 !important;
+  border-color: #eb5f36 !important;
 }
 
 span.id {
@@ -124,14 +120,18 @@ div.edit {
 }
 
 .font-09 {
-  font-size: 0.9rem;
+  font-size: .9rem;
 }
 
+.del-schedule,
+.del-ticket,
+.del-lotte,
+.ticketid,
+.scheduleid,
+.lotteid,
+.add,
+.edit-models,
 .authid {
-  display: none;
-}
-
-.del-schedule, .del-ticket, .del-lotte, .ticketid, .scheduleid, .lotteid, .add {
   display: none;
 }
 
@@ -139,49 +139,41 @@ textarea {
   resize: none !important;
 }
 
-.edit-models {
-  display: none;
-}
-
 .change-img {
   background-image: url("../img/bg1.jpg");
   background-position: center;
   background-size: cover;
-  width: 100%;
   height: 20rem;
+  width: 100%;
 }
 
 .pic-edit {
-  position: relative;
+  background: #f19579;
   bottom: -17.5rem;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.6);
+  position: relative;
   width: 100%;
 }
 
-.pic-edit:hover {
-  background: #faf9f9;
-}
-
 .text-primary {
-  color: #EB5F36 !important;
+  color: #eb5f36 !important;
 }
 
 .btn-orange {
-  background: #EB5F36;
+  background: #eb5f36;
   color: #fff;
 }
 
 .btn-orange:hover {
-  background: #EA3E36;
+  background: #eb5f36;
   color: #fff;
 }
 
 .adv-title {
-  border-left: 6px #EA3E36 solid;
+  border-left: 6px #eb5f36 solid;
   font-size: 1.8rem;
   line-height: 1.8rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 
 .li-1 {
@@ -189,19 +181,18 @@ textarea {
 }
 
 .adv-info .modal-title {
-  border-left: 6px #EA3E36 solid;
+  border-left: 6px #ea3e36 solid;
   font-size: 1.3rem;
   line-height: 1.3rem;
-  margin-bottom: 0.5rem;
-  padding-left: 0.5rem;
-  margin-left: 0.5rem;
-  margin-bottom: 0rem;
-  margin-top: 0.2rem;
+  margin-bottom: .5rem;
+  margin-left: .5rem;
+  margin-top: .2rem;
+  padding-left: .5rem;
 }
 
 .adv-info .modal-body {
   font-size: 1.1rem;
-  margin-left: 0.5rem;
+  margin-left: .5rem;
 }
 
 .adv-btn-info {
@@ -209,53 +200,53 @@ textarea {
 }
 
 .adv-show {
-  text-align: justify;
   font-size: 1.1rem;
   margin-top: 1rem;
   padding: 1rem;
+  text-align: justify;
 }
 
 @media screen and (max-width: 480px) {
   .adv-title {
-    border-left: 3px #EA3E36 solid;
+    border-left: 3px #ea3e36 solid;
     font-size: 1.3rem;
     line-height: 1.3rem;
-    margin-bottom: 0.5rem;
-    margin-top: 0.8rem;
+    margin-bottom: .5rem;
+    margin-top: .8rem;
   }
   .adv-text {
     padding-left: 1rem;
   }
   .adv-btn-info {
-    margin-right: 0.5rem;
+    margin-right: .5rem;
   }
 }
 
 .adv-test {
   line-height: 2rem;
-  padding-left: 2rem;
   margin-top: 0;
+  padding-left: 2rem;
 }
 
 .tag-list {
-  overflow-y: scroll;
   height: 16.5rem;
+  overflow-y: scroll;
 }
 
 .tag-box {
-  height: 2rem;
-  background: #EA3E36;
+  background: #ea3e36;
   border-radius: 2rem;
-  -webkit-box-shadow: 0.1rem 0.1rem #aaaaaa;
-          box-shadow: 0.1rem 0.1rem #aaaaaa;
-  margin: 0.5rem;
+  -webkit-box-shadow: 0.1rem 0.1rem #aaa;
+          box-shadow: 0.1rem 0.1rem #aaa;
   color: #e9e9e9;
-  letter-spacing: 0.1rem;
-  float: left;
-  line-height: 2rem;
   cursor: pointer;
-  padding-left: 0.5rem;
-  padding-right: 0.3rem;
+  float: left;
+  height: 2rem;
+  letter-spacing: .1rem;
+  line-height: 2rem;
+  margin: .5rem;
+  padding-left: .5rem;
+  padding-right: .3rem;
 }
 
 .advertising .form-control {
@@ -270,5 +261,9 @@ textarea {
 .advertising .btn {
   border-radius: 3rem;
   width: 7rem;
+}
+
+.QRcode {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style-dashboard.css.map */

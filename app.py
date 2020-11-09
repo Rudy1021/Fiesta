@@ -66,7 +66,7 @@ def logintest():
 
 @app.route("/check")
 def check():
-    return render_template("/check.html")
+    return render_template("check.html")
 
 
 @app.route('/signup')
@@ -75,13 +75,18 @@ def signup():
 
 
 @app.route('/forgotpassword/<id>')
-def test(id):
+def forgotpassword(id):
     return render_template("forgotpassword.html")
 
 
 @app.route('/Mailsuccess/<id>')
 def Mailsuccess(id):
     return render_template("successMail.html")
+
+
+@app.route('/QRcode')
+def QRcode():
+    return render_template("QRcode.html")
 
 
 @app.route('/Activity')
@@ -127,9 +132,9 @@ def advertising():
     return render_template("advertising.html")
 
 
-@app.route("/photo")
-def photo():
-    return render_template("photo.html")
+@app.route("/test")
+def test():
+    return render_template("test.html")
 
 
 # Run App

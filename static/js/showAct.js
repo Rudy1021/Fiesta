@@ -15,7 +15,7 @@ $(document).on('click', '.tick-sub', function() {
 
 
 $(document).on('click', '.ticketsub', function() {
-  $.cookie('kind', $(this).parent().prev().prev().prev().html());
+  $.cookie('kind', $(this).parent().prev().prev().prev().html(), {path: '/'});
   $('.join-btn').click();
 });
 
@@ -31,104 +31,114 @@ function setJoinedList() {
       ticketKinds: $.cookie('kind'),
       Notes: $('#Remark').val(),
     };
+    $.ajax({
+      type: 'POST',
+      url: 'http://fiesta-o2o.tw:8888/payment/test',
+      data: JSON.stringify(datasetJoinedList),
+      contentType: 'application/json',
+      datatype: JSON,
+      async: false,
+      success: function(response) {
+        $('body').append(response);
+      },
+    });
   } else {
     datasetJoinedList = {
       act_Id: $.cookie('acid'),
       authId: $.cookie('Id'),
       Notes: $('#Remark').val(),
     };
+    $.ajax({
+      type: 'POST',
+      url: 'http://163.18.42.222:8888/Fiestadb/Activity/setJoinedList',
+      data: JSON.stringify(datasetJoinedList),
+      contentType: 'application/json',
+      datatype: JSON,
+      async: false,
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+      },
+      success: function(data) {
+        if (data.code == '018') {
+          $.confirm({
+            title: '警告',
+            animation: 'zoom',
+            closeAnimation: 'scale',
+            content: '已經加入此活動',
+            buttons: {
+              確定: {
+                btnClass: 'btn-success',
+                action: function() {
+                },
+              },
+            },
+          });
+        } else if (data.code == '020') {
+          $.confirm({
+            title: '警告',
+            animation: 'zoom',
+            closeAnimation: 'scale',
+            content: '尚未驗證此會員',
+            buttons: {
+              確定: {
+                btnClass: 'btn-success',
+                action: function() {
+                  location.href = '/MyProfile';
+                },
+              },
+            },
+          });
+        } else if (data.code == '019') {
+          $.confirm({
+            title: '錯誤',
+            animation: 'zoom',
+            closeAnimation: 'scale',
+            content: '憑證過期，請重新登入',
+            buttons: {
+              確定: {
+                btnClass: 'btn-success',
+                action: function() {
+                  $('#logout').click();
+                },
+              },
+            },
+          });
+        } else if (data.code == '001') {
+          $.confirm({
+            title: '成功',
+            animation: 'zoom',
+            closeAnimation: 'scale',
+            content: '報名成功！',
+            buttons: {
+              確定: {
+                btnClass: 'btn-success confirm',
+                action: function() {
+                },
+              },
+            },
+          });
+          $('button.join-btn').html('已加入').prop('disabled', 'disabled');
+          $('.ticket').html('已加入').prop('disabled', 'disabled');
+        } else {
+          $.confirm({
+            title: '失敗',
+            animation: 'zoom',
+            closeAnimation: 'scale',
+            content: '未知錯誤！ 請稍後再試！',
+            buttons: {
+              確定: {
+                btnClass: 'btn-success',
+                action: function() {
+                  location.reload();
+                },
+              },
+            },
+          });
+        }
+      },
+    });
+    $('.close-sub').click();
   }
-  $.ajax({
-    type: 'POST',
-    url: 'http://163.18.42.222:8888/Fiestadb/Activity/setJoinedList',
-    data: JSON.stringify(datasetJoinedList),
-    contentType: 'application/json',
-    datatype: JSON,
-    async: false,
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
-    },
-    success: function(data) {
-      if (data.code == '018') {
-        $.confirm({
-          title: '警告',
-          animation: 'zoom',
-          closeAnimation: 'scale',
-          content: '已經加入此活動',
-          buttons: {
-            確定: {
-              btnClass: 'btn-success',
-              action: function() {
-              },
-            },
-          },
-        });
-      } else if (data.code == '020') {
-        $.confirm({
-          title: '警告',
-          animation: 'zoom',
-          closeAnimation: 'scale',
-          content: '尚未驗證此會員',
-          buttons: {
-            確定: {
-              btnClass: 'btn-success',
-              action: function() {
-                location.href = '/MyProfile';
-              },
-            },
-          },
-        });
-      } else if (data.code == '019') {
-        $.confirm({
-          title: '錯誤',
-          animation: 'zoom',
-          closeAnimation: 'scale',
-          content: '憑證過期，請重新登入',
-          buttons: {
-            確定: {
-              btnClass: 'btn-success',
-              action: function() {
-                $('#logout').click();
-              },
-            },
-          },
-        });
-      } else if (data.code == '001') {
-        $.confirm({
-          title: '成功',
-          animation: 'zoom',
-          closeAnimation: 'scale',
-          content: '報名成功！',
-          buttons: {
-            確定: {
-              btnClass: 'btn-success confirm',
-              action: function() {
-              },
-            },
-          },
-        });
-        $('button.join-btn').html('已加入').prop('disabled', 'disabled');
-        $('.ticket').html('已加入').prop('disabled', 'disabled');
-      } else {
-        $.confirm({
-          title: '失敗',
-          animation: 'zoom',
-          closeAnimation: 'scale',
-          content: '未知錯誤！ 請稍後再試！',
-          buttons: {
-            確定: {
-              btnClass: 'btn-success',
-              action: function() {
-                location.reload();
-              },
-            },
-          },
-        });
-      }
-    },
-  });
-  $.removeCookie('kind');
-  $('.close-sub').click();
 }
 
 /**
