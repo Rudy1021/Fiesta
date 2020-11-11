@@ -6,6 +6,7 @@ body * {
 .card-body {
   line-height: 3rem;
 }
+
 .card-body .tag {
   background: #d0f1eb;
   border-radius: 0 0.8rem 0 0.1rem;
@@ -30,6 +31,7 @@ body * {
   position: relative;
   width: 60px;
 }
+
 .switch input {
   height: 0;
   opacity: 0;
@@ -47,12 +49,15 @@ body * {
   top: 0;
   transition: 0.4s;
 }
+
 .slider.round {
   border-radius: 34px;
 }
+
 .slider.round::before {
   border-radius: 50%;
 }
+
 .slider::before {
   -webkit-transition: 0.4s;
   background-color: #fff;
@@ -68,13 +73,15 @@ body * {
 input:checked + .slider {
   background-color: #eb5f36;
 }
+
 input:checked + .slider::before {
-  -ms-transform: translateX(35px);
   -webkit-transform: translateX(35px);
   transform: translateX(35px);
 }
+
 input:focus + .slider {
-  box-shadow: 0 0 1px #eb5f36;
+  -webkit-box-shadow: 0 0 1px #eb5f36;
+          box-shadow: 0 0 1px #eb5f36;
 }
 
 .bg-gradient-primary {
@@ -182,6 +189,7 @@ textarea {
   margin-top: 0.2rem;
   padding-left: 0.5rem;
 }
+
 .adv-info .modal-body {
   font-size: 1.1rem;
   margin-left: 0.5rem;
@@ -206,15 +214,14 @@ textarea {
     margin-bottom: 0.5rem;
     margin-top: 0.8rem;
   }
-
   .adv-text {
     padding-left: 1rem;
   }
-
   .adv-btn-info {
     margin-right: 0.5rem;
   }
 }
+
 .adv-test {
   line-height: 2rem;
   margin-top: 0;
@@ -229,7 +236,8 @@ textarea {
 .tag-box {
   background: #ea3e36;
   border-radius: 2rem;
-  box-shadow: 0.1rem 0.1rem #aaa;
+  -webkit-box-shadow: 0.1rem 0.1rem #aaa;
+          box-shadow: 0.1rem 0.1rem #aaa;
   color: #e9e9e9;
   cursor: pointer;
   float: left;
@@ -245,9 +253,11 @@ textarea {
   border: 1px solid #ead1d1;
   border-radius: 1.5rem;
 }
+
 .advertising label {
   line-height: 2rem;
 }
+
 .advertising .btn {
   border-radius: 3rem;
   width: 7rem;
@@ -256,3 +266,4 @@ textarea {
 .QRcode {
   cursor: pointer;
 }
+/*# sourceMappingURL=style-dashboard.css.map */

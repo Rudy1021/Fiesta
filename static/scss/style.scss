@@ -1,18 +1,18 @@
-$font-1:'微軟正黑體';
-$font-u:italic;
-$font-b:bold;
-$font-size-1:1.1rem;
-$font-size-2:1.2rem;
-$font-size-3:1.4rem;
-$font-size-4:.5rem;
-$font-size-5:.8rem;
-$font-size-6:1rem;
-$font-size-7:.9rem;
-$font-color-1:#777;
-$font-color-2:#fff;
-$font-color-3:#c4c4c4;
-$purple:#76264a;
-$purple-2:#76265a;
+$font-1: "微軟正黑體";
+$font-u: italic;
+$font-b: bold;
+$font-size-1: 1.1rem;
+$font-size-2: 1.2rem;
+$font-size-3: 1.4rem;
+$font-size-4: 0.5rem;
+$font-size-5: 0.8rem;
+$font-size-6: 1rem;
+$font-size-7: 0.9rem;
+$font-color-1: #777;
+$font-color-2: #fff;
+$font-color-3: #c4c4c4;
+$purple: #76264a;
+$purple-2: #76265a;
 
 .text-center {
   margin: 0 auto;
@@ -31,9 +31,9 @@ $purple-2:#76265a;
 }
 
 .login_close {
-  font-weight: 0;
-  font-size: 0.75rem;
   float: none;
+  font-size: 0.75rem;
+  font-weight: 0;
 }
 
 .fixed-right {
@@ -43,7 +43,6 @@ $purple-2:#76265a;
 .img-introduction {
   height: 27.5625rem;
   max-width: 48.5625rem;
-
 }
 
 .mr-8 {
@@ -55,7 +54,7 @@ $purple-2:#76265a;
 }
 
 .text-black {
-  color: black;
+  color: #000;
 }
 
 .font-size-5 {
@@ -63,19 +62,19 @@ $purple-2:#76265a;
 }
 
 .logo-size {
-  max-width: 13rem;
   height: auto;
+  max-width: 13rem;
 }
 
 .btn-radius {
   border-radius: 3rem;
-  width: 2.5rem;
   height: 2.5rem;
+  width: 2.5rem;
 }
 
 .btn-color {
   background-color: rgb(60, 61, 125);
-  color: white;
+  color: #fff;
 }
 
 .mt-08 {
@@ -83,19 +82,19 @@ $purple-2:#76265a;
 }
 
 .textbox-circle {
-  border-radius: 5rem;
   background-color: rgba(0, 0, 0, 0.116);
   border: rgba(0, 0, 0, 0.116);
+  border-radius: 5rem;
 }
 
 .nav-logo {
-  max-width: 4%;
   height: auto;
+  max-width: 4%;
 }
 
 .nav-btn {
   background-color: transparent;
-  border: 0.1px solid rgba(0, 0, 0, 0.050);
+  border: 0.1px solid rgba(0, 0, 0, 0.05);
   padding: 8px 48px 8px 48px;
   width: 125.375px;
 }
@@ -110,8 +109,8 @@ input:focus {
 
 .img-about {
   height: 30%;
-  max-width: 30rem;
   margin-bottom: 1rem;
+  max-width: 30rem;
 }
 
 .dialog {
@@ -135,34 +134,34 @@ a:active {
 }
 
 .arrow-up {
-  width: 0;
-  height: 0;
+  border-bottom: 12px solid #fff;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
-  border-bottom: 12px solid white;
+  height: 0;
+  width: 0;
 }
 
 .kind-btn {
   background-color: rgba(0, 0, 0, 0.082);
-  border: 0.1px solid rgba(0, 0, 0, 0.050);
+  border: 0.1px solid rgba(0, 0, 0, 0.05);
 }
 
 div.circle {
-  border-radius: 50%;
   border: solid 30px rgb(190, 190, 190);
-  width: 30px;
+  border-radius: 50%;
   height: 30px;
+  width: 30px;
 }
 
 div.rectangle {
   border: solid 15px rgb(190, 190, 190);
-  height: 10px;
   border-bottom-width: 10px;
+  height: 10px;
 }
 
 div.colcircle {
   padding-left: 82px;
-  padding-right: 0px;
+  padding-right: 0;
   z-index: 1;
 }
 
@@ -185,37 +184,37 @@ button:focus {
 
 .font-1 {
   font-family: $font-1;
+  font-size: $font-size-1;
   font-style: $font-u;
   font-weight: $font-b;
-  font-size: $font-size-1;
   margin-top: 10px;
 }
 
 .font-2 {
-  font-family: $font-1;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
   color: $font-color-1;
+  font-family: $font-1;
   font-size: $font-size-2;
+  hyphens: auto;
   line-height: 2rem;
   word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
 }
 
 .font-3 {
   font-family: $font-1;
-  font-weight: $font-b;
   font-size: $font-size-1;
+  font-weight: $font-b;
   margin-top: 10px;
 }
 
 .font-4 {
   font-family: $font-1;
+  font-size: $font-size-1;
   font-style: $font-u;
   font-weight: $font-b;
-  font-size: $font-size-1;
-  margin-top: 0.1rem;
   letter-spacing: 0.5px;
+  margin-top: 0.1rem;
 }
 
 .font-5 {
@@ -224,8 +223,8 @@ button:focus {
 
 .btn-purple {
   background: $purple;
-  font-weight: normal !important;
   color: $font-color-2;
+  font-weight: normal !important;
 }
 
 .btn-purple:hover {
@@ -234,60 +233,60 @@ button:focus {
 }
 
 .card {
-  margin: 0.7% !important;
   border: 1 !important;
-  width: 23.5% !important;
   float: left !important;
   font-family: $font-1;
+  margin: 0.7% !important;
   padding: 0.3rem;
+  width: 23.5% !important;
 
   .badge {
-    width: 4rem;
     padding: 0.2rem;
+    width: 4rem;
   }
 }
 
 .card-title {
+  color: #000 !important;
   font-size: 0.9rem !important;
-  margin: 0;
   font-weight: 900;
+  margin: 0;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
-  color: #000000 !important;
+  white-space: nowrap;
 }
 
 .card-body p {
   line-height: 20px;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-title-2 {
+  color: #000 !important;
   font-size: 0.8rem;
   font-weight: bold;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
-  color: #000000 !important;
+  white-space: nowrap;
 }
 
 .card-text {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   color: $font-color-1 !important;
+  display: -webkit-box;
   font-size: $font-size-5;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  white-space: nowrap;
   white-space: normal;
 }
 
 .card-date {
-  font-size: $font-size-4;
   color: $font-color-1;
+  font-size: $font-size-4;
   //text-align: center; 
   //line-height: 1rem;
   margin: 0.3rem 0 0 0;
@@ -298,8 +297,8 @@ button:focus {
 }
 
 .container-create {
-  width: 40%;
   margin: auto;
+  width: 40%;
 }
 
 .col-create-title {
@@ -307,13 +306,13 @@ button:focus {
 }
 
 .btn-max {
-  width: 100%;
   height: 3rem;
+  width: 100%;
 }
 
 .btn-half {
-  width: 20%;
   letter-spacing: 0.1rem;
+  width: 20%;
 }
 
 .btn-bottom {
@@ -326,8 +325,8 @@ button:focus {
 
 .btn-rm {
   height: 3rem;
-  line-height: 0.5rem !important;
   letter-spacing: 0.2rem;
+  line-height: 0.5rem !important;
 }
 
 .btn-size {
@@ -335,28 +334,28 @@ button:focus {
 }
 
 .create-container {
-  font-family: '微軟正黑體';
+  font-family: "微軟正黑體";
 
   .con-left {
-    float: left;
     border-right: 0.5px #c4c4c4 solid;
-    width: 10rem;
+    float: left;
     height: 26.5rem;
     text-align: center;
+    width: 10rem;
   }
 
   .list-group-item {
     background: #f7f7f7;
-    border-radius: 0;
-    border-left: 0;
-    border-right: 0;
     border-bottom: 0.3px #c4c4c4 solid;
-    color: #777777;
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    color: #777;
   }
 
   .now {
     background: #d6d6d6;
-    color: #000000;
+    color: #000;
   }
 
   .list-group-item:hover {
@@ -373,10 +372,10 @@ button:focus {
     width: 90%;
 
     li {
-      text-align: left;
       font-size: 1rem;
-      line-height: 2.3rem;
       letter-spacing: 0.3rem;
+      line-height: 2.3rem;
+      text-align: left;
     }
   }
 
@@ -403,7 +402,7 @@ button:focus {
   }
 }
 
-/*-------------------- New Create -----------------*/
+/* -------------------- New Create ----------------- */
 .CreateGroup,
 .choose-temporarily,
 .choose-first,
@@ -425,42 +424,42 @@ button:focus {
 
 .choosed {
   .sort-circle {
-    width: 4.5rem;
-    height: 4.5rem;
     background: #708079;
-    text-align: center;
     border-radius: 10rem;
-    font-size: 0.3rem;
-    padding-top: 1.2rem;
+    color: #fff;
     float: left;
-    color: #FFFFFF;
+    font-size: 0.3rem;
+    height: 4.5rem;
     margin: 0.5rem 0 0.3rem 2rem;
+    padding-top: 1.2rem;
+    text-align: center;
+    width: 4.5rem;
   }
 
   .sort-circle:hover {
     background: #c3ddd2;
-    transition: width 1s;
     cursor: pointer;
+    transition: width 1s;
   }
 }
 
 .choose {
   .sort-circle {
-    width: 4.5rem;
-    height: 4.5rem;
     border: 1px #c3ddd2 solid;
-    text-align: center;
     border-radius: 10rem;
-    font-size: 0.3rem;
-    padding-top: 5em;
     float: left;
+    font-size: 0.3rem;
+    height: 4.5rem;
     margin: 0.5rem 0 0.3rem 2rem;
+    padding-top: 5em;
+    text-align: center;
+    width: 4.5rem;
   }
 
   .sort-circle:hover {
     background: #c3ddd2;
-    transition: width 1s;
     cursor: pointer;
+    transition: width 1s;
   }
 }
 
@@ -469,8 +468,8 @@ button:focus {
 }
 
 .btn-area {
-  margin-top: 1rem;
   margin-left: -2rem;
+  margin-top: 1rem;
 
   .btn {
     margin: 0 0 0 2rem;
@@ -502,11 +501,11 @@ button:focus {
   }
 
   .time-to {
-    width: 0.4rem;
     float: left;
     margin-left: -1rem;
     margin-right: 1rem;
     margin-top: 1.5rem;
+    width: 0.4rem;
   }
 
   .time-row {
@@ -514,13 +513,13 @@ button:focus {
   }
 
   .time-add {
-    height: 5rem;
     float: left;
+    height: 5rem;
   }
 
   .ticket-add-2 {
-    padding: 1.5rem;
     height: 5rem;
+    padding: 1.5rem;
   }
 
   .progress {
@@ -530,19 +529,19 @@ button:focus {
 
   .btn-radius-2 {
     border-radius: 3rem;
-    width: 2.5rem;
-    height: 2.5rem;
     display: inline-block;
-    margin: -0.5rem 0 0 0rem;
+    height: 2.5rem;
+    margin: -0.5rem 0 0 0;
+    width: 2.5rem;
   }
 }
 
 .choose-ticket {
   .ticket-text {
     float: left;
-    margin-right: 1.5rem;
-    margin-top: 0rem;
     margin-bottom: 1rem;
+    margin-right: 1.5rem;
+    margin-top: 0;
   }
 
   .ticket-size-1 {
@@ -562,8 +561,8 @@ button:focus {
   }
 
   .ticket-add-2 {
-    padding: 1.5rem;
     height: 5rem;
+    padding: 1.5rem;
   }
 
   .ticket-add {
@@ -577,19 +576,19 @@ button:focus {
 
   .btn-radius {
     border-radius: 3rem;
-    width: 2.5rem;
-    height: 2.5rem;
     display: inline-block;
+    height: 2.5rem;
     margin: 0 0 0 1rem;
     text-align: center;
+    width: 2.5rem;
   }
 
   .btn-radius-2 {
     border-radius: 3rem;
-    width: 2.5rem;
-    height: 2.5rem;
     display: inline-block;
+    height: 2.5rem;
     margin: 0 0 0 1rem;
+    width: 2.5rem;
   }
 }
 
@@ -600,7 +599,6 @@ button:focus {
     clear: both;
     margin-top: 3rem !important;
   }
-
 }
 
 .show-2 {
@@ -608,39 +606,39 @@ button:focus {
 }
 
 .profile-pic {
-  border-radius: 50rem;
   background-image: url("../img/10.png");
   background-size: cover;
-  width: 10.1rem;
-  height: 10.1rem;
-  margin-bottom: 0.8rem;
-  padding-top: 3.8rem;
-  padding-left: 0rem;
-  text-align: center;
-  position: relative;
-  top: -0.25rem;
-  left: -0.25rem;
+  border-radius: 50rem;
   display: none;
+  height: 10.1rem;
+  left: -0.25rem;
+  margin-bottom: 0.8rem;
+  padding-left: 0;
+  padding-top: 3.8rem;
+  position: relative;
+  text-align: center;
+  top: -0.25rem;
+  width: 10.1rem;
 }
 
 .profile-pic-edit {
   background: rgba(0, 0, 0, 0.6);
-  width: 10rem;
   border-radius: 0 0 50rem 50rem;
+  display: none;
   height: 50%;
+  left: -0.2rem;
   position: relative;
   top: 5rem;
-  left: -0.2rem;
-  display: none;
+  width: 10rem;
 }
 
 .profile-pic-area {
   background-image: url("../img/10.png");
   background-size: cover;
-  border-radius: 50rem;
-  width: 10rem;
-  height: 10rem;
   border: 3px #979797 dashed;
+  border-radius: 50rem;
+  height: 10rem;
+  width: 10rem;
 }
 
 .mb-1 {
@@ -660,30 +658,30 @@ button:focus {
 }
 
 .carousel-control-next-2 {
-  margin-right: -2.5rem !important;
   background: #c0c0c0;
-  width: 3rem;
-  height: 3rem;
-  margin-top: 9rem;
   border-radius: 10rem;
+  height: 3rem;
+  margin-right: -2.5rem !important;
+  margin-top: 9rem;
+  width: 3rem;
 }
 
 .carousel-control-prev-2 {
-  margin-left: -3rem !important;
   background: #c0c0c0;
-  width: 3rem;
-  height: 3rem;
-  margin-top: 9rem;
   border-radius: 10rem;
+  height: 3rem;
+  margin-left: -3rem !important;
+  margin-top: 9rem;
+  width: 3rem;
 }
 
 .modal-body {
   .modal-textarea {
-    width: 50%;
     float: left;
+    line-height: 1.8rem;
     padding: 1rem;
     padding-top: 0.5rem;
-    line-height: 1.8rem;
+    width: 50%;
 
     .modal-title-1 {
       font-weight: $font-b;
@@ -696,27 +694,27 @@ button:focus {
   }
 
   .bold-title {
-    font-weight: $font-b;
     font-size: $font-size-6;
+    font-weight: $font-b;
   }
 
   .text {
-    margin-left: 1.5rem;
     font-size: $font-size-7;
+    margin-left: 1.5rem;
   }
 }
 
 .follow {
   position: absolute;
-  top: -0.5rem !important;
   right: 1rem;
+  top: -0.5rem !important;
 }
 
 .group-create {
   margin: 0 !important;
   position: relative;
-  top: -2.5rem !important;
   right: 0.3rem;
+  top: -2.5rem !important;
 }
 
 /* 0506 new */
@@ -737,31 +735,31 @@ span#gid {
 }
 
 .choosed .define-circle {
-  width: 4.5rem;
-  height: 4.5rem;
   background: #708079;
-  text-align: center;
   border-radius: 10rem;
-  font-size: 0.3rem;
-  line-height: 4.5rem;
+  color: #fff;
   float: left;
-  color: #FFFFFF;
+  font-size: 0.3rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
   margin: 0.5rem 0 0.3rem 2rem;
+  text-align: center;
+  width: 4.5rem;
 }
 
 .choosed .define-circle:hover {
   background: #c3ddd2;
-  transition: width 1s;
   cursor: pointer;
+  transition: width 1s;
 }
 
 .choose-timeliness {
   .btn-timeliness {
-    width: 100%;
+    font-size: $font-size-3;
     height: 9rem;
     margin-bottom: 0.5rem;
-    font-size: $font-size-3;
     margin-top: 1rem;
+    width: 100%;
   }
 
   .progress {
@@ -781,15 +779,15 @@ span#gid {
 }
 
 .btn-cart {
-  position: absolute;
-  right: 1rem;
   bottom: 1rem;
   padding-left: 0.6rem;
+  position: absolute;
+  right: 1rem;
 }
 
 .form-inline {
-  position: absolute;
   left: 40%;
+  position: absolute;
 }
 
 .z-1 {
@@ -821,30 +819,30 @@ span#mid {
 }
 
 .search-area {
-  background: #dddddd;
-  z-index: 2;
-  width: 25rem;
-  height: auto;
-  position: absolute;
-  right: 0rem;
+  background: #ddd;
   border-radius: 0 0 1rem 1rem;
-  margin-top: 0rem;
-  margin-right: 0.4rem;
   display: none;
+  height: auto;
+  margin-right: 0.4rem;
+  margin-top: 0;
+  position: absolute;
+  right: 0;
+  width: 25rem;
+  z-index: 2;
 }
 
 .textbox-circle {
-  position: relative;
   border-radius: 5rem 5rem 5rem 5rem;
-  width: 25rem;
-  margin-top: 0rem;
   margin-left: 1.6rem;
+  margin-top: 0;
+  position: relative;
+  width: 25rem;
 }
 
 .fa-search {
-  position: absolute;
   margin-left: -0.5rem !important;
   margin-top: 0.3rem;
+  position: absolute;
 }
 
 .search-content {
@@ -853,11 +851,11 @@ span#mid {
 }
 
 .search {
+  height: auto;
+  margin-right: 1rem;
   position: absolute;
   right: 40%;
   width: 27rem;
-  height: auto;
-  margin-right: 1rem;
 }
 
 .search-img {
@@ -880,9 +878,9 @@ span#mid {
 #about {
   background-color: rgb(247, 247, 247) !important;
   height: 100%;
-  width: 100%;
-  padding-top: 3rem;
   padding-bottom: 3rem;
+  padding-top: 3rem;
+  width: 100%;
 }
 
 #ticket {
@@ -894,29 +892,29 @@ span#mid {
 }
 
 .act-tag {
-  height: 2rem;
-  background: #EA3E36;
+  -webkit-box-shadow: 0.1rem 0.1rem #aaa;
+  background: #ea3e36;
   border-radius: 2rem;
-  -webkit-box-shadow: 0.1rem 0.1rem #aaaaaa;
-  box-shadow: 0.1rem 0.1rem #aaaaaa;
-  margin: 0.5rem;
+  box-shadow: 0.1rem 0.1rem #aaa;
   color: #e9e9e9;
-  letter-spacing: 0.1rem;
-  float: left;
-  line-height: 2rem;
   cursor: pointer;
+  float: left;
+  height: 2rem;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
+  margin: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0.3rem;
 }
 
 .showAct-area {
   border: 1px solid #d6d6d6;
-  padding: 2rem;
   border-radius: 0.5rem;
+  padding: 2rem;
 }
 
 .all-title {
-  border-left: 4px solid #EB5F36;
+  border-left: 4px solid #eb5f36;
   padding-left: 1rem;
 }
 
@@ -933,8 +931,8 @@ span#mid {
 
 .segment {
   background: #e7e7e7;
-  width: 100%;
   height: 1rem;
+  width: 100%;
 }
 
 ul.social-buttons li a {
@@ -942,7 +940,7 @@ ul.social-buttons li a {
 }
 
 ul.social-buttons li a:hover {
-  background: #EB5F36 !important;
+  background: #eb5f36 !important;
 }
 
 .w-90 {
@@ -958,58 +956,58 @@ ul.social-buttons li a:hover {
 }
 
 .adv-show {
-  text-align: justify;
   font-size: 1.1rem;
   margin-top: 1rem;
   padding: 1rem;
+  text-align: justify;
 }
 
 .a {
-  position: absolute;
-  bottom: 0;
-  z-index: 3;
   background: rgba(0, 0, 0, 0.3);
-  width: 100%;
-  font-size: 1.5rem;
+  bottom: 0;
   color: #fff;
+  font-size: 1.5rem;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
 }
 
 .tag-box {
-  height: 2rem;
-  background: #EA3E36;
+  -webkit-box-shadow: 0.1rem 0.1rem #aaa;
+  background: #ea3e36;
   border-radius: 2rem;
-  -webkit-box-shadow: 0.1rem 0.1rem #aaaaaa;
-  box-shadow: 0.1rem 0.1rem #aaaaaa;
-  margin: 0.5rem;
+  box-shadow: 0.1rem 0.1rem #aaa;
   color: #e9e9e9;
-  letter-spacing: 0.1rem;
-  float: left;
-  line-height: 2rem;
   cursor: pointer;
+  float: left;
+  height: 2rem;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
+  margin: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0.3rem;
 }
 
 .tag-show {
-  width: 100%;
   text-align: right;
+  width: 100%;
 }
 
 .card-img-2 {
-  overflow: hidden;
   height: 15rem;
+  overflow: hidden;
 }
 
 .adv-show-img {
-  overflow: hidden;
   height: 70%;
+  overflow: hidden;
 }
 
 /* ---------------------------------------------------  */
-@media screen and (max-width:480px) {
+@media screen and (max-width: 480px) {
   .adv-show-img {
-    overflow: hidden;
     height: 100%;
+    overflow: hidden;
   }
 
   .search {
@@ -1026,9 +1024,9 @@ ul.social-buttons li a:hover {
   }
 
   #about {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
     height: auto;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
   }
 
   .btn-cart {
@@ -1041,14 +1039,14 @@ ul.social-buttons li a:hover {
   }
 
   .hot-activity {
-    padding-top: 0rem;
+    padding-top: 0;
   }
 
   .big-title {
-    margin-bottom: 1rem;
-    font-size: 1.2rem !important;
     color: #413f3b;
+    font-size: 1.2rem !important;
     font-weight: 200;
+    margin-bottom: 1rem;
   }
 
   .choose-ticket {
@@ -1063,52 +1061,52 @@ ul.social-buttons li a:hover {
   }
 
   .search {
-    display: none;
-    //background: #bebebe;        
-    width: 2rem;
-    height: 2rem;
     border-radius: 5rem;
-    margin-right: 0rem;
+    //background: #bebebe;        
+    display: none;
+    height: 2rem;
+    margin-right: 0;
     padding-left: 0.75rem;
+    width: 2rem;
   }
 
   .textbox-circle {
     border-radius: 5rem 5rem 5rem 5rem;
-    width: 10rem;
-    margin-top: 0rem;
     margin-left: 1.6rem;
+    margin-top: 0;
+    width: 10rem;
   }
 
   .index-btn {
+    margin-bottom: 1rem;
     position: relative;
     top: 1rem;
     width: 100% !important;
-    margin-bottom: 1rem;
   }
 
   .choosed {
     .sort-circle {
-      margin: 0.4rem;
-      width: 4rem;
       height: 4rem;
+      margin: 0.4rem;
       padding-top: 1rem;
+      width: 4rem;
     }
   }
 
   .choose {
     .sort-circle {
-      margin: 0.4rem;
-      width: 4rem;
       height: 4rem;
+      margin: 0.4rem;
       padding-top: 1.4rem;
+      width: 4rem;
     }
   }
 
   #tempgroup,
   #showActivity {
     padding: 1rem !important;
-    padding-top: 4.5rem !important;
     padding-bottom: 1.5rem !important;
+    padding-top: 4.5rem !important;
   }
 
   #group-list {
@@ -1117,19 +1115,19 @@ ul.social-buttons li a:hover {
   }
 
   .navbar-collapse {
-    background: #FFFFFF;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    background: #fff;
     border: 1px #c4c4c4 solid;
+    border-radius: 0.5rem;
+    padding: 1rem;
   }
 
   .nav-logo {
-    max-width: 3rem !important;
     margin-right: 0.5rem;
+    max-width: 3rem !important;
   }
 
   .dropdown {
-    background: #FFFFFF;
+    background: #fff;
     z-index: 2;
   }
 
@@ -1143,42 +1141,43 @@ ul.social-buttons li a:hover {
   }
 
   .card {
-    margin: 0.7% !important;
     border: 1 !important;
-    width: 100% !important;
     float: left !important;
     font-family: $font-1;
+    margin: 0.7% !important;
     padding: 0.3rem;
+    width: 100% !important;
 
     .badge {
-      width: 4rem;
       padding: 0.2rem;
+      width: 4rem;
     }
   }
 
   .carousel-control-next-2 {
-    margin-right: -2.5rem !important;
     background: #c0c0c0;
-    width: 3rem;
-    height: 3rem;
-    margin-top: 40rem;
     border-radius: 10rem;
+    height: 3rem;
+    margin-right: -2.5rem !important;
+    margin-top: 40rem;
     position: absolute;
     right: -0.7rem;
+    width: 3rem;
   }
 
   .carousel-control-prev-2 {
-    margin-top: 40em;
-    margin-left: -3rem !important;
     background: #c0c0c0;
-    width: 3rem;
-    height: 3rem;
     border-radius: 10rem;
+    height: 3rem;
+    margin-left: -3rem !important;
+    margin-top: 40em;
+    width: 3rem;
   }
 
   .font-size-5 {
     font-size: 1rem;
   }
+
 }
 
 .mt-10 {
@@ -1186,25 +1185,25 @@ ul.social-buttons li a:hover {
 }
 
 .pic-edit {
-  border: 0px;
-  border-radius: 50rem;
-  margin-top: 1.5rem;
   background-color: transparent;
+  border: 0;
+  border-radius: 50rem;
   color: #ececec;
   cursor: pointer;
+  margin-top: 1.5rem;
 }
 
 * {
-  font-family: '微軟正黑體';
+  font-family: "微軟正黑體";
 }
 
 .test {
   background-image: url("../img/10.png");
   background-size: cover;
-  width: 3rem;
-  height: 3rem;
   float: left;
+  height: 3rem;
   margin-right: 1rem;
+  width: 3rem;
 }
 
 .lh-1 {
@@ -1217,34 +1216,34 @@ ul.social-buttons li a:hover {
 
 .navbar {
   background: rgb(255, 255, 255) !important;
+  color: #fff !important;
   height: 3.5rem !important;
-  color: #FFFFFF !important;
 
   * {
-    color: #EB5F36 !important;
+    color: #eb5f36 !important;
   }
 }
 
 .quicklinks {
   a {
-    color: #EB5F36 !important;
+    color: #eb5f36 !important;
   }
 }
 
 #showActivity {
-  font-family: '微軟正黑體' !important;
+  font-family: "微軟正黑體" !important;
 
   .sort-circle {
-    width: 4.5rem;
-    height: 4.5rem;
     background: #708079;
-    text-align: center;
     border-radius: 5rem;
-    font-size: 1.0rem;
-    padding-top: 1.5rem;
+    color: #fff;
     float: left;
-    color: #FFFFFF;
+    font-size: 1rem;
+    height: 4.5rem;
     margin: 0.5rem 0 0.3rem 2rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    width: 4.5rem;
   }
 }
 
@@ -1255,10 +1254,10 @@ ul.social-buttons li a:hover {
 }
 
 .big-title {
-  margin-bottom: 1rem;
-  font-size: 2rem;
   color: #413f3b;
+  font-size: 2rem;
   font-weight: 600;
+  margin-bottom: 1rem;
   //padding-top: -5rem;
 }
 
@@ -1266,10 +1265,10 @@ ul.social-buttons li a:hover {
   background-color: rgb(247, 247, 247) !important;
 
   .big-title {
-    margin-bottom: 1rem;
-    font-size: 2rem;
     color: #413c3b;
+    font-size: 2rem;
     font-weight: 600;
+    margin-bottom: 1rem;
   }
 }
 
@@ -1286,32 +1285,32 @@ h5.title {
   background-size: cover;
 
   .login-area {
-    height: 25rem;
-    width: 22rem;
-    position: relative;
-    left: 65%;
     border-radius: 0.3rem;
+    height: 25rem;
+    left: 65%;
     padding: 1rem;
+    position: relative;
+    width: 22rem;
   }
 
   * {
-    font-family: '微軟正黑體';
+    font-family: "微軟正黑體";
   }
 
   .login-img {
-    width: 7rem;
     height: 7rem;
+    width: 7rem;
   }
 
   .forgot-pwd {
-    font-size: 0.9rem;
     color: #232f9b;
+    font-size: 0.9rem;
   }
 
   .forgot-pwd:hover {
-    text-decoration: underline;
     color: #49494b;
     cursor: pointer;
+    text-decoration: underline;
   }
 
   .mt-3 {
@@ -1325,17 +1324,17 @@ h5.title {
 
 #signin {
   * {
-    font-family: '微軟正黑體';
+    font-family: "微軟正黑體";
   }
 }
 
 .real-time-area {
   background: #fffefe;
-  width: 100%;
-  height: auto;
-  font-size: 1.2rem;
   border-radius: 0.4rem;
-  padding: 0rem 0 1rem 0;
+  font-size: 1.2rem;
+  height: auto;
+  padding: 0 0 1rem 0;
+  width: 100%;
 
   .over-time {
     color: #d4d0ca;
@@ -1352,36 +1351,36 @@ h5.title {
     }
 
     .card-body {
-      margin-top: 0.3rem;
+      border-left: 0.25rem solid #c0c0c0;
+      border-radius: 0.3rem;
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      //background: #f5f5f5;
       margin-left: 2rem;
       margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-      border-left: 0.25rem solid #c0c0c0;
-      //background: #f5f5f5;
-      color: #666666;
-      font-size: 1rem;
+      margin-top: 0.3rem;
       padding: 0.5rem;
-      border-radius: 0.3rem;
     }
   }
 }
 
 .act-star {
-  font-size: 2rem;
   color: #dfdc36;
+  font-size: 2rem;
 }
 
 .rc-1 {
-  margin-bottom: 2rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   border-radius: 0.3rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .rc-2 {
   margin-bottom: 2rem;
-  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .act-question {
@@ -1393,20 +1392,20 @@ h5.title {
 
   .question {
     background-color: #f5f5f5;
-    padding: 0.5rem;
     border-radius: 0.4rem;
+    padding: 0.5rem;
   }
 
   .question-title {
     border-bottom: 1px #dadada solid;
+    margin-bottom: 1rem;
     margin-left: -0.5rem;
     margin-right: -0.5rem;
-    margin-bottom: 1rem;
   }
 
   .title {
+    letter-spacing: 0;
     margin-top: -0.3rem;
-    letter-spacing: 0rem;
     padding-left: 2rem;
   }
 
@@ -1473,22 +1472,22 @@ span#error {
 }
 
 .create-info {
-  width: 100%;
+  background: #fff;
   border: 1px #dbdbdb solid;
   border-left: 3px solid rgb(67, 120, 190);
-  background: #ffffff;
   border-radius: 0.3rem;
-  padding: 1rem;
   box-shadow: 0.2rem 0.2rem #ececec;
+  padding: 1rem;
+  width: 100%;
 
   .title {
     color: rgb(67, 120, 190);
   }
 
   .value {
-    font-weight: 500;
-    font-size: 1.5rem;
     color: #494949;
+    font-size: 1.5rem;
+    font-weight: 500;
   }
 }
 
@@ -1498,10 +1497,10 @@ span#error {
 }
 
 .br-l-1 {
-  border-left: 5px solid #EB5F36;
+  border-left: 5px solid #eb5f36;
 
   .title {
-    color: #EB5F36;
+    color: #eb5f36;
   }
 }
 
