@@ -135,10 +135,22 @@ def advertising():
 @app.route("/test")
 def test():
     return render_template("test.html")
-    
+
+
 @app.route("/NewLogin")
 def NewLogin():
     return render_template("NewLogin.html")
+
+
+@app.route("/tag")
+def tag():
+    return render_template("tag.html")
+
+
+@app.route("/activity-new")
+def actnew():
+    return render_template("activity-new.html")
+
 
 # Run App
 if __name__ == "__main__":

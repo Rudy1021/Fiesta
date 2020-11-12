@@ -1,6 +1,7 @@
 $shadow:0 0.15rem 1.75rem 0 rgba(58,59,69,0.15);
 $shadow-2:3px 3px 3px 2px rgba(73, 73, 73, 0.2);
-$color-primary: #EB5F36;
+$color-primary: #eb5f36;
+
 .border-radius-1 {
   border-radius: 1rem;
 }
@@ -9,11 +10,11 @@ $color-primary: #EB5F36;
   border-radius: 2rem;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
-.fiesta-text-primary{
+.fiesta-text-primary {
   color: $color-primary;
 }
 
@@ -35,8 +36,8 @@ $color-primary: #EB5F36;
   box-shadow: $shadow;
   color: #e9e9e9;
   cursor: pointer;
-  height: 4rem;
-  width: 4rem;
+  height: 5rem;
+  width: 5rem;
   letter-spacing: 0.1rem;
   line-height: 2rem;
   margin: 0.5rem;
@@ -45,6 +46,16 @@ $color-primary: #EB5F36;
 .tag-text {
   margin: 0.5rem;
 }
+
+h6 {
+  font-size: 0.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+/* ---------------------index\activity------------------------- */
 
 .activity-card {
   margin-left: 8rem;
@@ -62,14 +73,6 @@ $color-primary: #EB5F36;
 .activity-icon-img {
   max-width: 100%;
   max-height: 100%;
-}
-
-h6 {
-  font-size: 0.5rem;
-}
-
-h5 {
-  font-size: 1rem;
 }
 
 .activity-img {
@@ -92,13 +95,14 @@ h5 {
   }
 }
 
-*:focus{
+*:focus {
   outline: none;
 }
-/* ------------------------navbar--------------------------------*/
+
+/* ------------------------navbar-------------------------------- */
 .navbar {
   position: relative;
-  display: -ms-flexbox;
+  display: flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -106,62 +110,74 @@ h5 {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
+
 .navbar-light .navbar-brand:hover,.navbar-brand {
   color: $color-primary !important;
 }
+
 .navbar-item a,.navbar-light .navbar-nav .nav-link {
   color: $color-primary !important;
 }
-.navbar-search{
-  width:75%;
+
+.navbar-search {
+  width: 75%;
   padding-left: 6.5%;
-  .search-area{
+
+  .search-area {
     width: 40%;
     margin: auto;
-    input{
+
+    input {
       background: #ebebeb;
       text-align: center;
-      letter-spacing: .3rem;
+      letter-spacing: 0.3rem;
     }
-    input::placeholder{      
+
+    input::placeholder {
       text-align: center;
-      letter-spacing: .6rem;
+      letter-spacing: 0.6rem;
     }
   }
 }
-/* ------------------------login--------------------------------*/
-.login{
+
+/* ------------------------login-------------------------------- */
+.login {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url("../img/bg2.jpg");
   background-size: contain;
   background-position: center;
   //background-repeat: no-repeat;
   width: 100%;
-  height: 48rem; /*»Ý­n°»´úÂsÄý¾¹°ª«×°µÅÜ¤Æ*/
+  height: 48rem; /* ï¿½Ý­nï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×°ï¿½ï¿½Ü¤ï¿½ */
   padding-top: 5rem;
+
   a {
     color: $color-primary !important;
   }
+
   a:hover {
     color: #e28d73 !important;
   }
-  .form-area{
+
+  .form-area {
     width: 40%;
-    background:rgba(rgb(240, 240, 240),0.85);
+    background: rgba(rgb(240, 240, 240),0.85);
     margin: auto;
     text-align: center;
     padding: 3rem 7rem 3rem 7rem;
-    h3{
+
+    h3 {
       color: $color-primary;
       margin-bottom: 2.2rem;
     }
-    .login-input{
+
+    .login-input {
       display: block;
       width: 100%;
-      height: calc(1.5em + .75rem + 2px);
-      padding: .375rem 1.5rem;
+      height: calc(1.5em + 0.75rem + 2px);
+      padding: 0.375rem 1.5rem;
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.5;
@@ -169,27 +185,32 @@ h5 {
       background-color: #fff;
       background-clip: padding-box;
       border: 1px solid #ced4da;      
-      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       margin-bottom: 2rem;
-      box-shadow: $shadow-2;     
+      box-shadow: $shadow-2;
     }
-    .login-input::placeholder{
+
+    .login-input::placeholder {
       color: $color-primary;
     }
+
     .btn-outline-primary {
       color: $color-primary;
       border-color: $color-primary;
       box-shadow: $shadow-2;
       margin-top: 0.5rem;
     }
+
     .btn-outline-primary:hover {
       color: #fff;
       background-color: $color-primary;
       border-color: $color-primary;
     }
+
     .text-muted {
       color: $color-primary !important;
     }
+
     ul.social-buttons li a {
       font-size: 20px;
       line-height: 50px;
@@ -197,11 +218,12 @@ h5 {
       width: 50px;
       height: 50px;
       transition: all 0.3s;
-      color: white !important;
+      color: #fff !important;
       border-radius: 100%;
       outline: none;
       background-color: #d1523c;
     }
+
     ul.social-buttons {
       margin-bottom: 0;
       width: 100%;

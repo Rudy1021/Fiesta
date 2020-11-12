@@ -28,7 +28,6 @@
   <link href="{{ url_for('static',filename='vendor/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static',filename='vendor/jquery-ui/jquery-ui-timepicker-addon.css') }}" rel="stylesheet">
   <link href="{{ url_for('static',filename='css/style-new.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static',filename='css/agency.css') }}" rel="stylesheet">
   {% block css %}{% endblock css %}
 
 </head>
@@ -36,6 +35,7 @@
 <body id="page-top">
 
   <!-- Navigation -->
+<<<<<<< HEAD
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Fiesta</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,6 +46,15 @@
       <div class="mr-auto ml-auto navbar-search">
         <form class="search-area">          
           <input class="form-control mr-sm-2 border-radius-1" type="search" placeholder="搜尋一個想參加的活動吧!" aria-label="Search">          
+=======
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+      <a class="js-scroll-trigger text-black title logo" href="/">Fiesta</a>
+      <div class="search mt-2">
+        <form class="">
+          <i class="fas fa-search p-1"></i>
+          <input class="textbox-circle pl-3 p-1" type="search" placeholder="Search" aria-label="Search"
+            id="base-Search">
+>>>>>>> 8c5932f992b37e5b3c7cba8797ff0997894dd3d0
         </form>
       </div>
       <div class="ml-auto">
