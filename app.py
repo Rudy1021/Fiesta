@@ -137,6 +137,11 @@ def test():
     return render_template("test.html")
 
 
+@app.route("/NewLogin")
+def NewLogin():
+    return render_template("NewLogin.html")
+
+
 @app.route("/tag")
 def tag():
     return render_template("tag.html")
