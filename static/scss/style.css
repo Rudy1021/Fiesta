@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .text-center {
   margin: 0 auto;
 }
@@ -168,7 +169,7 @@ button:focus {
 }
 
 .font-1 {
-  font-family: "微軟正黑體";
+  font-family: "微�??�?黑�??";
   font-style: italic;
   font-weight: bold;
   font-size: 1.1rem;
@@ -176,7 +177,7 @@ button:focus {
 }
 
 .font-2 {
-  font-family: "微軟正黑體";
+  font-family: "微�??�?黑�??";
   color: #777;
   font-size: 1.2rem;
   line-height: 2rem;
@@ -187,14 +188,14 @@ button:focus {
 }
 
 .font-3 {
-  font-family: "微軟正黑體";
+  font-family: "微�??�?黑�??";
   font-weight: bold;
   font-size: 1.1rem;
   margin-top: 10px;
 }
 
 .font-4 {
-  font-family: "微軟正黑體";
+  font-family: "微�??�?黑�??";
   font-style: italic;
   font-weight: bold;
   font-size: 1.1rem;
@@ -222,7 +223,7 @@ button:focus {
   border: 1 !important;
   width: 23.5% !important;
   float: left !important;
-  font-family: "微軟正黑體";
+  font-family: "微�??�?黑�??";
   padding: 0.3rem;
 }
 
@@ -317,7 +318,7 @@ button:focus {
 }
 
 .create-container {
-  font-family: '微軟正黑體';
+  font-family: '微�??�?黑�??';
 }
 
 .create-container .con-left {
@@ -1083,7 +1084,7 @@ ul.social-buttons li a:hover {
     border: 1 !important;
     width: 100% !important;
     float: left !important;
-    font-family: "微軟正黑體";
+    font-family: "微�??�?黑�??";
     padding: 0.3rem;
   }
   .card .badge {
@@ -1127,7 +1128,7 @@ ul.social-buttons li a:hover {
 }
 
 * {
-  font-family: '微軟正黑體';
+  font-family: '微�??�?黑�??';
 }
 
 .test {
@@ -1162,7 +1163,7 @@ ul.social-buttons li a:hover {
 }
 
 #showActivity {
-  font-family: '微軟正黑體' !important;
+  font-family: '微�??�?黑�??' !important;
 }
 
 #showActivity .sort-circle {
@@ -1219,7 +1220,7 @@ h5.title {
 }
 
 #login * {
-  font-family: '微軟正黑體';
+  font-family: '微�??�?黑�??';
 }
 
 #login .login-img {
@@ -1247,7 +1248,7 @@ h5.title {
 }
 
 #signin * {
-  font-family: '微軟正黑體';
+  font-family: '微�??�?黑�??';
 }
 
 .real-time-area {
