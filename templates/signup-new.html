@@ -1,16 +1,31 @@
 {% extends 'base-new.html' %}
 {% block content %}
-<div class="container-fluid login">
+<div class="container-fluid signup">
     <div class="form-area border-radius-2">
-        <h3>Login</h3>
+        <h3>註冊會員</h3>
         <div class="row">
-            <input type="text" class="login-input border-radius-2" placeholder="User ID">
+            <input type="text" class="login-input border-radius-2" placeholder="帳號">
         </div>
         <div class="row">
-            <input type="password" class="login-input border-radius-2" placeholder="Password">
+            <input type="password" class="login-input border-radius-2" placeholder="密碼">
         </div>
         <div class="row">
-            <button type="button" class="btn btn-block btn-outline-primary border-radius-2">Submit</button>
+            <input type="name" class="login-input border-radius-2" placeholder="真實姓名">
+        </div>
+        <div class="row">
+            <input type="nickname" class="login-input border-radius-2" placeholder="暱稱">
+        </div>
+        <div class="row">
+            <input type="schoolemail" class="login-input border-radius-2" placeholder="學校信箱 (第一個英文字請小寫)">
+        </div>
+        <div class="row">
+            <input type="cellphone" class="login-input border-radius-2" placeholder="手機號碼">
+        </div>
+        <div class="row">
+            <input type="school" class="login-input border-radius-2" placeholder="所屬學校" readonly>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-block btn-outline-primary border-radius-2">註冊</button>
         </div>
         <small id="" class="form-text text-muted mt-4"><a href="#">Forget Password?</a></small>
         <div class="row mt-4">
@@ -37,7 +52,7 @@
                 </li>                
             </ul>
         </div>
-        <small id="" class="form-text text-muted mt-4"><a href="#">Don't have an account? Sign Up!</a></small>
+        <small id="" class="form-text text-muted mt-4"><a href="#">Already have an account? Login Now</a></small>
     </div>
 </div>
 {% endblock content %}

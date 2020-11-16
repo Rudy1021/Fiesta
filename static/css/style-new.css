@@ -280,4 +280,74 @@ footer ul.social-buttons li a:hover {
 .login .form-area .login-input::placeholder {
   color: #eb5f36;
 }
+
+/* ------------------------signup-------------------------------- */
+.signup {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("../img/bg2.jpg");
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.signup a {
+  color: #eb5f36 !important;
+}
+
+.signup a:hover {
+  color: #e28d73 !important;
+}
+
+.signup .form-area {
+  width: 40%;
+  background: rgba(240, 240, 240, 0.85);
+  margin: auto;
+  text-align: center;
+  padding: 3rem 7rem 3rem 7rem;
+}
+
+.signup .form-area h3 {
+  color: #eb5f36;
+  margin-bottom: 2.2rem;
+}
+
+.signup .form-area .login-input {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #eb5f36;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  margin-bottom: 2rem;
+  -webkit-box-shadow: 3px 3px 3px 2px rgba(73, 73, 73, 0.2);
+          box-shadow: 3px 3px 3px 2px rgba(73, 73, 73, 0.2);
+}
+
+.signup .form-area .login-input::-webkit-input-placeholder {
+  color: #eb5f36;
+}
+
+.signup .form-area .login-input:-ms-input-placeholder {
+  color: #eb5f36;
+}
+
+.signup .form-area .login-input::-ms-input-placeholder {
+  color: #eb5f36;
+}
+
+.signup .form-area .login-input::placeholder {
+  color: #eb5f36;
+}
 /*# sourceMappingURL=style-new.css.map */
