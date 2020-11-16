@@ -31,21 +31,57 @@ $color-primary-light: #e28d73;
   left: -7rem;
 }
 
-.tag-box {
-  background: #fff;
-  border: 0.1px solid #b5b5b5;
-  box-shadow: $shadow;
-  color: #e9e9e9;
-  cursor: pointer;
-  height: 5rem;
-  width: 5rem;
-  letter-spacing: 0.1rem;
-  line-height: 2rem;
-  margin: 0.5rem;
-}
+/* ---------------------tag------------------------- */
 
-.tag-text {
-  margin: 0.5rem;
+.tag {
+  font-family: Arial, Helvetica, sans-serif;  
+  background-size: contain;
+  background-position: center;
+  //background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  padding: 3rem 5rem 3rem 5rem;  
+
+  .select-tag-list {
+    width: 80%;
+    margin: auto;
+    border-radius: 1rem;
+    padding-left: 2.5rem;
+  }
+
+  .card-body {
+    text-align: center;
+    padding: 1rem;
+    margin: auto;
+  }
+
+  .tag-area {
+    float: left;
+    margin: 0.5rem;
+    width: 10%;
+  }
+
+  .tag-box {
+    background: #fff;
+    border: 0.1px solid #b5b5b5;
+    box-shadow: $shadow;
+    color: #e9e9e9;
+    cursor: pointer;
+    height: 5rem;
+    width: 5rem;
+    letter-spacing: 0.1rem;
+    line-height: 2rem;
+    margin: auto;
+  }
+  
+  .tag-text {
+    margin: 0.5rem;
+    text-align: center;
+  }
+
+  small {
+    color: $color-primary;
+  }
 }
 
 h6 {

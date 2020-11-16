@@ -26,7 +26,36 @@
   left: -7rem;
 }
 
-.tag-box {
+/* ---------------------tag------------------------- */
+.tag {
+  font-family: Arial, Helvetica, sans-serif;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  padding: 3rem 5rem 3rem 5rem;
+}
+
+.tag .select-tag-list {
+  width: 80%;
+  margin: auto;
+  border-radius: 1rem;
+  padding-left: 2.5rem;
+}
+
+.tag .card-body {
+  text-align: center;
+  padding: 1rem;
+  margin: auto;
+}
+
+.tag .tag-area {
+  float: left;
+  margin: 0.5rem;
+  width: 10%;
+}
+
+.tag .tag-box {
   background: #fff;
   border: 0.1px solid #b5b5b5;
   -webkit-box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
@@ -37,11 +66,16 @@
   width: 5rem;
   letter-spacing: 0.1rem;
   line-height: 2rem;
-  margin: 0.5rem;
+  margin: auto;
 }
 
-.tag-text {
+.tag .tag-text {
   margin: 0.5rem;
+  text-align: center;
+}
+
+.tag small {
+  color: #eb5f36;
 }
 
 h6 {
@@ -288,9 +322,8 @@ footer ul.social-buttons li a:hover {
   background-size: contain;
   background-position: center;
   width: 100%;
-  height: auto;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  height: 48rem;
+  padding-top: 5rem;
 }
 
 .signup a {
