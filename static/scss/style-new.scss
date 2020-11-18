@@ -99,7 +99,39 @@ h5 {
   outline: none;
 }
 
+.activity-background-fixed {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 375px) {
+  .tag-list {
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    margin-right: 0;
+  }
+
+  .activity-card {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .activity-background-fixed {
+    position: relative;
+  }
+
+  .activity-animate {
+    margin-top: -1rem !important;
+  }
+
+}
+
 /* ------------------------navbar-------------------------------- */
+nav {
+  z-index: 1;
+}
+
 .navbar {
   position: relative;
   display: flexbox;
