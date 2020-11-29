@@ -156,9 +156,15 @@ def actnew():
 def signupnew():
     return render_template("signup-new.html")
 
+
 @app.route("/create-new")
 def createnew():
     return render_template("create-new.html")
+
+
+@app.route("/new-review")
+def newreview():
+    return render_template("new-review.html")
 
 
 # Run App

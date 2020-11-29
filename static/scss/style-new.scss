@@ -2,7 +2,18 @@ $shadow:0 0.15rem 1.75rem 0 rgba(58,59,69,0.15);
 $shadow-2:3px 3px 3px 2px rgba(73, 73, 73, 0.2);
 $color-primary: #eb5f36;
 $color-primary-light: #e28d73;
+$color-dark: #da4011;
 $color-yellow: #f88c0d;
+
+.btn-primary-2 {
+  background: $color-primary;
+  color: #fff;
+}
+
+.btn-primary-2:hover {
+  background: $color-dark;
+  color: #fff;
+}
 
 .border-radius-1 {
   border-radius: 1rem;
@@ -247,7 +258,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 415px) {
 
   footer {
     padding-top: 0.5rem;
@@ -578,10 +589,87 @@ footer {
 
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 415px) {
   .create {
     .main {
       width: 95%;
+    }
+  }
+  
+}
+
+/* ------------------------new-review-------------------------------- */
+.modal-review {
+  .btn-star-2 {
+    color: $color-primary;
+    font-size: 1.8rem;    
+    margin-bottom: 0.5rem;
+    float: left;
+
+    .fa-star {
+      margin-right: 1.5rem;
+    }
+
+    .modal-header {
+      font-size: 2rem;
+    }
+  }
+
+  .btn-star-2:hover {
+    cursor: pointer;
+    color: $color-primary-light;
+  }
+}
+
+.modal {
+  display: block;
+}
+
+.review {
+  padding: 1.5rem 3rem 1.5rem 3rem;
+  background: #eee;
+  border-radius: 1rem;
+  box-shadow: $shadow-2;
+
+  .btn-star {
+    color: $color-primary;
+    font-size: 1.8rem;    
+    margin-bottom: 0.5rem;
+    float: left;
+
+    .fa-star {
+      margin-right: 1.5rem;
+    }
+  }
+
+  .btn-star:hover {
+    cursor: pointer;
+    color: $color-primary-light;
+  }
+
+  .review-title {
+    font-size: 1.3rem;
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .review {
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    
+    .btn-star {
+      color: $color-primary;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+
+      .fa-star {
+        margin-right: 0.8rem;
+      }
+    }
+    
+    .review-title {
+      font-size: 1.3rem;
+      padding-left: 1rem;
     }
   }
   
