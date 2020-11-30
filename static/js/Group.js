@@ -45,7 +45,7 @@ $(document).on('click', '#back', function() {
   $('member-list').prop('id', '');
   $('.groupInput').val('').removeAttr('readonly');
   $('#groupCreate').hide();
-  $('p#member-line').hide();
+  $('.member').hide();
 });
 
 
@@ -144,16 +144,21 @@ function groupInfo(id, name) {
   if (name == 'info') {
     $('h5.title-group').html('群組資料');
     $('.groupInput').prop('readonly', 'readonly');
+    $('.member').hide();
+    $('.member-list').show();
+    $('#groupCreate').hide();
+    $('#back').show();
   } else if (name == 'edit') {
     $('#groupCreate').show().html('更新');
     $('button#Add').show();
-    $('p#member-line').show();
+    $('.member').show();
     $('h5.title-group').html('編輯群組');
     $('.member-list').prop('id', id);
+    $('#back').show();
   }
   if (name == 'create') {
     $('h5.title-group').html('創建一個永久群組');
-    $('p#member-line').show();
+    $('.member').show();
     $('#groupCreate').show().html('創建');
   } else {
     dataGroupSelect = {

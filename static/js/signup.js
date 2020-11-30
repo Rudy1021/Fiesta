@@ -38,13 +38,16 @@ function getSchool() {
       sch.splice(i, 1);
     }
   }
-  sch = sch[0];
+  // sch = sch[0];
   $.ajax({
     type: 'GET',
     url: 'http://163.18.42.222:8888/Fiestadb/getSchool',
     success: function(data) {
       $.each(data.result[0], function(indexInArray, content) {
-        if (sch == content) {
+        if (sch[0] == content) {
+          $('#School').val(data.result[1][indexInArray]);
+          return false;
+        } else if (sch[1] == content) {
           $('#School').val(data.result[1][indexInArray]);
           return false;
         }
@@ -151,7 +154,7 @@ function signup() {
       Mail_1: $('#Mail_1').val(),
       Phone: $('#Phone').val(),
       Distance: parseInt($('#Distance').val()),
-      School: SC,
+      School: $('#School').val(),
       Useable: 'true',
     };
     $.ajax({

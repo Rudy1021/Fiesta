@@ -1,7 +1,9 @@
 $(document).ready(function() {
   getTag();
+  setMap();
   // choosedate
-  const opt={dateFormat: 'yy-mm-dd',
+  const opt = {
+    dateFormat: 'yy-mm-dd',
     timeFormat: 'HH:mm',
     controlType: 'select',
     oneLine: true,
@@ -10,7 +12,7 @@ $(document).ready(function() {
       $('#ui-datepicker-div').css('z-index', 10);
     },
   };
-  const o={
+  const o = {
     timeOnlyShowDate: true,
     timeFormat: 'HH:mm',
     dateFormat: '',
@@ -47,7 +49,7 @@ $(document).on('click', '.minus', function() {
 
 $(document).on('click', '.options', function() {
   if ($(this).hasClass('clicked')) {
-    for (i = 0; i < define.length; i ++) {
+    for (i = 0; i < define.length; i++) {
       if ($(this).text() == define[i].innerHTML) {
         $(define).eq(i).removeClass('define-circle');
         $(define).eq(i).addClass('sort-circle');
@@ -127,7 +129,7 @@ $(document).on('click', '#datetimepicker1', function(e) {
 function findName() {
   $('div.member-list').children().remove('.createmember');
   if ($('#temgroupName').val() != '' &&
-  !$('#temgroupName').val().match(/^\s+/)) {
+    !$('#temgroupName').val().match(/^\s+/)) {
     dataFindName = {
       groupName: $('#temgroupName').val(),
     };
@@ -164,6 +166,76 @@ function findName() {
   }
 }
 
+/**
+ * 設定google Maps
+ */
+function setMap() {
+  const map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 22.7556518, lng: 120.3299092},
+    zoom: 13,
+    mapTypeId: 'roadmap',
+  });
+    // Create the search box and link it to the UI element.
+  const input = document.getElementById('pac-input');
+  const searchBox = new google.maps.places.SearchBox(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener('bounds_changed', () => {
+    searchBox.setBounds(map.getBounds());
+  });
+  let markers = [];
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener('places_changed', () => {
+    const places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
+    }
+    // Clear out the old markers.
+    markers.forEach((marker) => {
+      marker.setMap(null);
+    });
+    markers = [];
+    // For each place, get the icon, name and location.
+    const bounds = new google.maps.LatLngBounds();
+    places.forEach((place) => {
+      if (!place.geometry) {
+        console.log('Returned place contains no geometry');
+        return;
+      }
+      const icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25),
+      };
+        // Create a marker for each place.
+      markers.push(
+          new google.maps.Marker({
+            map,
+            icon,
+            title: place.name,
+            position: place.geometry.location,
+          }),
+      );
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+    SaWa = [];
+    SaWa.push(places[0]['geometry']['viewport']['Sa']['i']);
+    SaWa.push(places[0]['geometry']['viewport']['Wa']['i']);
+    return SaWa;
+  });
+}
+
 
 /**
  * 若群組名稱沒重複，則把個人檔案的值填入表單
@@ -188,9 +260,9 @@ function insertProfile() {
           $('#temEmail').val(content.Mail_1);
         }
         member = '<hr class="createmember"><div class="row createmember">' +
-        '<div class="col-2"><div class="test"></div></div>' +
-        '<div class="col-3"><h6 class="lh-3">' + content.userName +
-        '</h6></div></div>';
+          '<div class="col-2"><div class="test"></div></div>' +
+          '<div class="col-3"><h6 class="lh-3">' + content.userName +
+          '</h6></div></div>';
         $('div.member-list').prepend(member);
         $('div.createmember').children('.col-2').children('.test').css(
             'background-image', 'url("' + content.Photo + '")');
@@ -212,7 +284,7 @@ function getTag() {
     },
     success: function(data) {
       $.each(data.result, function(indexInArray, content) {
-        for (i = 0; i<content.length; i++) {
+        for (i = 0; i < content.length; i++) {
           sort = '<div class="sort-circle options">' + content[i] + '</div>';
           $('div.choose').append(sort);
         }
@@ -262,7 +334,7 @@ function nextPage(id) {
     $('div#choose-date').show();
   } else if (id.hasClass('datetime')) {
     if ($('#datetimepicker1').val() == '' ||
-        $('#datetimepicker2').val() == '' ||$('#peoplemax').val() == '') {
+      $('#datetimepicker2').val() == '' || $('#peoplemax').val() == '') {
       start = new Date(Date.parse($('.startTime').val()));
       end = new Date(Date.parse($('.startTime').val()));
       if (start < end) {
@@ -283,7 +355,7 @@ function nextPage(id) {
   } else if (id.hasClass('select-mod')) {
     $('div#choose-select').hide();
     if (id.html() == '下一步') {
-      for (i = $('.check-mod:checked').length-1; i>=0; i++) {
+      for (i = $('.check-mod:checked').length - 1; i >= 0; i--) {
         if ($('.check-mod:checked').eq(i).val() == '6') {
           $('button.next.ticket').html('下一步');
           $('button.next.ticket').addClass('btn-primary');
@@ -307,7 +379,7 @@ function nextPage(id) {
           break;
         }
       }
-      for (m = 0; m < $('.check-mod:checked').length-1; m++) {
+      for (m = 0; m < $('.check-mod:checked').length; m++) {
         if ($('.check-mod:checked').eq(m).val() == '3') {
           $('div#choose-ticket').show(); // gototicket
           break;
@@ -343,10 +415,10 @@ function nextPage(id) {
   } else if (id.hasClass('schedule')) {
     count = 0;
     st = $('.schestart');
-    for (k = $('.schestart').length; k > 1; k --) {
-      schestart = '2019-10-21' + $('.schestart').eq(k-2).val();
+    for (k = $('.schestart').length; k > 1; k--) {
+      schestart = '2019-10-21' + $('.schestart').eq(k - 2).val();
       schestart = new Date(Date.parse(schestart));
-      schestart2 = '2019-10-21' + $('.schestart').eq(k-1).val();
+      schestart2 = '2019-10-21' + $('.schestart').eq(k - 1).val();
       schestart2 = new Date(Date.parse(schestart2));
       if (schestart > schestart2) {
         $('.scherror').show();
@@ -355,7 +427,7 @@ function nextPage(id) {
         count++;
       }
     }
-    if (count == $('.schestart').length-1) {
+    if (count == $('.schestart').length - 1) {
       $('.scherror').hide();
       $('.scherror').html('');
       $('div#choose-schedule').hide();
@@ -442,29 +514,29 @@ function previousPage(id) {
 function addButton(id) {
   if (id.hasClass('ticket')) {
     ticket = '<div class="row mt-2">' +
-        '<div class="col-4"><input type="text"' +
-        'class="form-control ticketype" placeholder="票種"></div>'+
-        '<div class="col-3"><input type="text" class="form-control ' +
-        'ticketquan" placeholder="數量"></div>' +
-        '<div class="col-3"><input type="text" class="form-control ' +
-        'ticketprice" placeholder="價格"></div>' +
-        '<div class="col-1 pl-0"><button class="btn btn-danger btn-' +
-        'radius-2 clear-float minus">–</button>' +
-        '</div></div>';
+      '<div class="col-4"><input type="text"' +
+      'class="form-control ticketype" placeholder="票種"></div>' +
+      '<div class="col-3"><input type="text" class="form-control ' +
+      'ticketquan" placeholder="數量"></div>' +
+      '<div class="col-3"><input type="text" class="form-control ' +
+      'ticketprice" placeholder="價格"></div>' +
+      '<div class="col-1 pl-0"><button class="btn btn-danger btn-' +
+      'radius-2 clear-float minus">–</button>' +
+      '</div></div>';
     $('div#ticket-list').append(ticket);
   } else if (id.hasClass('schedule')) {
     schedulelist = '<div class="row mb-2 rc-2">' +
-            '<div class="col-3"><input type="text" class="form-con' +
-            'trol schetitle" placeholder="時段主題"></div>'+
-            '<div class="col-4"><input type="text" class="form-contro' +
-            'l schedetail" placeholder="說明"></div>'+
-            '<div class="col-3 pr-0"><input type="text" class="datetime' +
-            'picker3 form-control schestart"'+
-            'placeholder="開始時間"></div><div class="col-1 mt-2"><butt' +
-            'on class="btn btn-danger btn-radius-2 clear-float minus">–' +
-            '</button></div></div>';
+      '<div class="col-3"><input type="text" class="form-con' +
+      'trol schetitle" placeholder="時段主題"></div>' +
+      '<div class="col-4"><input type="text" class="form-contro' +
+      'l schedetail" placeholder="說明"></div>' +
+      '<div class="col-3 pr-0"><input type="text" class="datetime' +
+      'picker3 form-control schestart"' +
+      'placeholder="開始時間"></div><div class="col-1 mt-2"><butt' +
+      'on class="btn btn-danger btn-radius-2 clear-float minus">–' +
+      '</button></div></div>';
     $('.schedulelist').append(schedulelist);
-    const o={
+    const o = {
       timeOnlyShowDate: true,
       timeFormat: 'HH:mm',
       dateFormat: '',
@@ -473,10 +545,10 @@ function addButton(id) {
     $('.datetimepicker3').timepicker(o);
   } else if (id.hasClass('lotte')) {
     lottelist = '<div class="row mt-2 mb-2">' +
-        '<div class="col"><input class="form-control lottename"' +
-        ' type="text" placeholder="獎項"></div>' +
-        '<div class="col-1"><button class="btn btn-danger btn-rad' +
-        'ius-2 clear-float minus">–</button></div></div>';
+      '<div class="col"><input class="form-control lottename"' +
+      ' type="text" placeholder="獎項"></div>' +
+      '<div class="col-1"><button class="btn btn-danger btn-rad' +
+      'ius-2 clear-float minus">–</button></div></div>';
     $('#lottelist').append(lottelist);
   }
 }
@@ -508,13 +580,14 @@ function addGroupMember() {
         } else if (data.code == '001') {
           $.each(data.result, function(indexInArray, content) {
             member = '<div class="row"><div class="col-2">' +
-            '<div class="test" id="add-member-' + (indexInArray + 1) +
-            '"></div></div><div class="col-3"><h6 class="lh-3">' +
-            content.nickName +'</h6></div><div class="col-7 tempGroupMember" ' +
-            'id ="' + content.Id + '">' +
-            '<button class="btn btn-danger btn-group del-member ' +
-            'm-0 mt-2 p-1 float-right"><i class="fas fa-times">' +
-            '</i></button></div></div>';
+              '<div class="test" id="add-member-' + (indexInArray + 1) +
+              '"></div></div><div class="col-3"><h6 class="lh-3">' +
+              content.nickName +
+              '</h6></div><div class="col-7 tempGroupMember" '+
+              'id ="' + content.Id + '">' +
+              '<button class="btn btn-danger btn-group del-member ' +
+              'm-0 mt-2 p-1 float-right"><i class="fas fa-times">' +
+              '</i></button></div></div>';
             $('div.member-list').append(member);
             $('#add-member-' + (indexInArray + 1)).css(
                 'background-image', 'url("' + content.Photo + '")');
@@ -533,15 +606,15 @@ function addGroupMember() {
 function nextOrSubmit() {
   check = $('.check-mod');
   if (check.eq(1).prop('checked') == true ||
-  check.eq(2).prop('checked') == true ||
-  check.eq(4).prop('checked') == true) {
+    check.eq(2).prop('checked') == true ||
+    check.eq(4).prop('checked') == true) {
     $('button.next.select-mod').html('下一步');
     $('button.next.select-mod').addClass('btn-primary');
     $('button.next.select-mod').removeClass('btn-success');
   }
   if (check.eq(1).prop('checked') == false &&
-  check.eq(2).prop('checked') == false &&
-  check.eq(4).prop('checked') == false) {
+    check.eq(2).prop('checked') == false &&
+    check.eq(4).prop('checked') == false) {
     $('button.next.select-mod').html('送出');
     $('button.next.select-mod').removeClass('btn-primary');
     $('button.next.select-mod').addClass('btn-success');
@@ -717,7 +790,11 @@ function uploadLotte(actId) {
  * 送出資料
  */
 function submitData() {
+  if (typeof(SaWa) == 'undefined') {
+    SaWa = ['22.7556518', '120.3299092'];
+  }
   actId = '';
+  mod = '';
   for (i = 0; i < $('.check-mod:checked').length; i++) {
     if (i == 0) {
       mod = $('.check-mod:checked').eq(i).val();
@@ -732,14 +809,6 @@ function submitData() {
       Tags = Tags + ',' + $('.clicked').eq(i).text();
     }
   }
-  /*
-    b = $("span#gid").html().split(",")
-    a = b[0].split("(")
-    lat = a[1]
-    a = b[1].split(")")
-    a = a[0].split(" ")
-    long = a[1]
-    */
   startTime = $('#datetimepicker1').val();
   endTime = $('#datetimepicker2').val();
   // chooseleft
@@ -757,14 +826,14 @@ function submitData() {
       joinedCount: '0',
       peopleMaxium: $('#peoplemax').val(),
       Models: mod,
-      Latitude: '1222223',
-      Longitude: '42',
+      Latitude: SaWa[0],
+      Longitude: SaWa[1],
       viewStatus: 'true',
     };
   } else {
-    for (i=0; i<$('select#groupSelect option').length; i++) {
+    for (i = 0; i < $('select#groupSelect option').length; i++) {
       if ($('select#groupSelect option').eq(i).val() ==
-      $('#groupSelect').val()) {
+        $('#groupSelect').val()) {
         Id = $('select#groupSelect option').eq(i).prop('id');
       }
     }
@@ -780,8 +849,8 @@ function submitData() {
       joinedCount: '0',
       peopleMaxium: $('#peoplemax').val(),
       Models: mod,
-      Latitude: '22.755572650107254',
-      Longitude: '120.32928692750852',
+      Latitude: SaWa[0],
+      Longitude: SaWa[1],
       viewStatus: 'true',
     };
   }

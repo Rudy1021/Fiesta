@@ -13,7 +13,7 @@ $(document).on('click', $('.ticket-all'), function() {
  */
 function getTicket() {
   dataGetticket = {
-    Id: $.cookie('Id'),
+    authId: $.cookie('Id'),
   };
   $.ajax({
     type: 'POST',

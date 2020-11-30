@@ -1,6 +1,7 @@
 ﻿{% extends 'base.html' %}
 {% block title %}Create Event{% endblock title %}
 {% block content %}
+<span id="gid"></span>
 <section class="content-section bg-light" id="tempgroup">
   <div class="container-fluid">
     <!------------------------------Choose Btn------------------------------->
@@ -201,35 +202,12 @@
           <hr>
           <p>
           <h6>地點</h6>
+          <input type="text" id="pac-input">
           <div id="map" style="width: 576.25px; height: 324.14px;"></div>
-          <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAIdK6J4jDt08nMJf0E14Gj-hlOYPnOvQg"></script>
-          <script>
-            var map;
-            var myLatLng = {lat: 22.7556518, lng: 120.3299092};
-              var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: myLatLng,
-              });
-              var marker = new google.maps.Marker({
-              });
-              var infoWindow = new google.maps.InfoWindow(
-              {content: 'Click the map to get Lat/Lng!', position: myLatLng});
-              infoWindow.open(map);
-
-              // Configure the click listener.
-              map.addListener('click', function(mapsMouseEvent) {
-              // Close the current InfoWindow.
-          infoWindow.close();
-
-          // Create a new InfoWindow.
-          infoWindow = new google.maps.InfoWindow({position: mapsMouseEvent.latLng});
-          infoWindow.setContent(mapsMouseEvent.latLng.toString());
-          infoWindow.open(map);
-              marker.setMap(map);
-              loc = mapsMouseEvent.latLng.toString()
-              document.getElementById('gid').innerHTML = loc
-              })
-          </script>
+          <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIdK6J4jDt08nMJf0E14Gj-hlOYPnOvQg&callback=setMap&libraries=places&v=weekly"
+          defer
+        ></script>
           </p>
           <div class="text-center">
             <div class="progress">

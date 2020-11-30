@@ -2,7 +2,7 @@ $(document).ready(function() {
   confirmEmail();
 });
 $(document).on('click', '.buttonclick', function() {
-  location.href = 'https://fiesta.nkust.edu.tw';
+  location.href = 'https://fiesta-o2o.tw';
 });
 /**
  * 確認信箱是否驗證成功

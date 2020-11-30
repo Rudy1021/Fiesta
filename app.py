@@ -117,8 +117,8 @@ def dashboardId():
 @app.route("/apple-app-site-association")
 def apple():
     response = make_response(
-                            send_file(".well-known/apple-app-site-association",
-                                      mimetype='application/pkcs7-mime'))
+        send_file(".well-known/apple-app-site-association",
+                  mimetype='application/pkcs7-mime'))
     return response
 
 
@@ -156,6 +156,12 @@ def actnew():
 def signupnew():
     return render_template("signup-new.html")
 
+
+'''
+@app.route("/testFiles")
+def testFiles():
+    return render_template("testFiles.html")
+'''
 
 # Run App
 if __name__ == "__main__":

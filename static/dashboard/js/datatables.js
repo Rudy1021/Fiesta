@@ -14,6 +14,54 @@ $(document).ready(function() {
     }, 10000);
   }
 });
+
+
+$(document).on('click', '.QRcode', function() {
+  $.cookie('QRcode', $.cookie('actid'));
+  location.href = '/QRcode';
+});
+
+
+$(document).on('change', '.checkin', function() {
+  ticketVaild($(this));
+});
+
+
+$(document).on('click', '.del', function() {
+  deleteJoinedList($(this));
+});
+
+
+$(document).on('click', '.save-input', function() {
+  updateAct();
+});
+
+
+$(document).on('click', '.to-edit', function(e) {
+  $('.edit').show();
+  $('.editinput').removeAttr('readonly');
+  $('.editinput').removeAttr('disabled');
+});
+
+
+/**
+ * 設定google map
+ * @param {number} lng 緯度
+ * @param {number} lat 經度
+ */
+function setGoogleMap(lng, lat) {
+  const myLatLng = {lat: lat, lng: lng};
+  const map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: myLatLng,
+    disableDefaultUI: true,
+  });
+  const infoWindow = new google.maps.InfoWindow(
+      {content: '活動地點', position: myLatLng});
+  infoWindow.open(map);
+}
+
+
 /**
  * 顯示選擇的活動
  */
@@ -49,6 +97,7 @@ function selectAct() {
         $('.actImg').prop('src', content.Photo);
         mod = content.Models;
         mod = mod.split(',');
+        setGoogleMap(Number(content.Latitude), Number(content.Longitude));
       });
       if (mod.includes('2')) {
         $('th.ticketitle').remove();
@@ -61,10 +110,6 @@ function selectAct() {
   });
 }
 
-$(document).on('click', '.QRcode', function() {
-  $.cookie('QRcode', $.cookie('actid'));
-  location.href = '/QRcode';
-});
 
 /**
  * 取得參加名單
@@ -108,7 +153,7 @@ function getJoinedList() {
             '<span class="authid">' + content.authId +
             '</span><input type="checkbox" checked class' +
             '="checkin"><span class="slider round"></span></label></td>' +
-            '<td><button class="btn btn-danger btn-circle">' +
+            '<td><button class="btn btn-danger btn-circle del">' +
             '<i class="fas fa-minus"></i></button></td></tr>';
             $('tbody').append(tables);
           }
@@ -134,7 +179,7 @@ function getJoinedList() {
             '<span class="authid">' + content.authId +
             '</span><input type="checkbox" checked ' +
             'class="checkin"><span class="slider round"></span></label></td>' +
-            '<td><button class="btn btn-danger ' +
+            '<td><button class="btn btn-danger del' +
             'btn-circle"><i class="fas fa-minus"></i></button></td></tr>';
             $('tbody').append(tables);
           }
@@ -167,20 +212,8 @@ function getQrcode() {
     },
   });
 }
-$('.checkin').change(function() {
-  ticketVaild($(this));
-});
-$(document).on('click', '.del', function() {
-  deleteJoinedList($(this));
-});
-$(document).on('click', '.save-input', function() {
-  updateAct();
-});
-$(document).on('click', '.to-edit', function(e) {
-  $('.edit').show();
-  $('.editinput').removeAttr('readonly');
-  $('.editinput').removeAttr('disabled');
-});
+
+
 /**
  * 手動驗票
  * @param {object} button 取得this
@@ -228,7 +261,8 @@ function ticketVaild(button) {
                     'Bearer ' + $.cookie('qsacw'));
               },
               success: function(data) {
-                $(button).parent().parent().prev().prev().html('未使用');
+                $('tbody').children().remove();
+                getJoinedList();
               },
             });
           },
@@ -270,7 +304,8 @@ function deleteJoinedList(button) {
                   'Bearer ' + $.cookie('qsacw'));
             },
             success: function(response) {
-              location.reload();
+              $('tbody').children().remove();
+              getJoinedList();
             },
           });
         },
