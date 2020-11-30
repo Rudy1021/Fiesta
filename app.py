@@ -152,6 +152,11 @@ def actnew():
     return render_template("activity-new.html")
 
 
+@app.route("/signup-new")
+def signupnew():
+    return render_template("signup-new.html")
+
+
 # Run App
 if __name__ == "__main__":
     app.jinja_env.auto_reload = True
