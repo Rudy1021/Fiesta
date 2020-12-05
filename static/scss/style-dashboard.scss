@@ -1,3 +1,5 @@
+/* sass --watch style-dashboard.scss:../css/style-dashboard.css */
+
 //scss-lint:disable ImportantRule
 //scss-lint:disable VendorPrefix
 $slider-bgc: #ccc;
@@ -294,4 +296,18 @@ textarea {
 
 .QRcode {
   cursor: pointer;
+}
+
+.survey {
+
+  .feedback {
+      background: #e8e4e4;
+      margin-left: 1rem;
+      border-radius: 0.2rem;
+      line-height: 2rem;
+      padding-left: 0.5rem;
+      width: 96%;
+      color: rgb(39, 38, 38);
+      margin-bottom: 0.8rem;
+  }
 }

@@ -166,6 +166,9 @@ def createnew():
 def newreview():
     return render_template("new-review.html")
 
+@app.route('/survey')
+def survey():
+    return render_template("survey.html")
 
 # Run App
 if __name__ == "__main__":
