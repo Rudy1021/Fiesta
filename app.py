@@ -71,7 +71,7 @@ def check():
 
 @app.route('/signup')
 def signup():
-    return render_template("signin.html")
+    return render_template("signup.html")
 
 
 @app.route('/forgotpassword/<id>')
@@ -137,11 +137,6 @@ def test():
     return render_template("test.html")
 
 
-@app.route("/NewLogin")
-def NewLogin():
-    return render_template("NewLogin.html")
-
-
 @app.route("/tag")
 def tag():
     return render_template("tag.html")
@@ -152,16 +147,15 @@ def actnew():
     return render_template("activity-new.html")
 
 
-@app.route("/signup-new")
-def signupnew():
-    return render_template("signup-new.html")
+@app.route("/create-new")
+def createnew():
+    return render_template("create-new.html")
 
 
-'''
-@app.route("/testFiles")
-def testFiles():
-    return render_template("testFiles.html")
-'''
+@app.route("/new-review/<actId>")
+def newreview(actId):
+    return render_template("new-review.html", actId=actId)
+
 
 # Run App
 if __name__ == "__main__":

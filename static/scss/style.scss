@@ -402,6 +402,10 @@ button:focus {
   }
 }
 
+.dropdown-menu.show {
+  left: -7rem;
+}
+
 /* -------------------- New Create ----------------- */
 .CreateGroup,
 .choose-temporarily,

@@ -4,30 +4,34 @@
     <div class="form-area border-radius-2">
         <h3>註冊會員</h3>
         <div class="row">
-            <input type="text" class="login-input border-radius-2" placeholder="帳號">
+            <input type="text" class="login-input border-radius-2" id="userId" placeholder="帳號">
         </div>
         <div class="row">
-            <input type="password" class="login-input border-radius-2" placeholder="密碼">
+            <input type="password" class="login-input border-radius-2" id="userPassword" placeholder="密碼">
         </div>
         <div class="row">
-            <input type="name" class="login-input border-radius-2" placeholder="真實姓名">
+            <input type="text" class="login-input border-radius-2" id="userName" placeholder="真實姓名">
         </div>
         <div class="row">
-            <input type="nickname" class="login-input border-radius-2" placeholder="暱稱">
+            <input type="text" class="login-input border-radius-2" id="nickName" placeholder="暱稱">
         </div>
         <div class="row">
-            <input type="schoolemail" class="login-input border-radius-2" placeholder="學校信箱 (第一個英文字請小寫)">
+            <input type="text" class="login-input border-radius-2" id="Mail_1" placeholder="學校信箱 (第一個英文字請小寫)">
         </div>
         <div class="row">
-            <input type="cellphone" class="login-input border-radius-2" placeholder="手機號碼">
+            <input type="text" class="login-input border-radius-2" id="Phone" placeholder="手機號碼">
         </div>
         <div class="row">
-            <input type="school" class="login-input border-radius-2" placeholder="所屬學校" readonly>
+            <input type="text" class="login-input border-radius-2" id="School" placeholder="所屬學校">
         </div>
         <div class="row">
-            <button type="button" class="btn btn-block btn-outline-primary border-radius-2">註冊</button>
+          <div class="col-1"><input type="checkbox" class="policy" id="policy"></div>
+          <span>我同意</span><a href="/policy" target="_blank">隱私權與個人資料保護政策</a>
+      </div>
+        <div class="row mt-2">
+            <button type="button" class="btn btn-block btn-outline-primary border-radius-2" id="signup">註冊</button>
         </div>
-        <small id="" class="form-text text-muted mt-4"><a href="#">Forget Password?</a></small>
+        <!--
         <div class="row mt-4">
             <div class="col"><hr></div>
             <div class="col-1 text-center p-0 pt-1 fiesta-text-primary">or</div>
@@ -49,13 +53,14 @@
                     <a href="#">
                       <i class="fab fa-twitter godown"></i>
                     </a>
-                </li>                
+                </li>
             </ul>
         </div>
-        <small id="" class="form-text text-muted mt-4"><a href="#">Already have an account? Login Now</a></small>
+      -->
+        <small class="form-text text-muted mt-4"><a href="/login">已有帳號？點這裡登入！</a></small>
     </div>
 </div>
 {% endblock content %}
 {% block script %}
-<!--<script src="{{ url_for('static',filename='js/test.js') }}"></script>-->
+<script src="{{ url_for('static',filename='js/signup.js') }}"></script>
 {% endblock script %}

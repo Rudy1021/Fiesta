@@ -17,11 +17,6 @@
   <!-- Custom fonts for this template -->
   <link href="{{ url_for('static',filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
     type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
-    type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
   <link href="{{ url_for('static',filename='vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet">
   <link href="{{ url_for('static',filename='css/webfont/webfont.css') }}" rel="stylesheet">
   <!-- Custom styles for this template -->
@@ -36,14 +31,14 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">Fiesta</a>
+    <a class="navbar-brand" href="/">Fiesta</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="mr-auto ml-auto navbar-search">
-        <form class="search-area">          
+        <form class="search-area">
           <input class="form-control mr-sm-2 border-radius-1" type="search" placeholder="搜尋一個想參加的活動吧!" aria-label="Search">          
         </form>
       </div>
@@ -51,10 +46,10 @@
         <ul class="navbar-nav">
         {% if request.cookies.get('qsacw') %}
           <li class="nav-item">
-            <a class="nav-link">創建活動</a>
+            <a class="nav-link emailtest" id="Create" href="javascript:;">創建活動</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">所有活動</a>
+            <a class="nav-link" href="/Activity">所有活動</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,10 +65,10 @@
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="#">註冊</a>
+            <a class="nav-link" href="/signup">註冊</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">登入</a>
+            <a class="nav-link" href="/login">登入</a>
           </li>
         {% endif %}
         </ul>
@@ -91,12 +86,12 @@
           <ul class="list-inline social-buttons">
             <li class="list-inline-item">
               <a href="https://www.facebook.com/Fiesta-Network-Taiwan-100614108231891/">
-                <i class="fab fa-facebook-f godown"></i>
+                <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li class="list-inline-item">
               <a href="https://www.instagram.com/fiesta.network/?hl=zh-tw">
-                <i class="fab fa-instagram godown"></i>
+                <i class="fab fa-instagram"></i>
               </a>
             </li>
           </ul>

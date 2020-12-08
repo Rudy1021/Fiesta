@@ -153,7 +153,7 @@ function signup() {
       nickName: $('#nickName').val(),
       Mail_1: $('#Mail_1').val(),
       Phone: $('#Phone').val(),
-      Distance: parseInt($('#Distance').val()),
+      Distance: 25,
       School: $('#School').val(),
       Useable: 'true',
     };

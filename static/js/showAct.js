@@ -1,21 +1,21 @@
-$(document).ready(function () {
+$(document).ready(function() {
   getAct();
   scoreShow();
 });
 
 
-$(document).on('click', '#submitques', function () {
+$(document).on('click', '#submitques', function() {
   scoreSubmit();
 });
 
 
-$(document).on('click', '.tick-sub', function () {
+$(document).on('click', '.tick-sub', function() {
   setJoinedList();
 });
 
 
-$(document).on('click', '.ticketsub', function () {
-  $.cookie('kind', $(this).parent().prev().prev().prev().html(), { path: '/' });
+$(document).on('click', '.ticketsub', function() {
+  $.cookie('kind', $(this).parent().prev().prev().prev().html(), {path: '/'});
   $('.join-btn').click();
 });
 
@@ -45,10 +45,10 @@ function setJoinedList() {
     contentType: 'application/json',
     datatype: JSON,
     async: false,
-    beforeSend: function (xhr) {
+    beforeSend: function(xhr) {
       xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
     },
-    success: function (data) {
+    success: function(data) {
       if (data.code == '018') {
         $.confirm({
           title: '警告',
@@ -58,7 +58,7 @@ function setJoinedList() {
           buttons: {
             確定: {
               btnClass: 'btn-success',
-              action: function () {
+              action: function() {
               },
             },
           },
@@ -72,7 +72,7 @@ function setJoinedList() {
           buttons: {
             確定: {
               btnClass: 'btn-success',
-              action: function () {
+              action: function() {
                 location.href = '/MyProfile';
               },
             },
@@ -87,7 +87,7 @@ function setJoinedList() {
           buttons: {
             確定: {
               btnClass: 'btn-success',
-              action: function () {
+              action: function() {
                 $('#logout').click();
               },
             },
@@ -102,7 +102,7 @@ function setJoinedList() {
           buttons: {
             確定: {
               btnClass: 'btn-success confirm',
-              action: function () {
+              action: function() {
               },
             },
           },
@@ -118,7 +118,7 @@ function setJoinedList() {
           buttons: {
             確定: {
               btnClass: 'btn-success',
-              action: function () {
+              action: function() {
                 location.reload();
               },
             },
@@ -144,11 +144,11 @@ function getAct() {
     async: false,
     contentType: 'application/json',
     datatype: JSON,
-    beforeSend: function (xhr) {
+    beforeSend: function(xhr) {
       xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
     },
-    success: function (data) {
-      $.each(data.result, function (indexInArray, content) {
+    success: function(data) {
+      $.each(data.result, function(indexInArray, content) {
         peopleId = content.joinedAuth;
         tagname = content.Tag;
         mod = content.Models;
@@ -216,12 +216,12 @@ function getTicket() {
     contentType: 'application/json',
     datatype: JSON,
     async: false,
-    beforeSend: function (xhr) {
+    beforeSend: function(xhr) {
       xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
     },
-    success: function (data) {
+    success: function(data) {
       if (data.code == '001') {
-        $.each(data.result, function (indexInArray, content) {
+        $.each(data.result, function(indexInArray, content) {
           ticketlist = '<div class="row"><div class="col lh-3 text-center">' +
             content.ticketKinds + '</div><div class="col lh-3 text-center"' +
             ' id="ticketprice-' + (indexInArray + 1) + '">NT.' + content.Price +
@@ -255,12 +255,12 @@ function getShow() {
     data: JSON.stringify(dataShow),
     contentType: 'application/json',
     datatype: JSON,
-    beforeSend: function (xhr) {
+    beforeSend: function(xhr) {
       xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
     },
-    success: function (data) {
+    success: function(data) {
       if (data.code == '001') {
-        $.each(data.result, function (indexInArray, content) {
+        $.each(data.result, function(indexInArray, content) {
           time = content.showTime.split(' ')[1];
           list = '<div class="accordion" id="accordionExample">' +
             '<a data-toggle="collapse" data-target="#collapse-' +
@@ -293,74 +293,4 @@ function scoreShow() {
   if (now > endTime) {
     $('.act-question').show();
   }
-}
-
-
-/**
- * 發送問卷
- */
-function scoreSubmit() {
-  now = new Date();
-  now = now.split(' ')[0];
-  for (i = 0; i < 5; i++) {
-    if ($('.All').eq(i).prop('checked')) {
-      all = $('.All').eq(i).val();
-    }
-    if ($('.Money').eq(i).prop('checked')) {
-      mon = $('.Money').eq(i).val();
-    }
-    if ($('.Audio').eq(i).prop('checked')) {
-      aud = $('.Audio').eq(i).val();
-    }
-    if ($('.liu').eq(i).prop('checked')) {
-      liu = $('.liu').eq(i).val();
-    }
-    if ($('.mood').eq(i).prop('checked')) {
-      mood = $('.mood').eq(i).val();
-    }
-    if ($('.light').eq(i).prop('checked')) {
-      light = $('.light').eq(i).val();
-    }
-    if ($('.move').eq(i).prop('checked')) {
-      move = $('.move').eq(i).val();
-    }
-    if ($('.loc').eq(i).prop('checked')) {
-      loc = $('.loc').eq(i).val();
-    }
-    if ($('.staff').eq(i).prop('checked')) {
-      staff = $('.staff').eq(i).val();
-    }
-  }
-  data = {
-    act_Id: $.cookie('acid'),
-    authId: $.cookie('Id'),
-    score_Date: now,
-    Stars: parseInt(all),
-    Price: parseInt(mon),
-    Music: parseInt(aud),
-    Flow: parseInt(move),
-    Vibe: parseInt(mood),
-    Light: parseInt(light),
-    Moveline: 5,
-    Site: parseInt(loc),
-    Staff: parseInt(staff),
-    Useable: 'true',
-    Detail: $('#Description').val(),
-  };
-  $.ajax({
-    type: 'POST',
-    url: 'http://163.18.42.222:8888/Fiestadb/FeedBack/Score/Act/upload',
-    data: JSON.stringify(data),
-    async: false,
-    contentType: 'application/json',
-    datatype: JSON,
-    beforeSend: function (xhr) {
-      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
-    },
-    success: function (data) {
-      $('.showAct2').show();
-      $('#act-question').hide();
-      $('#real-time').hide();
-    },
-  });
 }

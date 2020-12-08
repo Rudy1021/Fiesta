@@ -27,6 +27,9 @@ $(document).on('change', 'input', function() {
  * 檢查該網址並刪除cookie
  */
 function removeCookie() {
+  if (location.pathname.split('/')[1] != 'new-review') {
+    $.removeCookie('reid', {path: '/'});
+  }
   if (location.pathname.split('/')[1] != 'Activity') {
     $.removeCookie('acid', {path: '/'});
     $.removeCookie('kind', {path: '/'});

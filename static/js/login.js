@@ -20,7 +20,7 @@ $(document).on('click', '#forgot-pwd', function() {
 });
 
 
-$(document).on('click', '#login2', function() {
+$(document).on('click', '#login', function() {
   if ($('#userId').val() != '' && $('#userPassword').val() != '') {
     login();
   }
