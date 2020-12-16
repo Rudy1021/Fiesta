@@ -707,10 +707,6 @@ footer ul.social-buttons li a:hover {
   margin-right: 1.5rem;
 }
 
-.modal-review .btn-star-2 .modal-header {
-  font-size: 2rem;
-}
-
 .modal-review .btn-star-2:hover {
   cursor: pointer;
   color: #e28d73;

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  id = location.pathname.split('/')[2];
+  $.cookie('reid', id, {path: '/'});
   getAct();
 });
 
@@ -42,6 +44,25 @@ function getAct() {
  * @param {object} btn 取得按鈕
  */
 function setStar(btn) {
+  starId = btn.parent().prop('id');
+  star = btn.parent();
+
+  for (i = starId; i >= 0; i--) {
+    if (star.children().eq(0).hasClass('far')) {
+      star.children().eq(0).addClass('fas');
+      star.children().eq(0).removeClass('far');
+    }
+    star = star.prev();
+  }
+  star = btn.parent();
+  for (i = starId; i < 5; i++) {
+    star = star.next();
+    if (star.children().eq(0).hasClass('fas')) {
+      star.children().eq(0).removeClass('fas');
+      star.children().eq(0).addClass('far');
+    }
+  }
+  /*
   allstar = btn.parent().parent().children();
   for (i = 0; i < allstar.length; i++) {
     if (allstar.eq(i).hasClass('selected')) {
@@ -55,6 +76,7 @@ function setStar(btn) {
       btn.parent().addClass('selected');
     }
   }
+  */
 }
 
 
@@ -63,6 +85,7 @@ function setStar(btn) {
  */
 function scoreSubmit() {
   now = (new Date()).toISOString().substring(0, 10);
+  /*
   showId = ['1', '2', '3', '4'];
   text = ['test1', 'test2', 'test3', 'test4'];
   for (i = 0; i < 4; i ++) {
@@ -75,7 +98,6 @@ function scoreSubmit() {
       act_Id: $.cookie('reid'),
     };
     console.log(dataShowScore);
-    /*
     $.ajax({
       type: 'POST',
       url: 'http://163.18.42.222:4000/Fiestadb/FeedBack/Score/Show/upload',
@@ -87,8 +109,8 @@ function scoreSubmit() {
 
       },
     });
-    */
   }
+      */
   Stars = $('.Stars').children('.selected').prop('id');
   Price = $('.Price').children('.selected').prop('id');
   Music = $('.Music').children('.selected').prop('id');
@@ -114,7 +136,6 @@ function scoreSubmit() {
     Useable: 'true',
     Detail: $('#Description').val(),
   };
-  /*
   $.ajax({
     type: 'POST',
     url: 'http://163.18.42.222:8888/Fiestadb/FeedBack/Score/Act/upload',
@@ -159,5 +180,4 @@ function scoreSubmit() {
       }
     },
   });
-  */
 }

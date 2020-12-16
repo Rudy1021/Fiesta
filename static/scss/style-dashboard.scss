@@ -1,3 +1,5 @@
+/* sass --watch style-dashboard.scss:../css/style-dashboard.css */
+
 //scss-lint:disable ImportantRule
 //scss-lint:disable VendorPrefix
 $slider-bgc: #ccc;
@@ -86,7 +88,7 @@ body {
 }
 
 input {
-  &:checked + .slider {
+  &:checked+.slider {
     background-color: $input-slider-bgc;
 
     &::before {
@@ -96,7 +98,7 @@ input {
     }
   }
 
-  &:focus + .slider {
+  &:focus+.slider {
     box-shadow: 0 0 1px $input-slider-bgc;
   }
 }
@@ -293,5 +295,28 @@ textarea {
 }
 
 .QRcode {
+  cursor: pointer;
+}
+
+.survey {
+
+
+  .feedback {
+    background: #e8e4e4;
+    margin-left: 1rem;
+    border-radius: 0.2rem;
+    line-height: 2rem;
+    padding-left: 0.5rem;
+    width: 96%;
+    color: rgb(39, 38, 38);
+    margin-bottom: 0.8rem;
+  }
+}
+
+.surveyPage {
+  cursor: pointer;
+}
+
+.QRcodereview {
   cursor: pointer;
 }

@@ -82,41 +82,64 @@ function cancelEnter(e) {
  * @param {object} id
  */
 function getReviewStatus(id) {
-  $.ajax({
-    type: 'POST',
-    url: 'http://163.18.42.222:8888/Fiestadb/Account/getReviewStatus',
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
-    },
-    success: function(data) {
-      if (data.code == '020') {
-        $.confirm({
-          title: '喔不！',
-          animation: 'zoom',
-          closeAnimation: 'scale',
-          content: '此會員尚未進行驗證，現在就去驗證吧！',
-          buttons: {
-            確認: {
-              btnClass: 'btn-success',
-              action: function() {
-                location.href = '/MyProfile';
+  if ($.cookie('Id') == undefined) {
+    $.confirm({
+      title: '錯誤',
+      animation: 'zoom',
+      closeAnimation: 'scale',
+      content: '尚未登入會員',
+      buttons: {
+        確定: {
+          btnClass: 'btn-success',
+          action: function() {
+            location.href = '/login';
+          },
+        },
+      },
+    });
+  } else {
+    $.ajax({
+      type: 'POST',
+      url: 'http://163.18.42.222:8888/Fiestadb/Account/getReviewStatus',
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+      },
+      success: function(data) {
+        if (data.code == '020') {
+          $.confirm({
+            title: '喔不！',
+            animation: 'zoom',
+            closeAnimation: 'scale',
+            content: '此會員尚未進行驗證，現在就去驗證吧！',
+            buttons: {
+              確認: {
+                btnClass: 'btn-success',
+                action: function() {
+                  location.href = '/MyProfile';
+                },
               },
             },
-          },
-        });
-      } else {
-        if (id == 'Create') {
-          location.href = '/CreateEvent';
-        } else if (id == 'Group') {
-          location.href = '/Group';
-        } else if (id == 'MyTicket') {
-          location.href = '/MyTicket';
-        } else if (id == 'dashboard') {
-          location.href = '/dashboard';
+          });
+        } else {
+          if (id == 'Create') {
+            location.href = '/CreateEvent';
+          } else if (id == 'Group') {
+            location.href = '/Group';
+          } else if (id == 'MyTicket') {
+            location.href = '/MyTicket';
+          } else if (id == 'dashboard') {
+            location.href = '/dashboard';
+          } else if ($('#'+id).hasClass('ticketsub')) {
+            $.cookie('kind', $('#'+id).parent().prev().prev().prev().html(),
+                {path: '/'});
+            $('.join-btn').click();
+          } else if ($('#'+id).hasClass('joinClick')) {
+            $('.join-btn').click();
+          }
         }
-      }
-    },
-  });
+      },
+    });
+  }
 }
 
 

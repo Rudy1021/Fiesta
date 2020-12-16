@@ -22,6 +22,15 @@ $(document).on('click', '.QRcode', function() {
 });
 
 
+$(document).on('click', '.QRcodereview', function() {
+});
+
+
+$(document).on('click', '.surveyPage', function() {
+  location.href = '/dashboard/survey';
+});
+
+
 $(document).on('change', '.checkin', function() {
   ticketVaild($(this));
 });
@@ -209,6 +218,23 @@ function getQrcode() {
     },
     success: function(data) {
       $('.QRcode').prop('src', 'data:image/bmp;base64,' + data);
+    },
+  });
+  dataGetReviewQRcode = {
+    Input: location.protocol + '//' +
+    location.hostname + '/review/' + $.cookie('actid'),
+  };
+  $.ajax({
+    type: 'POST',
+    url: 'http://163.18.42.222:8888/Fiestadb/QRcode',
+    data: JSON.stringify(dataGetReviewQRcode),
+    contentType: 'application/json',
+    datatype: JSON,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+    },
+    success: function(data) {
+      $('.QRcodereview').prop('src', 'data:image/bmp;base64,' + data);
     },
   });
 }

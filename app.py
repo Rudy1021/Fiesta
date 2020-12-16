@@ -152,9 +152,14 @@ def createnew():
     return render_template("create-new.html")
 
 
-@app.route("/new-review/<actId>")
+@app.route("/review/<actId>")
 def newreview(actId):
-    return render_template("new-review.html", actId=actId)
+    return render_template("review.html", actId=actId)
+
+
+@app.route('/dashboard/survey')
+def survey():
+    return render_template("survey.html")
 
 
 # Run App
