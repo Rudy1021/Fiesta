@@ -118,12 +118,25 @@ function login() {
         });
         if ($.cookie('check') != undefined) {
           location.href = 'check?id=' + $.cookie('check');
+        } else if ($.cookie('review') != undefined) {
+          location.href = '/review/' + $.cookie('reid');
         } else {
           location.href = '/';
         }
       } else if (data.code == '002') {
-        $('.alert-danger').html('帳號或密碼錯誤');
-        $('.alert-danger').show();
+        $.confirm({
+          title: '錯誤！',
+          animation: 'zoom',
+          closeAnimation: 'scale',
+          content: '帳號或密碼錯誤！',
+          buttons: {
+            確認: {
+              btnClass: 'btn-success',
+              action: function() {
+              },
+            },
+          },
+        });
       }
     },
   });

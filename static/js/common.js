@@ -40,9 +40,11 @@ function removeCookie() {
   if (location.pathname != '/QRcode') {
     $.removeCookie('QRcode', {path: '/'});
   }
-  if (location.href != '/check') {
+  if (location.pathname != '/check') {
     $.removeCookie('acdid', {path: '/'});
     $.removeCookie('type', {path: '/'});
+  }
+  if (location.pathname != '/success') {
     $.removeCookie('code', {path: '/'});
   }
 }

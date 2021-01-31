@@ -1,7 +1,25 @@
 $(document).ready(function() {
   id = location.pathname.split('/')[2];
   $.cookie('reid', id, {path: '/'});
-  getAct();
+  if ($.cookie('Id') == undefined) {
+    $.cookie('review', 'true', {path: '/'});
+    $.confirm({
+      title: '錯誤！',
+      animation: 'zoom',
+      closeAnimation: 'scale',
+      content: '尚未登入！',
+      buttons: {
+        確定: {
+          btnClass: 'btn-success',
+          action: function() {
+            location.href = '/login';
+          },
+        },
+      },
+    });
+  } else {
+    getAct();
+  }
 });
 
 $(document).on('click', '.fa-star', function() {

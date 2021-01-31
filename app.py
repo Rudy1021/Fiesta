@@ -162,6 +162,11 @@ def survey():
     return render_template("survey.html")
 
 
+@app.route('/index-new')
+def indexNew():
+    return render_template("index-new.html")
+
+
 # Run App
 if __name__ == "__main__":
     app.jinja_env.auto_reload = True

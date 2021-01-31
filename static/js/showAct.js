@@ -1,5 +1,6 @@
 $(document).ready(function() {
   getAct();
+  newGetAct();
   scoreShow();
 });
 
@@ -17,6 +18,26 @@ $(document).on('click', '.tick-sub', function() {
 $(document).on('click', '.joinClick', function() {
 
 });
+
+
+/**
+ * 新取得活動
+ */
+function newGetAct() {
+  $.ajax({
+    type: 'GET',
+    url: 'http://163.18.42.222:8888/Fiestadb/Activity/selectV2?act=' + $.cookie('newacid'),
+    contentType: 'application/json',
+    datatype: JSON,
+    async: false,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+    },
+    success: function(data) {
+      console.log(data);
+    },
+  });
+}
 
 
 /**

@@ -36,6 +36,6 @@ $(document).ready(function() {
     }
   });
   $(document).on('click', '#sendforgot', function() {
-    location.href = 'http://fiesta.nkust.edu.tw/login';
+    location.href = 'http://fiesta-o2o.tw/login';
   });
 });

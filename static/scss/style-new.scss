@@ -1,4 +1,4 @@
-$shadow:0 0.15rem 1.75rem 0 rgba(58,59,69,0.15);
+$shadow:0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
 $shadow-2:3px 3px 3px 2px rgba(73, 73, 73, 0.2);
 $color-primary: #eb5f36;
 $color-primary-light: #e28d73;
@@ -90,29 +90,35 @@ ul.social-buttons {
   width: 100%;
 
   li a {
-  font-size: 20px;
-  line-height: 50px;
-  display: block;
-  width: 50px;
-  height: 50px;
-  transition: all 0.3s;
-  color: #fff !important;
-  border-radius: 100%;
-  outline: none;
-  background-color: #d1523c;
+    font-size: 20px;
+    line-height: 50px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s;
+    color: #fff !important;
+    border-radius: 100%;
+    outline: none;
+    background-color: #d1523c;
   }
+}
+
+.background-index {
+  background-image: url("../img/bg2.jpg");
+  background-size: contain;
+  background-position: center;
 }
 
 /* ---------------------tag------------------------- */
 
 .tag {
-  font-family: Arial, Helvetica, sans-serif;  
+  font-family: Arial, Helvetica, sans-serif;
   background-size: contain;
   background-position: center;
   //background-repeat: no-repeat;
   width: 100%;
   height: auto;
-  padding: 3rem 5rem 3rem 5rem;  
+  padding: 3rem 5rem 3rem 5rem;
 
   .select-tag-list {
     width: 80%;
@@ -145,7 +151,7 @@ ul.social-buttons {
     line-height: 2rem;
     margin: auto;
   }
-  
+
   .tag-text {
     margin: 0.5rem;
     text-align: center;
@@ -170,33 +176,33 @@ ul.social-buttons {
     margin-right: 8rem;
     box-shadow: $shadow;
   }
-  
+
   .activity-icon {
     background-color: #fff;
     height: 3rem;
     width: 3rem;
-    border: 1px solid rgba(58,59,69,0.15);
+    border: 1px solid rgba(58, 59, 69, 0.15);
   }
-  
+
   .activity-icon-img {
     max-width: 100%;
     max-height: 100%;
   }
-  
+
   .activity-img {
     width: 100%;
     height: 100%;
   }
-  
+
   .activity-img-img {
     max-width: 100%;
     max-height: 100%;
   }
-  
+
   .button-buy:hover {
     color: rgb(0, 128, 0) !important;
   }
-  
+
   .button-marks {
     &:hover {
       color: rgb(0, 128, 0);
@@ -255,11 +261,13 @@ nav {
   padding: 0.5rem 1rem;
 }
 
-.navbar-brand:hover,.navbar-brand {
+.navbar-brand:hover,
+.navbar-brand {
   color: $color-primary !important;
 }
 
-.navbar-item a,.navbar-light .navbar-nav .nav-link {
+.navbar-item a,
+.navbar-light .navbar-nav .nav-link {
   color: $color-primary !important;
 }
 
@@ -313,17 +321,13 @@ footer {
 /* ------------------------login-------------------------------- */
 .login {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("../img/bg2.jpg");
-  background-size: contain;
-  background-position: center;
-  //background-repeat: no-repeat;
   width: 100%;
   height: 48rem;
   padding-top: 5rem;
 
   .form-area {
     width: 40%;
-    background: rgba(rgb(240, 240, 240),0.85);
+    background: rgba(rgb(240, 240, 240), 0.85);
     margin: auto;
     text-align: center;
     padding: 3rem 7rem 3rem 7rem;
@@ -344,7 +348,7 @@ footer {
       color: $color-primary;
       background-color: #fff;
       background-clip: padding-box;
-      border: 1px solid #ced4da;      
+      border: 1px solid #ced4da;
       transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       margin-bottom: 2rem;
       box-shadow: $shadow-2;
@@ -374,16 +378,16 @@ footer {
 
     .form-area {
       width: 100%;
-      background: rgba(rgb(240, 240, 240),0.85);
+      background: rgba(rgb(240, 240, 240), 0.85);
       margin: auto;
       text-align: center;
       padding: 1.5rem 2rem 1rem 2rem;
-  
+
       h3 {
         color: $color-primary;
         margin-bottom: 2.2rem;
       }
-  
+
       .login-input {
         display: block;
         width: 100%;
@@ -395,12 +399,12 @@ footer {
         color: $color-primary;
         background-color: #fff;
         background-clip: padding-box;
-        border: 1px solid #ced4da;      
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;        
+        border: 1px solid #ced4da;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         box-shadow: $shadow-2;
         margin-bottom: 2rem;
       }
-  
+
       .login-input::placeholder {
         color: $color-primary;
       }
@@ -408,6 +412,7 @@ footer {
   }
 
 }
+
 @media screen and (max-width: 480px) {
 
   .login {
@@ -422,16 +427,16 @@ footer {
 
     .form-area {
       width: 100%;
-      background: rgba(rgb(240, 240, 240),0.85);
+      background: rgba(rgb(240, 240, 240), 0.85);
       margin: auto;
       text-align: center;
       padding: 1.5rem 2rem 1rem 2rem;
-  
+
       h3 {
         color: $color-primary;
         margin-bottom: 2.2rem;
       }
-  
+
       .login-input {
         display: block;
         width: 100%;
@@ -443,12 +448,12 @@ footer {
         color: $color-primary;
         background-color: #fff;
         background-clip: padding-box;
-        border: 1px solid #ced4da;      
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;        
+        border: 1px solid #ced4da;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         box-shadow: $shadow-2;
         margin-bottom: 2rem;
       }
-  
+
       .login-input::placeholder {
         color: $color-primary;
       }
@@ -471,7 +476,7 @@ footer {
 
   .form-area {
     width: 40%;
-    background: rgba(rgb(240, 240, 240),0.85);
+    background: rgba(rgb(240, 240, 240), 0.85);
     margin: auto;
     text-align: center;
     padding: 3rem 7rem 3rem 7rem;
@@ -492,7 +497,7 @@ footer {
       color: $color-primary;
       background-color: #fff;
       background-clip: padding-box;
-      border: 1px solid #ced4da;      
+      border: 1px solid #ced4da;
       transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       margin-bottom: 2rem;
       box-shadow: $shadow-2;
@@ -513,19 +518,19 @@ footer {
     height: auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
-  
+
     .form-area {
       width: 100%;
-      background: rgba(rgb(240, 240, 240),0.85);
+      background: rgba(rgb(240, 240, 240), 0.85);
       margin: auto;
       text-align: center;
       padding: 1.5rem 2rem 1rem 2rem;
-  
+
       h3 {
         color: $color-primary;
         margin-bottom: 2.2rem;
       }
-  
+
       .login-input {
         display: block;
         width: 100%;
@@ -537,64 +542,64 @@ footer {
         color: $color-primary;
         background-color: #fff;
         background-clip: padding-box;
-        border: 1px solid #ced4da;      
+        border: 1px solid #ced4da;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         margin-bottom: 2rem;
         box-shadow: $shadow-2;
       }
-  
+
       .login-input::placeholder {
         color: $color-primary;
       }
     }
-   }
+  }
 }
 
 @media screen and (max-width: 480px) {
-.signup {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-
-  .form-area {
+  .signup {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
-    background: rgba(rgb(240, 240, 240),0.85);
-    margin: auto;
-    text-align: center;
-    padding: 1.5rem 2rem 1rem 2rem;
+    height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
-    h3 {
-      color: $color-primary;
-      margin-bottom: 2.2rem;
-    }
-
-    .login-input {
-      display: block;
+    .form-area {
       width: 100%;
-      height: calc(1.5em + 0.75rem + 2px);
-      padding: 0.375rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5;
-      color: $color-primary;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid #ced4da;      
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-      margin-bottom: 2rem;
-      box-shadow: $shadow-2;
-    }
+      background: rgba(rgb(240, 240, 240), 0.85);
+      margin: auto;
+      text-align: center;
+      padding: 1.5rem 2rem 1rem 2rem;
 
-    .login-input::placeholder {
-      color: $color-primary;
+      h3 {
+        color: $color-primary;
+        margin-bottom: 2.2rem;
+      }
+
+      .login-input {
+        display: block;
+        width: 100%;
+        height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.375rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $color-primary;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        margin-bottom: 2rem;
+        box-shadow: $shadow-2;
+      }
+
+      .login-input::placeholder {
+        color: $color-primary;
+      }
     }
   }
- }
- 
+
 }
 
 /* ------------------------create-------------------------------- */
@@ -637,14 +642,14 @@ footer {
       width: 95%;
     }
   }
-  
+
 }
 
 /* ------------------------new-review-------------------------------- */
 .modal-review {
   .btn-star-2 {
     color: $color-primary;
-    font-size: 1.8rem;    
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
     float: left;
 
@@ -671,7 +676,7 @@ footer {
 
   .btn-star {
     color: $color-primary;
-    font-size: 1.8rem;    
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
     float: left;
 
@@ -694,7 +699,7 @@ footer {
 @media screen and (max-width: 415px) {
   .review {
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-    
+
     .btn-star {
       color: $color-primary;
       font-size: 1.5rem;
@@ -704,11 +709,11 @@ footer {
         margin-right: 0.8rem;
       }
     }
-    
+
     .review-title {
       font-size: 1.3rem;
       padding-left: 1rem;
     }
   }
-  
+
 }

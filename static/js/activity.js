@@ -83,6 +83,23 @@ function clickAct(card) {
   cardBody = card.children('.card-body');
   $.cookie('acid', cardBody.children('span.id').html(), {expires: 7});
   location.href = '/Activity/' + cardBody.children('.card-title').html();
+  dataSetCookie = {
+    value: cardBody.children('span.id').html(),
+  };
+  $.ajax({
+    type: 'POST',
+    url: 'http://163.18.42.222:8888/encode',
+    contentType: 'application/json',
+    data: JSON.stringify(dataSetCookie),
+    datatype: JSON,
+    async: false,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
+    },
+    success: function(data) {
+      $.cookie('newacid', data.result);
+    },
+  });
 };
 
 

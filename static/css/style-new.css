@@ -96,6 +96,12 @@ ul.social-buttons li a {
   background-color: #d1523c;
 }
 
+.background-index {
+  background-image: url("../img/bg2.jpg");
+  background-size: contain;
+  background-position: center;
+}
+
 /* ---------------------tag------------------------- */
 .tag {
   font-family: Arial, Helvetica, sans-serif;
@@ -243,11 +249,13 @@ nav {
   padding: 0.5rem 1rem;
 }
 
-.navbar-brand:hover, .navbar-brand {
+.navbar-brand:hover,
+.navbar-brand {
   color: #eb5f36 !important;
 }
 
-.navbar-item a, .navbar-light .navbar-nav .nav-link {
+.navbar-item a,
+.navbar-light .navbar-nav .nav-link {
   color: #eb5f36 !important;
 }
 
@@ -312,9 +320,6 @@ footer ul.social-buttons li a:hover {
 /* ------------------------login-------------------------------- */
 .login {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("../img/bg2.jpg");
-  background-size: contain;
-  background-position: center;
   width: 100%;
   height: 48rem;
   padding-top: 5rem;

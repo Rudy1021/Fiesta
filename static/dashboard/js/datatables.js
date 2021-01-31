@@ -8,11 +8,24 @@ $(document).ready(function() {
     selectAct();
     getJoinedList();
     getQrcode();
-    setInterval(function() {
+    refreshDataTable = setInterval(function() {
       $('tbody').children().remove();
       getJoinedList();
     }, 10000);
   }
+});
+
+
+$(document).on('focus', 'input[type=search]', function() {
+  clearInterval(refreshDataTable);
+});
+
+
+$(document).on('focusout', 'input[type=search]', function() {
+  refreshDataTable = setInterval(function() {
+    $('tbody').children().remove();
+    getJoinedList();
+  }, 10000);
 });
 
 
@@ -55,18 +68,17 @@ $(document).on('click', '.to-edit', function(e) {
 
 /**
  * 設定google map
- * @param {number} lng 緯度
- * @param {number} lat 經度
+ * @param {number} Actlng 緯度
+ * @param {number} Actlat 經度
  */
-function setGoogleMap(lng, lat) {
-  const myLatLng = {lat: lat, lng: lng};
+function setGoogleMap(Actlng, Actlat) {
   const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
-    center: myLatLng,
+    center: {lat: Actlng, lng: Actlat},
     disableDefaultUI: true,
   });
   const infoWindow = new google.maps.InfoWindow(
-      {content: '活動地點', position: myLatLng});
+      {content: '活動地點', position: {lat: Actlng, lng: Actlat}});
   infoWindow.open(map);
 }
 
@@ -106,7 +118,8 @@ function selectAct() {
         $('.actImg').prop('src', content.Photo);
         mod = content.Models;
         mod = mod.split(',');
-        setGoogleMap(Number(content.Latitude), Number(content.Longitude));
+        setGoogleMap(parseFloat(content.Latitude),
+            parseFloat(content.Longitude));
       });
       if (mod.includes('2')) {
         $('th.ticketitle').remove();
@@ -137,63 +150,66 @@ function getJoinedList() {
       xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('qsacw'));
     },
     success: function(data) {
-      $.each(data.result, function(indexInArray, content) {
-        if ($('th.ticketitle').length > 0) {
-          if (content.ticketStatus == '0') {
-            tables = '<tr><td>' + content.userName +
-            '</td><td>' + content.nickName + '</td>' +
-            '<td>' + content.ticketKinds + '</td>' +
-            '<td>'+ '未使用' +'</td>' +
-            '<td>' + content.Notes + '</td>' +
-            '<td class="pt-3"><label class="switch">' +
-            '<span class="authid">' + content.authId +
-            '</span><input type="checkbox" class="checkin">' +
-            '<span class="slider round"></span></label></td>' +
-            '<td><button class="btn btn-danger btn-circle del">' +
-            '<i class="fas fa-minus"></i></button></td></tr>';
-            $('tbody').append(tables);
+      if (data.code == '001') {
+        $.each(data.result, function(indexInArray, content) {
+          if ($('th.ticketitle').length > 0) {
+            if (content.ticketStatus == '0') {
+              tables = '<tr><td>' + content.userName +
+              '</td><td>' + content.nickName + '</td>' +
+              '<td>' + content.ticketKinds + '</td>' +
+              '<td>'+ '未使用' +'</td>' +
+              '<td>' + content.Notes + '</td>' +
+              '<td class="pt-3"><label class="switch">' +
+              '<span class="authid">' + content.authId +
+              '</span><input type="checkbox" class="checkin">' +
+              '<span class="slider round"></span></label></td>' +
+              '<td><button class="btn btn-danger btn-circle del">' +
+              '<i class="fas fa-minus"></i></button></td></tr>';
+              $('tbody').append(tables);
+            } else {
+              tables = '<tr><td>' + content.userName +
+              '</td><td>' + content.nickName + '</td>' +
+              '<td>' + content.ticketKinds + '</td>' +
+              '<td>'+ '已使用' +'</td>' +
+              '<td>' + content.Notes + '</td>' +
+              '<td class="pt-3"><label class="switch">' +
+              '<span class="authid">' + content.authId +
+              '</span><input type="checkbox" checked class' +
+              '="checkin"><span class="slider round"></span></label></td>' +
+              '<td><button class="btn btn-danger btn-circle del">' +
+              '<i class="fas fa-minus"></i></button></td></tr>';
+              $('tbody').append(tables);
+            }
           } else {
-            tables = '<tr><td>' + content.userName +
-            '</td><td>' + content.nickName + '</td>' +
-            '<td>' + content.ticketKinds + '</td>' +
-            '<td>'+ '已使用' +'</td>' +
-            '<td>' + content.Notes + '</td>' +
-            '<td class="pt-3"><label class="switch">' +
-            '<span class="authid">' + content.authId +
-            '</span><input type="checkbox" checked class' +
-            '="checkin"><span class="slider round"></span></label></td>' +
-            '<td><button class="btn btn-danger btn-circle del">' +
-            '<i class="fas fa-minus"></i></button></td></tr>';
-            $('tbody').append(tables);
+            if (content.ticketStatus == '0') {
+              tables = '<tr><td>' + content.userName +
+              '</td><td>' + content.nickName + '</td>' +
+              '<td>'+ '未使用' +'</td>' +
+              '<td>' + content.Notes + '</td>' +
+              '<td class="pt-3"><label class="switch">' +
+              '<span class="authid">' + content.authId +
+              '</span><input type="checkbox" class="checkin">' +
+              '<span class="slider round"></span></label></td>' +
+              '<td><button class="btn btn-danger btn-circle del">' +
+              '<i class="fas fa-minus"></i></button></td></tr>';
+              $('tbody').append(tables);
+            } else {
+              tables = '<tr><td>' + content.userName +
+              '</td><td>' + content.nickName + '</td>' +
+              '<td>'+ '已使用' +'</td>' +
+              '<td>' + content.Notes + '</td>' +
+              '<td class="pt-3"><label class="switch">' +
+              '<span class="authid">' + content.authId +
+              '</span><input type="checkbox" checked ' +
+              'class="checkin"><span class="slider round">' +
+              '</span></label></td>' +
+              '<td><button class="btn btn-danger del' +
+              'btn-circle"><i class="fas fa-minus"></i></button></td></tr>';
+              $('tbody').append(tables);
+            }
           }
-        } else {
-          if (content.ticketStatus == '0') {
-            tables = '<tr><td>' + content.userName +
-            '</td><td>' + content.nickName + '</td>' +
-            '<td>'+ '未使用' +'</td>' +
-            '<td>' + content.Notes + '</td>' +
-            '<td class="pt-3"><label class="switch">' +
-            '<span class="authid">' + content.authId +
-            '</span><input type="checkbox" class="checkin">' +
-            '<span class="slider round"></span></label></td>' +
-            '<td><button class="btn btn-danger btn-circle del">' +
-            '<i class="fas fa-minus"></i></button></td></tr>';
-            $('tbody').append(tables);
-          } else {
-            tables = '<tr><td>' + content.userName +
-            '</td><td>' + content.nickName + '</td>' +
-            '<td>'+ '已使用' +'</td>' +
-            '<td>' + content.Notes + '</td>' +
-            '<td class="pt-3"><label class="switch">' +
-            '<span class="authid">' + content.authId +
-            '</span><input type="checkbox" checked ' +
-            'class="checkin"><span class="slider round"></span></label></td>' +
-            '<td><button class="btn btn-danger del' +
-            'btn-circle"><i class="fas fa-minus"></i></button></td></tr>';
-            $('tbody').append(tables);
-          }
-        }
-      });
+        });
+      }
     },
   });
   // eslint-disable-next-line new-cap

@@ -1,4 +1,5 @@
 {% extends 'base-new.html' %}
+{% block title %}回饋問卷{% endblock title %}
 {% block content %}
 <!--<div class="container-fluid">
   <div class="activity-img">
@@ -301,5 +302,5 @@
 -->
 {% endblock content %}
 {% block script %}
-<script src="{{ url_for('static',filename='js/review.js') }}"></script>
+<script src="{{ url_for('static',filename='js/review.js') }}?version=1.1"></script>
 {% endblock script %}
