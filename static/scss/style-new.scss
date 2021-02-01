@@ -5,7 +5,7 @@ $color-primary: #eb5f36;
 $color-primary-light: #e28d73;
 $color-dark: #da4011;
 $color-yellow: #f88c0d;
-
+$color-bg-primary:#FDD4B1;
 .btn-primary-2 {
   background: $color-primary;
   color: #fff;
@@ -324,7 +324,7 @@ footer {
 .login {
   font-family: Arial, Helvetica, sans-serif;
   //background-image: url("../img/bg2.jpg");
-  background-color: #ffcc99;
+  background-color:$color-bg-primary;
   background-size: contain;
   background-position: center;
   //background-repeat: no-repeat;
@@ -336,10 +336,15 @@ footer {
     width: 10%;
   }
 
+  .login-img{
+    width: 100%;
+    margin: auto;
+  }
   .form-area {
     width: 40%;
     background: rgba(rgb(240, 240, 240), 0.85);
     margin: auto;
+    margin-left: 5%;
     text-align: center;
     padding: 3rem 3rem 3rem 3rem;
 
@@ -384,7 +389,7 @@ footer {
 
   .login {
     //background-image: url("../img/bg2.jpg");
-    background-color: #ffcc99;
+    background-color:$color-bg-primary;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -438,7 +443,7 @@ footer {
 
   .login {
     //background-image: url("../img/bg2.jpg");
-    background-color: #ffcc99;
+    background-color:$color-bg-primary;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -483,7 +488,7 @@ footer {
       button{
         color: $color-yellow;
       }
-    }
+    } 
   }
 
 }
@@ -492,7 +497,7 @@ footer {
 .signup {
   font-family: Arial, Helvetica, sans-serif;
   //background-image: url("../img/bg1.jpg");
-  background-color: #ffcc99;
+  background-color:$color-bg-primary;
   background-size: contain;
   background-position: center;
   //background-repeat: no-repeat;
@@ -502,7 +507,12 @@ footer {
   padding-bottom: 1rem;
 
   .logo {
-    width: 10%;
+    width: 10rem;
+  }
+
+  .signup-img{
+    width: 100%;
+    margin: auto;
   }
 
   .form-area {
@@ -577,6 +587,7 @@ footer {
       width: 100%;
       background: rgba(rgb(240, 240, 240), 0.85);
       margin: auto;
+      margin-left: 0;
       text-align: center;
       padding: 1.5rem 2rem 1rem 2rem;
 
