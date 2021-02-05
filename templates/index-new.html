@@ -1,3 +1,45 @@
 {% extends 'base-new.html' %}
 {% block content %}
+<section class="header mt-6">
+  <div class="row">
+    <div class="col-6 text-center my-auto">
+      <h1>Fiesta 大學生的活動幫手</h1>
+      <h5>O2O社群網路x活動籌備資訊整合平台</h5>
+    </div>
+    <div class="col-6">
+      <img class="header-img" src="{{ url_for('static',filename='img/index.png') }}">
+    </div>
+  </div>
+</section>
+<section class="mt-6">
+  <div class="text-center">
+    <button class="btn-lg border-radius-2 btn btn-outline-primary">選擇您的興趣</button>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <div class="card">
+        <div class="card-body">
+          放投影
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hot-activity">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+      <h2>熱門活動</h2>
+    </div>
+    <div class="col-3">
+      
+    </div>
+    <div class="col-3">
+      
+    </div>
+    <div class="col-3">
+      
+    </div>
+  </div>
+</section>
 {% endblock content %}

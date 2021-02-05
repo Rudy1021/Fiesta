@@ -13,7 +13,7 @@
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static',filename='vendor/jquery-confirm/jquery-confirm.css') }}">
-  <!-- <link rel="icon" href="{{ url_for('static',filename='img/new-logo.png') }}" type="image/x-icon" /> -->
+  <link rel="icon" href="{{ url_for('static',filename='img/new-logo.png') }}" type="image/x-icon" />
   <!-- Custom fonts for this template -->
   <link href="{{ url_for('static',filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
     type="text/css">
@@ -31,18 +31,19 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="/">Fiesta</a>
+    <a class="navbar-brand mr-0 ml-5" href="/">
+      <img src="{{ url_for('static',filename='img/new-logo.png') }}">
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="mr-auto ml-auto navbar-search">
+      <div class="navbar-search">
         <form class="search-area">
           <input class="form-control mr-sm-2 border-radius-1" type="search" placeholder="搜尋一個想參加的活動吧!" aria-label="Search">          
         </form>
       </div>
-      <div class="ml-auto">
+      <div class="navbar-item-margin-left">
         <ul class="navbar-nav">
         {% if request.cookies.get('qsacw') %}
           <li class="nav-item">
@@ -64,11 +65,29 @@
             </div>
           </li>
         {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">註冊</a>
+          <li class="nav-item mr-3">
+            <a class="nav-link" href="#">
+              <i class="fas fa-home"></i>
+              首頁
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">登入</a>
+          <li class="nav-item mr-3">
+            <a class="nav-link" href="#">
+              <i class="fas fa-fire"></i>
+              熱門活動
+            </a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link" href="#">
+              <i class="fas fa-map-marker-alt"></i>
+              周遭活動
+            </a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link nav-sign border-radius-1" href="/login">登入</a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link nav-sign border-radius-1" href="/signup">註冊</a>
           </li>
         {% endif %}
         </ul>

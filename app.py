@@ -54,11 +54,6 @@ def MyTicket():
     return render_template("MyTicket.html")
 
 
-@app.route("/favicon.ico")
-def favicon():
-    return app.send_static_file("img/favicon.ico")
-
-
 @app.route('/login', methods=['GET'])
 def logintest():
     return render_template("login.html")
