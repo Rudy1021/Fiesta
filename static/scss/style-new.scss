@@ -5,7 +5,8 @@ $color-primary: #eb5f36;
 $color-primary-light: #e28d73;
 $color-dark: #da4011;
 $color-yellow: #f88c0d;
-$color-bg-primary:#FDD4B1;
+$color-bg-primary: #FFD9BC;
+
 .btn-primary-2 {
   background: $color-primary;
   color: #fff;
@@ -374,7 +375,7 @@ footer {
       border: 0px solid #ced4da;
       transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       margin-bottom: 2rem;
-      box-shadow: $shadow-2;
+      //box-shadow: $shadow-2;
     }
 
     .login-input::placeholder {
