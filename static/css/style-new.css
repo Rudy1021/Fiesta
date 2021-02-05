@@ -69,16 +69,17 @@ h5 {
 }
 
 .btn-outline-primary {
-  color: #eb5f36;
-  border-color: #eb5f36;
+  background: #fff;
+  border: 0px solid #ced4da;
   -webkit-box-shadow: 3px 3px 3px 2px rgba(73, 73, 73, 0.2);
           box-shadow: 3px 3px 3px 2px rgba(73, 73, 73, 0.2);
 }
 
 .btn-outline-primary:hover {
-  color: #fff;
-  background-color: #eb5f36;
-  border-color: #eb5f36;
+  background: #fff;
+  border: 0px solid #ced4da;
+  -webkit-box-shadow: 3px 3px 3px 2px rgba(73, 73, 73, 0.2);
+          box-shadow: 3px 3px 3px 2px rgba(73, 73, 73, 0.2);
 }
 
 .text-muted {
@@ -102,6 +103,10 @@ ul.social-buttons li a {
   border-radius: 100%;
   outline: none;
   background-color: #d1523c;
+}
+
+.magin-top-0 {
+  margin-top: 0;
 }
 
 /* ---------------------tag------------------------- */
@@ -337,24 +342,35 @@ footer ul.social-buttons li a:hover {
 /* ------------------------login-------------------------------- */
 .login {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("../img/bg2.jpg");
+  background-color: #FDD4B1;
   background-size: contain;
   background-position: center;
   width: 100%;
   height: 48rem;
-  padding-top: 5rem;
+}
+
+.login .logo {
+  width: 10rem;
+}
+
+.login .login-img {
+  width: 120%;
+  margin: auto;
+  margin-top: 0;
 }
 
 .login .form-area {
   width: 40%;
   background: rgba(240, 240, 240, 0.85);
   margin: auto;
+  margin-left: 5%;
+  margin-top: 0;
   text-align: center;
-  padding: 3rem 7rem 3rem 7rem;
+  padding: 3rem 3rem 3rem 3rem;
 }
 
 .login .form-area h3 {
-  color: #eb5f36;
+  color: black;
   margin-bottom: 2.2rem;
 }
 
@@ -367,9 +383,9 @@ footer ul.social-buttons li a:hover {
   font-weight: 400;
   line-height: 1.5;
   color: #eb5f36;
-  background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  background-color: #fff;
+  border: 0px solid #ced4da;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -380,19 +396,23 @@ footer ul.social-buttons li a:hover {
 }
 
 .login .form-area .login-input::-webkit-input-placeholder {
-  color: #eb5f36;
+  color: #ced4da;
 }
 
 .login .form-area .login-input:-ms-input-placeholder {
-  color: #eb5f36;
+  color: #ced4da;
 }
 
 .login .form-area .login-input::-ms-input-placeholder {
-  color: #eb5f36;
+  color: #ced4da;
 }
 
 .login .form-area .login-input::placeholder {
-  color: #eb5f36;
+  color: #ced4da;
+}
+
+.login .form-area button {
+  color: #f88c0d;
 }
 
 .forgot-pwdlist {
@@ -401,7 +421,7 @@ footer ul.social-buttons li a:hover {
 
 @media screen and (max-width: 768px) {
   .login {
-    background-image: url("../img/bg2.jpg");
+    background-color: #FDD4B1;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -418,7 +438,7 @@ footer ul.social-buttons li a:hover {
     padding: 1.5rem 2rem 1rem 2rem;
   }
   .login .form-area h3 {
-    color: #eb5f36;
+    color: black;
     margin-bottom: 2.2rem;
   }
   .login .form-area .login-input {
@@ -430,9 +450,9 @@ footer ul.social-buttons li a:hover {
     font-weight: 400;
     line-height: 1.5;
     color: #eb5f36;
-    background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    background-color: #fff;
+    border: 0px solid #ced4da;
     -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -442,22 +462,25 @@ footer ul.social-buttons li a:hover {
     margin-bottom: 2rem;
   }
   .login .form-area .login-input::-webkit-input-placeholder {
-    color: #eb5f36;
+    color: #ced4da;
   }
   .login .form-area .login-input:-ms-input-placeholder {
-    color: #eb5f36;
+    color: #ced4da;
   }
   .login .form-area .login-input::-ms-input-placeholder {
-    color: #eb5f36;
+    color: #ced4da;
   }
   .login .form-area .login-input::placeholder {
-    color: #eb5f36;
+    color: #ced4da;
+  }
+  .login .form-area button {
+    color: #f88c0d;
   }
 }
 
 @media screen and (max-width: 480px) {
   .login {
-    background-image: url("../img/bg2.jpg");
+    background-color: #FDD4B1;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -474,7 +497,7 @@ footer ul.social-buttons li a:hover {
     padding: 1.5rem 2rem 1rem 2rem;
   }
   .login .form-area h3 {
-    color: #eb5f36;
+    color: #000;
     margin-bottom: 2.2rem;
   }
   .login .form-area .login-input {
@@ -486,9 +509,9 @@ footer ul.social-buttons li a:hover {
     font-weight: 400;
     line-height: 1.5;
     color: #eb5f36;
-    background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    background-color: #fff;
+    border: 0px solid #ced4da;
     -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -498,23 +521,26 @@ footer ul.social-buttons li a:hover {
     margin-bottom: 2rem;
   }
   .login .form-area .login-input::-webkit-input-placeholder {
-    color: #eb5f36;
+    color: #ced4da;
   }
   .login .form-area .login-input:-ms-input-placeholder {
-    color: #eb5f36;
+    color: #ced4da;
   }
   .login .form-area .login-input::-ms-input-placeholder {
-    color: #eb5f36;
+    color: #ced4da;
   }
   .login .form-area .login-input::placeholder {
-    color: #eb5f36;
+    color: #ced4da;
+  }
+  .login .form-area button {
+    color: #f88c0d;
   }
 }
 
 /* ------------------------signup-------------------------------- */
 .signup {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffcc99;
+  background-color: #FDD4B1;
   background-size: contain;
   background-position: center;
   width: 100%;
@@ -524,7 +550,12 @@ footer ul.social-buttons li a:hover {
 }
 
 .signup .logo {
-  width: 10%;
+  width: 10rem;
+}
+
+.signup .signup-img {
+  width: 120%;
+  margin: auto;
 }
 
 .signup .form-area {
@@ -554,8 +585,8 @@ footer ul.social-buttons li a:hover {
   font-weight: 400;
   line-height: 1.5;
   color: #eb5f36;
-  background-color: #fff;
   background-clip: padding-box;
+  background-color: #fff;
   border: 0px solid #ced4da;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -609,6 +640,7 @@ footer ul.social-buttons li a:hover {
     width: 100%;
     background: rgba(240, 240, 240, 0.85);
     margin: auto;
+    margin-left: 0;
     text-align: center;
     padding: 1.5rem 2rem 1rem 2rem;
   }
