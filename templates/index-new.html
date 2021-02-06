@@ -15,31 +15,112 @@
   <div class="text-center">
     <button class="btn-lg border-radius-2 btn btn-outline-primary">選擇您的興趣</button>
   </div>
+  <div class="slider mx-auto">
+    <div>asd</div>
+    <div>asd</div>
+    <div>asd</div>
+    <div>asd</div>
+    <div>asd</div>
+    <div>asd</div>
+    <div>asd</div>
+    <div>asd</div>
+    <div>asd</div>
+  </div>
+</section>
+<section class="hot-activity">
   <div class="row">
-    <div class="col-2">
-      <div class="card">
-        <div class="card-body">
-          放投影
+    <div class="col-2 text-center my-auto">
+      <h2>熱門活動</h2>
+    </div>
+    <div class="col-3">
+      <img class="border-radius-2" src="{{ url_for('static',filename='img/hot demo.png') }}">
+      <div class="text-center">熱門活動</div>
+    </div>
+    <div class="col-3">
+      <img class="border-radius-2" src="{{ url_for('static',filename='img/hot demo.png') }}">
+      <div class="text-center">熱門活動</div>
+    </div>
+    <div class="col-3">
+      <img class="border-radius-2" src="{{ url_for('static',filename='img/hot demo.png') }}">
+      <div class="text-center">熱門活動</div>
+    </div>
+  </div>
+</section>
+<section class="like-activity">
+  <div class="text-center my-3">
+    <button class="btn-lg border-radius-2 btn btn-outline-primary">您可能喜歡的活動</button>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <div id="carouselAround" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-interval="false">
+            <div class="card-deck-area" id="card-deck-1">
+              <div class="card border-radius-2 ml-5_5">
+                <div class="card-body">
+                  <h5>Fiesta PR Team</h5>
+                  <h6><i class="icon-location-pin"></i>畫廊酒吧/高雄市鼓山區哨船街51號2F</h6>
+                  <img class="activity" src="{{ url_for('static',filename='img/bg1.jpg') }}" />
+                  <h6>Old Brand 老牌萬聖派對</h6>
+                  <h6>2020-10-31 17:00</h6>
+                  <h6 class="activity-tag mb-0">#饒舌 #酒吧</h6>
+                  <div class="star-group">
+                    <div class="btn-star" id="1">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card border-radius-2 ml-5">
+                <div class="card-body">
+                  <h5>Fiesta PR Team</h5>
+                  <h6><i class="icon-location-pin"></i>畫廊酒吧/高雄市鼓山區哨船街51號2F</h6>
+                  <img class="activity" src="{{ url_for('static',filename='img/bg1.jpg') }}" />
+                  <h6>Old Brand 老牌萬聖派對</h6>
+                  <h6>2020-10-31 17:00</h6>
+                  <h6 class="activity-tag mb-0">#饒舌 #酒吧</h6>
+                  <div class="star-group">
+                    <div class="btn-star" id="1">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card border-radius-2 ml-5">
+                <div class="card-body">
+                  <h5>Fiesta PR Team</h5>
+                  <h6><i class="icon-location-pin"></i>畫廊酒吧/高雄市鼓山區哨船街51號2F</h6>
+                  <img class="activity" src="{{ url_for('static',filename='img/bg1.jpg') }}" />
+                  <h6>Old Brand 老牌萬聖派對</h6>
+                  <h6>2020-10-31 17:00</h6>
+                  <h6 class="activity-tag mb-0">#饒舌 #酒吧</h6>
+                  <div class="star-group">
+                    <div class="btn-star" id="1">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="hot-activity">
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-2">
-      <h2>熱門活動</h2>
-    </div>
-    <div class="col-3">
-      
-    </div>
-    <div class="col-3">
-      
-    </div>
-    <div class="col-3">
-      
-    </div>
-  </div>
-</section>
 {% endblock content %}
+{% block script %}
+<script src="{{ url_for('static',filename='js/index-new.js') }}"></script>
+{% endblock %}
