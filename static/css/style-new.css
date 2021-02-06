@@ -298,7 +298,7 @@ footer ul.social-buttons li a:hover {
 /* ------------------------login-------------------------------- */
 .login {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #FDD4B1;
+  background-color: #FFD9BC;
   background-size: contain;
   background-position: center;
   width: 100%;
@@ -314,10 +314,9 @@ footer ul.social-buttons li a:hover {
 }
 .login .form-area {
   width: 40%;
-  background: rgba(240, 240, 240, 0.85);
+  background: rgba(240, 240, 240, 0.65);
   margin: auto;
   margin-left: 5%;
-  margin-top: 0;
   text-align: center;
   padding: 3rem 3rem 3rem 3rem;
 }
@@ -353,7 +352,7 @@ footer ul.social-buttons li a:hover {
 
 @media screen and (max-width: 768px) {
   .login {
-    background-color: #FDD4B1;
+    background-color: #FFD9BC;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -364,7 +363,7 @@ footer ul.social-buttons li a:hover {
   }
   .login .form-area {
     width: 100%;
-    background: rgba(240, 240, 240, 0.85);
+    background: rgba(240, 240, 240, 0.65);
     margin: auto;
     text-align: center;
     padding: 1.5rem 2rem 1rem 2rem;
@@ -398,7 +397,7 @@ footer ul.social-buttons li a:hover {
 }
 @media screen and (max-width: 480px) {
   .login {
-    background-color: #FDD4B1;
+    background-color: #FFD9BC;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -409,7 +408,7 @@ footer ul.social-buttons li a:hover {
   }
   .login .form-area {
     width: 100%;
-    background: rgba(240, 240, 240, 0.85);
+    background: rgba(240, 240, 240, 0.65);
     margin: auto;
     text-align: center;
     padding: 1.5rem 2rem 1rem 2rem;
@@ -444,7 +443,7 @@ footer ul.social-buttons li a:hover {
 /* ------------------------signup-------------------------------- */
 .signup {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #FDD4B1;
+  background-color: #FFD9BC;
   background-size: contain;
   background-position: center;
   width: 100%;
@@ -460,7 +459,7 @@ footer ul.social-buttons li a:hover {
   margin: auto;
 }
 .signup .form-area {
-  background: rgba(240, 240, 240, 0.85);
+  background: rgba(240, 240, 240, 0.65);
   margin: auto;
   text-align: center;
   padding: 3rem 3rem 3rem 3rem;
@@ -501,6 +500,9 @@ footer ul.social-buttons li a:hover {
   color: #f88c0d;
 }
 .signup .form-area span {
+  color: #ced4da;
+}
+.signup .form-area .span-red {
   color: #da4011;
 }
 
@@ -516,7 +518,7 @@ footer ul.social-buttons li a:hover {
   }
   .signup .form-area {
     width: 100%;
-    background: rgba(240, 240, 240, 0.85);
+    background: rgba(240, 240, 240, 0.65);
     margin: auto;
     margin-left: 0;
     text-align: center;
@@ -559,7 +561,7 @@ footer ul.social-buttons li a:hover {
   }
   .signup .form-area {
     width: 100%;
-    background: rgba(240, 240, 240, 0.85);
+    background: rgba(240, 240, 240, 0.65);
     margin: auto;
     text-align: center;
     padding: 1.5rem 2rem 1rem 2rem;

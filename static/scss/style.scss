@@ -911,11 +911,44 @@ span#mid {
   padding-right: 0.3rem;
 }
 
+#showActivity{
+  background:transparent linear-gradient(179deg, #FFD9BC 0%, #F9E9DD 66%, #FFFFFFEB 100%) 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+  .showAct-bg{
+    //float: none;
+    //display: inline-block;
+    //vertical-align: middle;
+    margin-top: 5rem;
+
+    .middle{
+      margin: auto;
+      margin-right: 0;
+    }
+
+    .activity-bg{
+      //width: 50%;
+      margin-right: 20%;
+      //margin-left: 0;
+      //margin: auto;
+      //margin-right: 20%;
+
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+
 .showAct-area {
   border: 1px solid #d6d6d6;
   border-radius: 0.5rem;
   padding: 2rem;
+  
 }
+
 
 .all-title {
   border-left: 4px solid #eb5f36;
@@ -923,6 +956,7 @@ span#mid {
 }
 
 .showAct2 {
+  //background-color: $color-bg-primary;
   button {
     font-size: 1rem;
     font-weight: 400;

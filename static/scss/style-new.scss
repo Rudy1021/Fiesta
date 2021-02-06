@@ -8,7 +8,7 @@ $color-yellow: #f88c0d;
 $color-bg-primary: #FFD9BC;
 $color-black: #000;
 $color-white: #fff;
-$color-bg-primary:#FDD4B1;
+//$color-bg-primary:#FDD4B1;
 
 .btn-primary-2 {
   background: $color-primary;
@@ -382,10 +382,10 @@ footer {
 
   .form-area {
     width: 40%;
-    background: rgba(rgb(240, 240, 240), 0.85);
+    background: rgba(rgb(240, 240, 240), 0.65);
     margin: auto;
     margin-left: 5%;
-    margin-top: 0;
+    //margin-top: 0;
     text-align: center;
     padding: 3rem 3rem 3rem 3rem;
 
@@ -441,7 +441,7 @@ footer {
 
     .form-area {
       width: 100%;
-      background: rgba(rgb(240, 240, 240), 0.85);
+      background: rgba(rgb(240, 240, 240), 0.65);
       margin: auto;
       text-align: center;
       padding: 1.5rem 2rem 1rem 2rem;
@@ -495,7 +495,7 @@ footer {
 
     .form-area {
       width: 100%;
-      background: rgba(rgb(240, 240, 240), 0.85);
+      background: rgba(rgb(240, 240, 240), 0.65);
       margin: auto;
       text-align: center;
       padding: 1.5rem 2rem 1rem 2rem;
@@ -557,7 +557,7 @@ footer {
   }
 
   .form-area {
-    background: rgba(rgb(240, 240, 240), 0.85);
+    background: rgba(rgb(240, 240, 240), 0.65);
     margin: auto;
     text-align: center;
     //text-align: left;
@@ -607,6 +607,10 @@ footer {
     }
 
     span {
+      color: #ced4da;
+    }
+
+    .span-red{
       color: $color-dark;
     }
 
@@ -626,7 +630,7 @@ footer {
 
     .form-area {
       width: 100%;
-      background: rgba(rgb(240, 240, 240), 0.85);
+      background: rgba(rgb(240, 240, 240), 0.65);
       margin: auto;
       margin-left: 0;
       text-align: center;
@@ -674,7 +678,7 @@ footer {
 
     .form-area {
       width: 100%;
-      background: rgba(rgb(240, 240, 240), 0.85);
+      background: rgba(rgb(240, 240, 240), 0.65);
       margin: auto;
       text-align: center;
       padding: 1.5rem 2rem 1rem 2rem;
