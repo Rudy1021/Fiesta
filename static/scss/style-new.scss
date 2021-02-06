@@ -1,7 +1,7 @@
 $shadow:0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
 $shadow-2:3px 3px 3px 2px rgba(73, 73, 73, 0.2);
 $shadow-3:0 2px 1px 1px rgba(73, 73, 73, 0.2);
-$color-primary: #eb5f36;
+$color-primary: #ffb559;
 $color-primary-light: #e28d73;
 $color-dark: #da4011;
 $color-yellow: #f88c0d;
@@ -15,16 +15,15 @@ $color-white: #fff;
   color: #fff;
 }
 
-body {
-  // background: linear-gradient($color-primary-light, $color-white);
-}
-
 .btn-primary-2:hover {
   background: $color-dark;
   color: #fff;
 }
 
-
+body {
+  background: transparent linear-gradient(179deg,
+      #ffd9bc 0%, #f9e9dd 66%, #ffffffeb 100%) 0% 0% no-repeat padding-box;
+}
 
 .border-radius-1 {
   border-radius: 1rem;
@@ -67,7 +66,6 @@ body {
 }
 
 a {
-  color: $color-yellow !important;
 
   &:hover {
     color: $color-yellow !important;
@@ -180,15 +178,58 @@ ul.social-buttons {
   }
 }
 
-/* ---------------------index------------------------- */
-section.header {
-  img.header-img {
-    width: 75%;
-  }
+.text-black {
+  color: $color-black;
 }
 
-section.hot-activity {
-  background-color: $color-primary-light;
+/* ---------------------index------------------------- */
+section {
+  &.header {
+    img.header-img {
+      width: 75%;
+    }
+  }
+
+  &.hot-activity {
+    background-color: $color-primary;
+
+    img {
+      width: 20rem;
+      height: 18rem;
+    }
+  }
+
+  &.like-activity {
+    img.activity {
+      width: 100%;
+    }
+
+    .card {
+      width: 25rem;
+      float: left;
+    }
+
+    .ml-5_5 {
+      margin-left: 5.5rem;
+    }
+
+    .activity-tag {
+      float: left;
+    }
+
+    .star-group {
+      float: right;
+
+      .btn-star {
+        color: $color-primary;
+        font-size: 0.5rem;
+      }
+    }
+  }
+
+  .slider {
+    width: 60%;
+  }
 }
 
 /* ---------------------index------------------------- */
@@ -282,7 +323,7 @@ nav {
 }
 
 div.navbar-item-margin-left {
-  margin-left: 32%;
+  margin-left: 28%;
 }
 
 a.nav-sign {
@@ -335,12 +376,10 @@ a.nav-sign {
 /* ------------------------footer-------------------------------- */
 
 footer {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  text-align: center;
+  background-color: #ffb559;
 
-  ul.social-buttons li a:hover {
-    background-color: $color-primary-light !important;
+  .social-btn {
+    background-color: $color-white;
   }
 }
 

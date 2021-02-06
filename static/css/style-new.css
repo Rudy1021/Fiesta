@@ -1,11 +1,15 @@
 .btn-primary-2 {
-  background: #eb5f36;
+  background: #ffb559;
   color: #fff;
 }
 
 .btn-primary-2:hover {
   background: #da4011;
   color: #fff;
+}
+
+body {
+  background: transparent linear-gradient(179deg, #ffd9bc 0%, #f9e9dd 66%, #ffffffeb 100%) 0% 0% no-repeat padding-box;
 }
 
 .border-radius-1 {
@@ -33,7 +37,7 @@
 }
 
 .fiesta-text-primary {
-  color: #eb5f36;
+  color: #ffb559;
 }
 
 .bg-grey {
@@ -48,9 +52,6 @@
   left: -7rem;
 }
 
-a {
-  color: #f88c0d !important;
-}
 a:hover {
   color: #f88c0d !important;
 }
@@ -79,7 +80,7 @@ h5 {
 }
 
 .text-muted {
-  color: #eb5f36 !important;
+  color: #ffb559 !important;
 }
 
 ul.social-buttons {
@@ -145,16 +146,46 @@ ul.social-buttons li a {
   text-align: center;
 }
 .tag small {
-  color: #eb5f36;
+  color: #ffb559;
+}
+
+.text-black {
+  color: #000;
 }
 
 /* ---------------------index------------------------- */
 section.header img.header-img {
   width: 75%;
 }
-
 section.hot-activity {
-  background-color: #e28d73;
+  background-color: #ffb559;
+}
+section.hot-activity img {
+  width: 20rem;
+  height: 18rem;
+}
+section.like-activity img.activity {
+  width: 100%;
+}
+section.like-activity .card {
+  width: 25rem;
+  float: left;
+}
+section.like-activity .ml-5_5 {
+  margin-left: 5.5rem;
+}
+section.like-activity .activity-tag {
+  float: left;
+}
+section.like-activity .star-group {
+  float: right;
+}
+section.like-activity .star-group .btn-star {
+  color: #ffb559;
+  font-size: 0.5rem;
+}
+section .slider {
+  width: 60%;
 }
 
 /* ---------------------index------------------------- */
@@ -232,7 +263,7 @@ nav a img {
 }
 
 div.navbar-item-margin-left {
-  margin-left: 32%;
+  margin-left: 28%;
 }
 
 a.nav-sign {
@@ -254,7 +285,7 @@ a.nav-sign {
 
 .navbar-brand:hover,
 .navbar-brand {
-  color: #eb5f36 !important;
+  color: #ffb559 !important;
 }
 
 .navbar-item a,
@@ -277,12 +308,10 @@ a.nav-sign {
 
 /* ------------------------footer-------------------------------- */
 footer {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  text-align: center;
+  background-color: #ffb559;
 }
-footer ul.social-buttons li a:hover {
-  background-color: #e28d73 !important;
+footer .social-btn {
+  background-color: #fff;
 }
 
 @media screen and (max-width: 415px) {
@@ -332,7 +361,7 @@ footer ul.social-buttons li a:hover {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #eb5f36;
+  color: #ffb559;
   background-clip: padding-box;
   background-color: #fff;
   border: 0px solid #ced4da;
@@ -380,7 +409,7 @@ footer ul.social-buttons li a:hover {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #eb5f36;
+    color: #ffb559;
     background-clip: padding-box;
     background-color: #fff;
     border: 0px solid #ced4da;
@@ -425,7 +454,7 @@ footer ul.social-buttons li a:hover {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #eb5f36;
+    color: #ffb559;
     background-clip: padding-box;
     background-color: #fff;
     border: 0px solid #ced4da;
@@ -481,7 +510,7 @@ footer ul.social-buttons li a:hover {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #eb5f36;
+  color: #ffb559;
   background-clip: padding-box;
   background-color: #fff;
   border: 0px solid #ced4da;
@@ -537,7 +566,7 @@ footer ul.social-buttons li a:hover {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #eb5f36;
+    color: #ffb559;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
@@ -579,7 +608,7 @@ footer ul.social-buttons li a:hover {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #eb5f36;
+    color: #ffb559;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
@@ -626,7 +655,7 @@ footer ul.social-buttons li a:hover {
 }
 /* ------------------------new-review-------------------------------- */
 .modal-review .btn-star-2 {
-  color: #eb5f36;
+  color: #ffb559;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   float: left;
@@ -650,7 +679,7 @@ footer ul.social-buttons li a:hover {
   box-shadow: 3px 3px 3px 2px rgba(73, 73, 73, 0.2);
 }
 .review .btn-star {
-  color: #eb5f36;
+  color: #ffb559;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   float: left;
@@ -672,7 +701,7 @@ footer ul.social-buttons li a:hover {
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   }
   .review .btn-star {
-    color: #eb5f36;
+    color: #ffb559;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
   }
