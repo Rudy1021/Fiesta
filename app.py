@@ -79,6 +79,11 @@ def Mailsuccess(id):
     return render_template("successMail.html")
 
 
+@app.route('/font')
+def Font():
+    return
+
+
 @app.route('/QRcode')
 def QRcode():
     return render_template("QRcode.html")
