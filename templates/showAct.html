@@ -1,4 +1,4 @@
-﻿{% extends 'base.html' %}
+﻿{% extends 'base-new.html' %}
 {% block title %}{{ act_Name }}{% endblock title %}
 {% block content %}
 <section class="content-section bg-light" id="showActivity">
@@ -6,14 +6,35 @@
     <div class="showAct2">
       <!--活動介紹-->
       <div class="row justify-content-md-center showAct-bg">
-        <div class="col-4 text-center align-items-center middle">
+        <div class="col-md-4 col-sm-12 text-center align-items-center middle">
           <h1 class="">活動介紹</h1>
         </div>
-        <div class="col-4 activity-bg">
+        <div class="col-md-4 col-sm-12 activity-bg">
           <img src="{{ url_for('static',filename='img/activity-bg.png')}}" alt="">
         </div>
       </div>
-      <div class="row justify-content-md-center">
+      <!--顯示活動資料區域-->
+      <div class="row justify-content-md-center showAct-area">
+        <div class="col-md-4 showAct-img">
+          <div class="card margin-auto border-radius-2">
+            <div class="img-cover border-radius-2">
+              <img src="{{ url_for('static',filename='img/activity-test.png')}}" alt="">
+            </div>
+          </div>
+          <!--<img src="{{ url_for('static',filename='img/activity-test.png')}}" alt="">-->
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <h3>2019跨年倒數派對嘻哈饒舌對抗賽2.0</h3>
+          </div>
+          <div class="row">
+            <i class="icon-location-pin"></i>
+            <h5>畫廊酒吧/高雄市鼓山區哨船街51號2F</h5>
+          </div>
+
+        </div>
+      </div>
+      <!--<div class="row justify-content-md-center">
         <div class="col-lg-8 col-sm-12  showAct-area">
           <div class="row">
             <div class="col">
@@ -44,7 +65,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
   </div>
     <!----------------------活動問卷----------------------->
     <!------------------------------ real-time ------------------------------->
@@ -79,7 +100,7 @@
         <button type="button" class="btn btn-primary ml-2 emailtest joinClick" id="joinClick">參加</button>
         <button type="button" class="btn btn-primary ml-2 join-btn" data-toggle="modal" data-target="#RemarkModal" style="display:none;">join</button>
       </div>
-  </div>
+   </div>
    <div class="modal fade" id="RemarkModal" tabindex="-1" role="dialog" aria-labelledby="RemarkModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">

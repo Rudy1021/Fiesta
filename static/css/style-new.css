@@ -538,6 +538,9 @@ footer .social-btn {
 .login .form-area button {
   color: #f88c0d;
 }
+.login .form-area a {
+  color: #f88c0d;
+}
 
 .forgot-pwdlist {
   display: none;
@@ -971,4 +974,53 @@ footer .social-btn {
     padding-left: 1rem;
   }
 }
+<<<<<<< HEAD
 /*# sourceMappingURL=style-new.css.map */
+=======
+/* ------------------------showActivity-------------------------------- */
+#showActivity {
+  background: transparent linear-gradient(179deg, #FFD9BC 0%, #F9E9DD 66%, #FFFFFFEB 100%) 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  margin-top: 0;
+  position: relative;
+}
+#showActivity .showAct2 button {
+  font-size: 1rem;
+  font-weight: 400;
+}
+#showActivity .showAct2 .showAct-bg .middle {
+  margin: auto;
+  margin-right: 0;
+}
+#showActivity .showAct2 .showAct-bg .activity-bg {
+  margin-right: 20%;
+}
+#showActivity .showAct2 .showAct-bg .activity-bg img {
+  width: 100%;
+}
+#showActivity .showAct2 .showAct-area {
+  margin-top: 10rem;
+}
+#showActivity .showAct2 .showAct-area .all-title {
+  border-left: 4px solid #eb5f36;
+  padding-left: 1rem;
+}
+#showActivity .showAct2 .showAct-area .showAct-img .card {
+  width: 15rem;
+  height: 20rem;
+  max-width: 15rem;
+  max-height: 20rem;
+}
+#showActivity .showAct2 .showAct-area .showAct-img .card .img-cover {
+  width: 15rem;
+  height: 20rem;
+  max-width: 15rem;
+  max-height: 20rem;
+  overflow: hidden;
+  position: relative;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=style-new.css.map */
+>>>>>>> 4fefcd8bc2f3d79ea4ab67891fb25979a062088f
