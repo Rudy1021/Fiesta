@@ -745,20 +745,26 @@ footer .social-btn {
   border-left: 4px solid #eb5f36;
   padding-left: 1rem;
 }
+#showActivity .showAct2 .showAct-area .showAct-img {
+  margin-right: 0;
+}
 #showActivity .showAct2 .showAct-area .showAct-img .card {
-  width: 15rem;
-  height: 20rem;
-  max-width: 15rem;
-  max-height: 20rem;
+  width: 20rem;
+  height: 25rem;
+  max-width: 20rem;
+  max-height: 25rem;
 }
 #showActivity .showAct2 .showAct-area .showAct-img .card .img-cover {
-  width: 15rem;
-  height: 20rem;
-  max-width: 15rem;
-  max-height: 20rem;
+  width: 20rem;
+  height: 25rem;
+  max-width: 20rem;
+  max-height: 25rem;
   overflow: hidden;
   position: relative;
   object-fit: cover;
+}
+#showActivity .showAct2 .showAct-area .showAct-text {
+  margin-left: 0;
 }
 
 /*# sourceMappingURL=style-new.css.map */

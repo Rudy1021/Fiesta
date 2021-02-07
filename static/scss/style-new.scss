@@ -919,24 +919,31 @@ footer {
         .showAct-img{
           //width: 10%;
           //margin: auto;
+          margin-right: 0;
+
           .card{
             //border-radius: 2rem;
-            width: 15rem;
-            height: 20rem;
-            max-width: 15rem;
-            max-height: 20rem;
+            width: 20rem;
+            height: 25rem;
+            max-width: 20rem;
+            max-height: 25rem;
+            //margin-right: 0;
   
             .img-cover{
               //border-radius: 2rem;
-              width: 15rem;
-              height: 20rem;
-              max-width: 15rem;
-              max-height: 20rem;
+              width: 20rem;
+              height: 25rem;
+              max-width: 20rem;
+              max-height: 25rem;
               overflow: hidden;
               position: relative;
               object-fit: cover;
             }
           }
+        }
+
+        .showAct-text{
+          margin-left: 0;
         }
       } 
 
