@@ -9,18 +9,33 @@ $color-bg-primary: #FFD9BC;
 $color-black: #000;
 $color-white: #fff;
 //$color-bg-primary:#FDD4B1;
+$color-time: #adadad;
 
-.btn-primary-2 {
+.btn-primary {
   background: $color-primary;
   color: #fff;
+  border-color: $color-primary;
 }
 
-.btn-primary-2:hover {
+.ml-4rem {
+  margin-left: 4rem;
+}
+
+.btn-primary:hover {
   background: $color-dark;
   color: #fff;
 }
 
+@font-face {
+  font-family: jf-openhuninn;
+  src: url("../vendor/font/jf-openhuninn-1.1.ttf");
+}
+
 body {
+  font-family: jf-openhuninn;
+}
+
+div.bg {
   background: transparent linear-gradient(179deg,
       #ffd9bc 0%, #f9e9dd 66%, #ffffffeb 100%) 0% 0% no-repeat padding-box;
 }
@@ -62,7 +77,7 @@ body {
 }
 
 .dropdown-menu {
-  left: -7rem;
+  left: -6rem;
 }
 
 a {
@@ -125,6 +140,10 @@ ul.social-buttons {
   margin-top: 0;
 }
 
+.white-border {
+  border: 1px solid $color-white;
+}
+
 /* ---------------------tag------------------------- */
 
 .tag {
@@ -184,6 +203,40 @@ ul.social-buttons {
 
 /* ---------------------index------------------------- */
 section {
+  .carousel-control-prev {
+    background: #c0c0c0;
+    border-radius: 10rem;
+    height: 3rem;
+    margin-left: -5rem !important;
+    margin-top: 9rem;
+    width: 3rem;
+  }
+
+  .carousel-control-next {
+    background: #c0c0c0;
+    border-radius: 10rem;
+    height: 3rem;
+    margin-right: -4.5rem !important;
+    margin-top: 9rem;
+    width: 3rem;
+  }
+
+  .carousel-indicators {
+    margin-bottom: -3rem;
+
+    li {
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      background-color: #d9d9d9;
+      opacity: 1;
+
+      &.active {
+        background-color: $color-primary;
+      }
+    }
+  }
+
   &.header {
     img.header-img {
       width: 75%;
@@ -193,9 +246,14 @@ section {
   &.hot-activity {
     background-color: $color-primary;
 
-    img {
+    img.hot-activity {
       width: 20rem;
       height: 18rem;
+    }
+
+    img.star {
+      width: 5rem;
+      height: 5rem;
     }
   }
 
@@ -204,13 +262,13 @@ section {
       width: 100%;
     }
 
-    .card {
-      width: 25rem;
-      float: left;
+    .time-color {
+      color: $color-time;
     }
 
-    .ml-5_5 {
-      margin-left: 5.5rem;
+    .card {
+      width: 23rem;
+      float: left;
     }
 
     .activity-tag {
@@ -229,6 +287,12 @@ section {
 
   .slider {
     width: 60%;
+  }
+
+  &.select-tag {
+    .card {
+      width: 17rem;
+    }
   }
 }
 
@@ -317,17 +381,40 @@ section {
 nav {
   z-index: 1;
 
-  a img {
+  a img.logo {
     width: 65%;
+  }
+
+  a img.user {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .dropdown-menu {
+    width: 12rem;
+
+    .user {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  a.dropdown-toggle::after {
+    content: none
+  }
+
+  .magnifier {
+    position: absolute;
+    padding-left: 1rem;
   }
 }
 
-div.navbar-item-margin-left {
-  margin-left: 28%;
+div.navbar-item-not-login {
+  margin-left: 25%;
 }
 
-a.nav-sign {
-  border: 1px solid $color-white;
+div.navbar-item-login {
+  margin-left: 27%;
 }
 
 .navbar {
@@ -361,9 +448,14 @@ a.nav-sign {
   .search-area {
 
     input {
-      background: #ebebeb;
+      background: transparent;
       text-align: center;
       letter-spacing: 0.3rem;
+
+      &:focus {
+        border-color: $color-white;
+        box-shadow: none;
+      }
     }
 
     input::placeholder {
@@ -649,7 +741,7 @@ footer {
       color: #ced4da;
     }
 
-    .span-red{
+    .span-red {
       color: $color-dark;
     }
 
