@@ -167,6 +167,36 @@ def indexNew():
     return render_template("index-new.html")
 
 
+@app.route('/interest')
+def interest():
+    return render_template("interest.html")
+
+
+@app.route('/buy-ticket')
+def BuyTicket():
+    return render_template("buy-ticket.html")
+
+
+@app.route('/myticket-new')
+def MyTicketNew():
+    return render_template("base-nav-bg.html")
+
+
+@app.route('/myfavorites')
+def myfavorites():
+    return render_template("base-nav-bg.html")
+
+
+@app.route('/favoritesFile')
+def favoritesFile():
+    return render_template("MyFavorites.html")
+
+
+@app.route('/ticketFile')
+def ticketFile():
+    return render_template("MyTicket-new.html")
+
+
 # Run App
 if __name__ == "__main__":
     app.jinja_env.auto_reload = True

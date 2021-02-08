@@ -11,7 +11,8 @@
     </div>
   </div>
 </section>
-</div>
+{% endblock content %}
+{% block detail %}
 <section class="mt-6 container-fluid select-tag mb-5">
   <div class="text-center">
     <button class="btn-lg border-radius-2 btn btn-primary mb-5">
@@ -32,14 +33,16 @@
             <div class="row" id="card-deck-1">
 
               <div class="col-3">
-                <div class="card border-radius-2">
-                  <img class="card-img-top border-radius-2" src="{{ url_for('static',filename='img/hot demo.png') }}">
-                  <div class="card-body">
-                    <div class="text-center">
-                      <h3>嘻哈</h3>
+                <a class="text-black" href="/interest">
+                  <div class="card border-radius-2">
+                    <img class="card-img-top border-radius-2" src="{{ url_for('static',filename='img/hot demo.png') }}">
+                    <div class="card-body">
+                      <div class="text-center">
+                        <h3 class="text-black">嘻哈</h3>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
 
               <div class="col-3">
@@ -325,7 +328,7 @@
     </div>
   </div>
 </section>
-{% endblock content %}
+{% endblock detail %}
 {% block script %}
 <script src="{{ url_for('static',filename='js/index-new.js') }}"></script>
-{% endblock %}
+{% endblock script %}
