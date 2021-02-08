@@ -1,10 +1,24 @@
 ﻿{% extends 'base-new.html' %}
 {% block title %}{{ act_Name }}{% endblock title %}
 {% block content %}
+<<<<<<< HEAD
   <section class="pb-5 container-fluid mt-6" id="showActivity">
     <div class="row">
       <div class="col-6 text-center my-auto">
         <h1>活動介紹</h1>
+=======
+<section class="content-section" id="showActivity">
+  <div class="container-fluid">
+    <div class="showAct2">
+      <!--活動介紹-->
+      <div class="row justify-content-md-center showAct-bg">
+        <div class="col-md-4 col-sm-12 text-center align-items-center middle">
+          <h1 class="">活動介紹</h1>
+        </div>
+        <div class="col-md-4 col-sm-12 activity-bg">
+          <img src="{{ url_for('static',filename='img/activity-bg.png')}}" alt="">
+        </div>
+>>>>>>> d71d3ea64f6e5e4255d52b2bb8843a1f3b178a36
       </div>
       <div class="col-5">
         <img class="showAct-img" src="{{ url_for('static',filename='img/activity-bg.png') }}">

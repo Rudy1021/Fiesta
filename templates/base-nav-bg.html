@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 
 <head>
@@ -30,7 +30,7 @@
 </head>
 
 <body id="page-top">
-  <div class="bg">
+  <div class="buy-ticket">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light">
@@ -117,9 +117,60 @@
         </ul>
     </div>
   </nav>
-  {% block content %}{% endblock content %}
+</div>
+<section class="mt-5 sidebar-main container-fluid">
+  <div class="row ml-2">
+    <div class="col-2">
+      <div class="card border-radius-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-3">
+              <img class="border-radius-2 user" src="{{ url_for('static',filename='img/10.png') }}">
+            </div>
+            <div class="col-8 ml-2 my-auto">
+              <h4 class="mb-0">測試員</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card border-radius-2 mt-3">
+        <div class="card-body">
+          <ul class="navbar-nav">
+            <li class="mb-2">
+              <a id="myticket-link" class="text-primary sidebar-link" href="javascript:;">我的票券</a>
+            </li>
+            <li class="mb-2">
+              <a id="myfavorites-link" class="text-black sidebar-link" href="javascript:;">我的收藏</a>
+            </li>
+            <li class="mb-2">
+              <a class="text-black sidebar-link" href="#">我的評價</a>
+            </li>
+            <li class="mb-2">
+              <a class="text-black sidebar-link" href="#">帳戶設定</a>
+            </li>
+            <li class="mb-2">
+              <a class="text-black sidebar-link" href="#">更改密碼</a>
+            </li>
+            <li class="mb-2">
+              <a class="text-black sidebar-link" href="#">登出</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-10 pr-5">
+      <div class="card border-radius-2">
+        <div class="card-body main-include">
+          {% if request.path == '/myfavorites' %}
+          {% include 'MyFavorites.html' %}
+          {% elif request.path == '/myticket-new' %}
+          {% include 'MyTicket-new.html' %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
   </div>
-  {% block detail %}{% endblock detail %}
+</section>
   <footer class="footer">
     <section class="text-center">
       <div class="pt-4">
