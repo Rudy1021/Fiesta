@@ -81,6 +81,14 @@ h5 {
   font-size: 1rem;
 }
 
+h4 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
 .btn-outline-primary {
   background: #fff;
   border: 0px solid #ced4da;
@@ -792,44 +800,24 @@ footer .social-btn {
   }
 }
 /* ------------------------showActivity-------------------------------- */
-#showActivity {
-  background: transparent linear-gradient(179deg, #FFD9BC 0%, #F9E9DD 66%, #FFFFFFEB 100%) 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  margin-top: 0;
-  position: relative;
+#showActivity img.showAct-img {
+  width: 75%;
 }
-#showActivity .showAct2 button {
-  font-size: 1rem;
-  font-weight: 400;
-}
-#showActivity .showAct2 .showAct-bg .middle {
-  margin: auto;
-  margin-right: 0;
-}
-#showActivity .showAct2 .showAct-bg .activity-bg {
-  margin-right: 20%;
-}
-#showActivity .showAct2 .showAct-bg .activity-bg img {
-  width: 100%;
-}
-#showActivity .showAct2 .showAct-area {
-  margin-top: 10rem;
-}
-#showActivity .showAct2 .showAct-area .all-title {
+
+.showAct-area .all-title {
   border-left: 4px solid #eb5f36;
   padding-left: 1rem;
 }
-#showActivity .showAct2 .showAct-area .showAct-img {
+.showAct-area .showAct-img {
   margin-right: 0;
 }
-#showActivity .showAct2 .showAct-area .showAct-img .card {
+.showAct-area .showAct-img .card {
   width: 20rem;
   height: 25rem;
   max-width: 20rem;
   max-height: 25rem;
 }
-#showActivity .showAct2 .showAct-area .showAct-img .card .img-cover {
+.showAct-area .showAct-img .card .img-cover {
   width: 20rem;
   height: 25rem;
   max-width: 20rem;
@@ -838,8 +826,17 @@ footer .social-btn {
   position: relative;
   object-fit: cover;
 }
-#showActivity .showAct2 .showAct-area .showAct-text {
+.showAct-area .showAct-text {
   margin-left: 0;
+}
+.showAct-area .buy-btn {
+  margin-left: 37rem;
+  margin-top: 13rem;
+}
+.showAct-area button {
+  font-size: 1rem;
+  width: 8.5rem;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=style-new.css.map */

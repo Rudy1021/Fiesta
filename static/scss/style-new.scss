@@ -99,6 +99,13 @@ h5 {
   font-size: 1rem;
 }
 
+h4{
+  font-size: 1.5rem;
+}
+
+h3{
+  font-size: 2rem;
+}
 .btn-outline-primary {
   background: #fff;
   //border-color: $color-primary;
@@ -968,79 +975,58 @@ footer {
 /* ------------------------showActivity-------------------------------- */
 
 #showActivity{
-  background:transparent linear-gradient(179deg, #FFD9BC 0%, #F9E9DD 66%, #FFFFFFEB 100%) 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  margin-top:0;
-  position: relative;
 
-  .showAct2 {
-    //background-color: $color-bg-primary;
-    button {
-      font-size: 1rem;
-      font-weight: 400;
-    }
+  img.showAct-img{
+    width:75%;
+  }
+}
 
-    .showAct-bg{
+.showAct-area {
 
-      .middle{
-        margin: auto;
-        margin-right: 0;
+  .all-title {
+    border-left: 4px solid #eb5f36;
+    padding-left: 1rem;
+  }
+
+  .showAct-img{
+    //width: 10%;
+    //margin: auto;
+    margin-right: 0;
+
+    .card{
+      //border-radius: 2rem;
+      width: 20rem;
+      height: 25rem;
+      max-width: 20rem;
+      max-height: 25rem;
+      //margin-right: 0;
+
+      .img-cover{
+        //border-radius: 2rem;
+        width: 20rem;
+        height: 25rem;
+        max-width: 20rem;
+        max-height: 25rem;
+        overflow: hidden;
+        position: relative;
+        object-fit: cover;
       }
-
-      .activity-bg{
-        //width: 50%;
-        margin-right: 20%;
-
-        img{
-          width: 100%;
-        }
-      }
     }
-    .showAct-area {
-        //border: 1px solid #d6d6d6;
-        //border-radius: 0.5rem;
-        //padding: 2rem;
-        margin-top: 10rem;
+  }
 
-        .all-title {
-          border-left: 4px solid #eb5f36;
-          padding-left: 1rem;
-        }
+  .showAct-text{
+    margin-left: 0;
+  }
 
-        .showAct-img{
-          //width: 10%;
-          //margin: auto;
-          margin-right: 0;
-
-          .card{
-            //border-radius: 2rem;
-            width: 20rem;
-            height: 25rem;
-            max-width: 20rem;
-            max-height: 25rem;
-            //margin-right: 0;
-  
-            .img-cover{
-              //border-radius: 2rem;
-              width: 20rem;
-              height: 25rem;
-              max-width: 20rem;
-              max-height: 25rem;
-              overflow: hidden;
-              position: relative;
-              object-fit: cover;
-            }
-          }
-        }
-
-        .showAct-text{
-          margin-left: 0;
-        }
-      } 
-
+  .buy-btn{
+    margin-left: 37rem;
+    margin-top: 13rem;
 
   }
 
-
+  button {
+    font-size: 1rem;
+    width: 8.5rem;
+    font-weight: 400;
+  }
 }
