@@ -225,6 +225,7 @@ button:focus {
   padding: 0.3rem;
   width: 23.5% !important;
 }
+
 .card .badge {
   padding: 0.2rem;
   width: 4rem;
@@ -318,6 +319,7 @@ button:focus {
 .create-container {
   font-family: "微軟正黑體", sans-serif;
 }
+
 .create-container .con-left {
   border-right: 0.5px #c4c4c4 solid;
   float: left;
@@ -325,6 +327,7 @@ button:focus {
   text-align: center;
   width: 10rem;
 }
+
 .create-container .list-group-item {
   background: #f7f7f7;
   border-bottom: 0.3px #c4c4c4 solid;
@@ -333,10 +336,12 @@ button:focus {
   border-right: 0;
   color: #777;
 }
+
 .create-container .now {
   background: #d6d6d6;
   color: #000;
 }
+
 .create-container .list-group-item:hover {
   background: #ececec;
 }
@@ -345,28 +350,34 @@ button:focus {
   padding: 1rem;
   text-align: center;
 }
+
 .con-right ul {
   padding-top: 1rem;
   width: 90%;
 }
+
 .con-right ul li {
   font-size: 1rem;
   letter-spacing: 0.3rem;
   line-height: 2.3rem;
   text-align: left;
 }
+
 .con-right hr {
   width: 100% !important;
 }
+
 .con-right .btn-next {
   margin: auto;
   margin-top: 3rem;
 }
+
 .con-right #cre-date {
   display: none;
   float: left;
   width: 73%;
 }
+
 .con-right .create-date {
   margin: auto;
   padding: 3rem;
@@ -410,9 +421,11 @@ button:focus {
   text-align: center;
   width: 4.5rem;
 }
+
 .choosed .sort-circle:hover {
   background: #c3ddd2;
   cursor: pointer;
+  -webkit-transition: width 1s;
   transition: width 1s;
 }
 
@@ -427,9 +440,11 @@ button:focus {
   text-align: center;
   width: 4.5rem;
 }
+
 .choose .sort-circle:hover {
   background: #c3ddd2;
   cursor: pointer;
+  -webkit-transition: width 1s;
   transition: width 1s;
 }
 
@@ -441,6 +456,7 @@ button:focus {
   margin-left: -2rem;
   margin-top: 1rem;
 }
+
 .btn-area .btn {
   margin: 0 0 0 2rem;
 }
@@ -453,17 +469,21 @@ button:focus {
 .choose-date .time-size-1 {
   width: 17%;
 }
+
 .choose-date .time-size-2 {
   width: 17%;
 }
+
 .choose-date .time-size-3 {
   width: 30%;
 }
+
 .choose-date .time-text {
   float: left;
   margin-right: 1.8rem;
   margin-top: 1rem;
 }
+
 .choose-date .time-to {
   float: left;
   margin-left: -1rem;
@@ -471,21 +491,26 @@ button:focus {
   margin-top: 1.5rem;
   width: 0.4rem;
 }
+
 .choose-date .time-row {
   margin-top: 1rem;
 }
+
 .choose-date .time-add {
   float: left;
   height: 5rem;
 }
+
 .choose-date .ticket-add-2 {
   height: 5rem;
   padding: 1.5rem;
 }
+
 .choose-date .progress {
   clear: both;
   margin-top: 0.5rem !important;
 }
+
 .choose-date .btn-radius-2 {
   border-radius: 3rem;
   display: inline-block;
@@ -500,29 +525,37 @@ button:focus {
   margin-right: 1.5rem;
   margin-top: 0;
 }
+
 .choose-ticket .ticket-size-1 {
   width: 31%;
 }
+
 .choose-ticket .ticket-size-2 {
   width: 20%;
 }
+
 .choose-ticket .ticket-size-3 {
   width: 20%;
 }
+
 .choose-ticket .ticket-row {
   margin-top: 1rem;
 }
+
 .choose-ticket .ticket-add-2 {
   height: 5rem;
   padding: 1.5rem;
 }
+
 .choose-ticket .ticket-add {
   float: left;
 }
+
 .choose-ticket .progress {
   clear: both;
   margin-top: 3rem !important;
 }
+
 .choose-ticket .btn-radius {
   border-radius: 3rem;
   display: inline-block;
@@ -531,6 +564,7 @@ button:focus {
   text-align: center;
   width: 2.5rem;
 }
+
 .choose-ticket .btn-radius-2 {
   border-radius: 3rem;
   display: inline-block;
@@ -627,17 +661,21 @@ button:focus {
   padding-top: 0.5rem;
   width: 50%;
 }
+
 .modal-body .modal-textarea .modal-title-1 {
   font-weight: bold;
 }
+
 .modal-body .modal-textarea .text {
   margin-left: 1.5rem;
   margin-top: 0;
 }
+
 .modal-body .bold-title {
   font-size: 1rem;
   font-weight: bold;
 }
+
 .modal-body .text {
   font-size: 0.9rem;
   margin-left: 1.5rem;
@@ -689,6 +727,7 @@ span#gid {
 .choosed .define-circle:hover {
   background: #c3ddd2;
   cursor: pointer;
+  -webkit-transition: width 1s;
   transition: width 1s;
 }
 
@@ -699,9 +738,11 @@ span#gid {
   margin-top: 1rem;
   width: 100%;
 }
+
 .choose-timeliness .progress {
   margin-top: 1.5rem;
 }
+
 .choose-timeliness .label {
   width: 100%;
 }
@@ -845,16 +886,20 @@ span#mid {
   background-size: contain;
   background-position: center;
 }
+
 #showActivity .showAct-bg {
   margin-top: 5rem;
 }
+
 #showActivity .showAct-bg .middle {
   margin: auto;
   margin-right: 0;
 }
+
 #showActivity .showAct-bg .activity-bg {
   margin-right: 20%;
 }
+
 #showActivity .showAct-bg .activity-bg img {
   width: 100%;
 }
@@ -954,55 +999,44 @@ ul.social-buttons li a:hover {
     height: 100%;
     overflow: hidden;
   }
-
   .search {
     display: none;
   }
-
   .search-2 {
     display: block;
   }
-
   .navbar-toggler {
     position: relative;
     right: 0 !important;
   }
-
   #about {
     height: auto;
     padding-bottom: 2rem;
     padding-top: 2rem;
   }
-
   .btn-cart {
     margin-top: 3.5rem;
   }
-
   .modal-body {
     height: auto;
     overflow: scroll;
   }
-
   .hot-activity {
     padding-top: 0;
   }
-
   .big-title {
     color: #413f3b;
     font-size: 1.2rem !important;
     font-weight: 200;
     margin-bottom: 1rem;
   }
-
   .choose-ticket .col {
     margin: 0 !important;
     padding: 0 !important;
   }
-
   .textbox-circle {
     display: none !important;
   }
-
   .search {
     border-radius: 5rem;
     display: none;
@@ -1011,73 +1045,61 @@ ul.social-buttons li a:hover {
     padding-left: 0.75rem;
     width: 2rem;
   }
-
   .textbox-circle {
     border-radius: 5rem 5rem 5rem 5rem;
     margin-left: 1.6rem;
     margin-top: 0;
     width: 10rem;
   }
-
   .index-btn {
     margin-bottom: 1rem;
     position: relative;
     top: 1rem;
     width: 100% !important;
   }
-
   .choosed .sort-circle {
     height: 4rem;
     margin: 0.4rem;
     padding-top: 1rem;
     width: 4rem;
   }
-
   .choose .sort-circle {
     height: 4rem;
     margin: 0.4rem;
     padding-top: 1.4rem;
     width: 4rem;
   }
-
   #tempgroup,
-#showActivity {
+  #showActivity {
     padding: 1rem !important;
     padding-bottom: 1.5rem !important;
     padding-top: 4.5rem !important;
   }
-
   #group-list {
     margin: 1rem;
     margin-top: 4.5rem;
   }
-
   .navbar-collapse {
     background: #fff;
     border: 1px #c4c4c4 solid;
     border-radius: 0.5rem;
     padding: 1rem;
   }
-
   .nav-logo {
     margin-right: 0.5rem;
     max-width: 3rem !important;
   }
-
   .dropdown {
     background: #fff;
     z-index: 2;
   }
-
   .font-2 {
     font-size: 1rem;
     line-height: 1.8rem;
   }
-
   .hot-activity {
     background: none;
   }
-
   .card {
     border: 1 !important;
     float: left !important;
@@ -1090,7 +1112,6 @@ ul.social-buttons li a:hover {
     padding: 0.2rem;
     width: 4rem;
   }
-
   .carousel-control-next-2 {
     background: #c0c0c0;
     border-radius: 10rem;
@@ -1101,7 +1122,6 @@ ul.social-buttons li a:hover {
     right: -0.7rem;
     width: 3rem;
   }
-
   .carousel-control-prev-2 {
     background: #c0c0c0;
     border-radius: 10rem;
@@ -1110,11 +1130,11 @@ ul.social-buttons li a:hover {
     margin-top: 40em;
     width: 3rem;
   }
-
   .font-size-5 {
     font-size: 1rem;
   }
 }
+
 .mt-10 {
   margin-top: 10rem;
 }
@@ -1154,6 +1174,7 @@ ul.social-buttons li a:hover {
   color: #fff !important;
   height: 3.5rem !important;
 }
+
 .navbar * {
   color: #eb5f36 !important;
 }
@@ -1165,6 +1186,7 @@ ul.social-buttons li a:hover {
 #showActivity {
   font-family: "微軟正黑體" !important;
 }
+
 #showActivity .sort-circle {
   background: #708079;
   border-radius: 5rem;
@@ -1188,6 +1210,7 @@ ul.social-buttons li a:hover {
 #around {
   background-color: #f7f7f7 !important;
 }
+
 #around .big-title {
   color: #413c3b;
   font-size: 2rem;
@@ -1207,6 +1230,7 @@ h5.title {
   background-image: url("../img/portfolio-2.jpg");
   background-size: cover;
 }
+
 #login .login-area {
   border-radius: 0.3rem;
   height: 25rem;
@@ -1215,22 +1239,27 @@ h5.title {
   position: relative;
   width: 22rem;
 }
+
 #login * {
   font-family: "微軟正黑體";
 }
+
 #login .login-img {
   height: 7rem;
   width: 7rem;
 }
+
 #login .forgot-pwd {
   color: #232f9b;
   font-size: 0.9rem;
 }
+
 #login .forgot-pwd:hover {
   color: #49494b;
   cursor: pointer;
   text-decoration: underline;
 }
+
 #login .mt-3 {
   margin-top: 1.3rem !important;
 }
@@ -1251,13 +1280,16 @@ h5.title {
   padding: 0 0 1rem 0;
   width: 100%;
 }
+
 .real-time-area .over-time {
   color: #d4d0ca;
 }
+
 .real-time-area .accordion a {
   cursor: pointer;
   margin-left: 2rem;
 }
+
 .real-time-area .accordion .card-body {
   border-left: 0.25rem solid #c0c0c0;
   border-radius: 0.3rem;
@@ -1291,25 +1323,30 @@ h5.title {
 .act-question {
   line-height: 2.5rem;
 }
+
 .act-question .form-check-input {
   margin-left: -0.5rem;
 }
+
 .act-question .question {
   background-color: #f5f5f5;
   border-radius: 0.4rem;
   padding: 0.5rem;
 }
+
 .act-question .question-title {
   border-bottom: 1px #dadada solid;
   margin-bottom: 1rem;
   margin-left: -0.5rem;
   margin-right: -0.5rem;
 }
+
 .act-question .title {
   letter-spacing: 0;
   margin-top: -0.3rem;
   padding-left: 2rem;
 }
+
 .act-question .title2 {
   margin-top: -0.3rem;
   padding-left: 1.1rem;
@@ -1376,13 +1413,16 @@ span#error {
   border: 1px #dbdbdb solid;
   border-left: 3px solid #4378be;
   border-radius: 0.3rem;
-  box-shadow: 0.2rem 0.2rem #ececec;
+  -webkit-box-shadow: 0.2rem 0.2rem #ececec;
+          box-shadow: 0.2rem 0.2rem #ececec;
   padding: 1rem;
   width: 100%;
 }
+
 .create-info .title {
   color: #4378be;
 }
+
 .create-info .value {
   color: #494949;
   font-size: 1.5rem;
@@ -1397,6 +1437,7 @@ span#error {
 .br-l-1 {
   border-left: 5px solid #eb5f36;
 }
+
 .br-l-1 .title {
   color: #eb5f36;
 }
@@ -1404,6 +1445,7 @@ span#error {
 .br-l-2 {
   border-left: 3px solid #3bc47f;
 }
+
 .br-l-2 .title {
   color: #3bc47f;
 }
@@ -1411,6 +1453,7 @@ span#error {
 .br-l-3 {
   border-left: 3px solid #e43333;
 }
+
 .br-l-3 .title {
   color: #e43333;
 }
@@ -1418,6 +1461,7 @@ span#error {
 .br-l-4 {
   border-left: 3px solid #f6c23e;
 }
+
 .br-l-4 .title {
   color: #f6c23e;
 }
@@ -1450,7 +1494,7 @@ td.id {
 }
 
 * {
-  font-family: arial, "Microsoft JhengHei", "微軟正黑體", "Font Awesome 5 Free", "Font Awesome 5 Brands" !important;
+  font-family: arial, 'Microsoft JhengHei', '微軟正黑體', 'Font Awesome 5 Free', 'Font Awesome 5 Brands' !important;
 }
 
 #bg-normal {
@@ -1460,8 +1504,6 @@ td.id {
 #submitques {
   display: none;
 }
-
-/*# sourceMappingURL=style.css.map */
 #email-vail {
   display: none;
 }
@@ -1529,7 +1571,8 @@ img.img {
   border: 0.5px solid #cccccc;
   overflow: hidden;
   border-radius: 0.2rem;
-  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #cccccc;
+  -webkit-box-shadow: .1rem .1rem .1rem .1rem #cccccc;
+          box-shadow: .1rem .1rem .1rem .1rem #cccccc;
   margin-bottom: 1rem;
 }
 
@@ -1568,7 +1611,7 @@ img.img {
 .number {
   position: relative;
   left: 0rem;
-  top: -0.1rem;
+  top: -.1rem;
   float: left;
   color: #CE0000;
 }
@@ -1578,7 +1621,8 @@ img.img {
   cursor: pointer;
   position: relative;
   top: 0.1rem;
-  opacity: 0.8;
+  opacity: .8;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -1672,5 +1716,4 @@ span.step.now {
   padding-left: 0.5rem;
   padding-right: 0.3rem;
 }
-
 /*# sourceMappingURL=style.css.map */
