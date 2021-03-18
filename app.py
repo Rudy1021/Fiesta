@@ -1,10 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file
 from flask import session, make_response, Response
-from sqlalchemy import desc
 import datetime
 import os
-import json
-import requests
 
 app = Flask(__name__)
 SECRET_KEY = os.urandom(32)
@@ -19,23 +16,14 @@ def make_session_permanet():
 
 @app.route('/.well-known/pki-validation/<id>')
 def acme_challenge(id):
-    return "CA458801FED4ED705BA89934A14069D70A6F3CC9557739C32174B2F46974187B\ncomodoca.com\n23df8aa640cb466"
+    string = 'CA458801FED4ED705BA89934A14069D70A6F3CC9557739C32174B2F46974187B'
+    return string + "\ncomodoca.com\n23df8aa640cb466"
+
 
 # index
 @app.route("/")
 def index():
     return render_template('index.html')
-
-
-@app.route('/logout')
-def logout():
-    return redirect(url_for("index"))
-# ---------------------------------------------------
-
-
-@app.route('/success')
-def success():
-    return render_template('success.html')
 
 
 @app.route("/Group")
@@ -49,18 +37,13 @@ def CreateEvent():
 
 
 @app.route('/MyProfile', methods=['GET'])
-def setting():
-    return render_template("setting.html")
+def MyProfile():
+    return render_template("MyProfile.html")
 
 
 @app.route('/MyTicket', methods=['GET'])
 def MyTicket():
     return render_template("MyTicket.html")
-
-
-@app.route("/favicon.ico")
-def favicon():
-    return app.send_static_file("img/favicon.ico")
 
 
 @app.route('/login', methods=['GET'])
@@ -70,22 +53,32 @@ def logintest():
 
 @app.route("/check")
 def check():
-    return render_template("/check.html")
+    return render_template("check.html")
 
 
 @app.route('/signup')
 def signup():
-    return render_template("signin.html")
+    return render_template("signup.html")
 
 
 @app.route('/forgotpassword/<id>')
-def test(id):
+def forgotpassword(id):
     return render_template("forgotpassword.html")
 
 
 @app.route('/Mailsuccess/<id>')
 def Mailsuccess(id):
     return render_template("successMail.html")
+
+
+@app.route('/font')
+def Font():
+    return
+
+
+@app.route('/QRcode')
+def QRcode():
+    return render_template("QRcode.html")
 
 
 @app.route('/Activity')
@@ -115,7 +108,9 @@ def dashboardId():
 
 @app.route("/apple-app-site-association")
 def apple():
-    response = make_response(send_file(".well-known/apple-app-site-association", mimetype='application/pkcs7-mime'))
+    response = make_response(
+        send_file(".well-known/apple-app-site-association",
+                  mimetype='application/pkcs7-mime'))
     return response
 
 
@@ -127,6 +122,71 @@ def private():
 @app.route("/advertising")
 def advertising():
     return render_template("advertising.html")
+
+
+@app.route("/test")
+def test():
+    return render_template("test.html")
+
+
+@app.route("/tag")
+def tag():
+    return render_template("tag.html")
+
+
+@app.route("/activity-new")
+def actnew():
+    return render_template("activity-new.html")
+
+
+@app.route("/create-new")
+def createnew():
+    return render_template("create-new.html")
+
+
+@app.route("/review/<actId>")
+def newreview(actId):
+    return render_template("review.html", actId=actId)
+
+
+@app.route('/dashboard/survey')
+def survey():
+    return render_template("survey.html")
+
+
+@app.route('/index-new')
+def indexNew():
+    return render_template("index-new.html")
+
+
+@app.route('/interest')
+def interest():
+    return render_template("interest.html")
+
+
+@app.route('/buy-ticket')
+def BuyTicket():
+    return render_template("buy-ticket.html")
+
+
+@app.route('/myticket-new')
+def MyTicketNew():
+    return render_template("base-nav-bg.html")
+
+
+@app.route('/myfavorites')
+def myfavorites():
+    return render_template("base-nav-bg.html")
+
+
+@app.route('/favoritesFile')
+def favoritesFile():
+    return render_template("MyFavorites.html")
+
+
+@app.route('/ticketFile')
+def ticketFile():
+    return render_template("MyTicket-new.html")
 
 
 # Run App

@@ -1,63 +1,77 @@
-﻿{% extends 'base.html' %}
-{% block title %}登入{% endblock title %}
+{% extends 'base-no-nav.html' %}
 {% block content %}
-<section class="content-section pb-5" id="bg-fiesta-img">
-    <div class="container-fluid mt-3 p-5">
-        <div class="loginlist">
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-sm-12 bg-light p-3">
-                    <div class="row">
-                        <div class="col-4 text-center">
-                            <img src="{{ url_for('static',filename='img/logo.png') }}" class="card-img">
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-12">
-                            <h6>帳號</h6>
-                            <input class="form-control" type="text" id="userId" autocomplete="userId">
-                            <div class="alert alert-danger" role="alert">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col"><h6>密碼</h6></div>
-                                <div class="col-5"><label id="forgot-pwd" class="float-right forgot-pwd">忘記密碼?</label></div>
-                            </div>                            
-                            <input class="clear-float form-control" type="password" id="userPassword" autocomplete="current-password">
-                        </div>                        
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <button class="btn btn-success mt-4" id="login2">登入</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="login-area forgot-pwdlist">
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-sm-12 bg-light">
-                    <div class="row mt-2">
-                        <div class="col">
-                            <h6>帳號</h6>
-                                <input class="form-control" type="text" id="forgotId" placeholder="">
-                        </div>
-                    </div>
-            <div class="row">
-                <div class="col text-center">
-                    <button class="btn btn-secondary m-2" id="backtologin">返回</button>
-                    <button class="btn btn-primary m-2" id="sendforgot">發送驗證信</button>
-                </div>
-            </div>
-        </div>
+<div class="container-fluid login background-index">
+    <div class="row">
+      <div class="col text-center">
+          <img class="logo" src="{{ url_for('static',filename='img/fiesta-logo.png') }}" alt="">
+      </div>
     </div>
+    <div class="row">
+      <div class="col-5 ">
+        <img class="login-img" src="{{ url_for('static',filename='img/login-bg.png')}}" alt="">
+      </div>
+      <div class="form-area border-radius-2 loginlist col-6">
+        <div class="row">
+          <h3>會員登入</h3>
+        </div>
+        <div class="row">
+            <input type="text" class="login-input border-radius-05" id="userId" placeholder="帳號">
+        </div>
+        <div class="row">
+            <input type="password" class="login-input border-radius-05" id="userPassword"  placeholder="密碼">
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-block btn-outline-primary mt-xs border-radius-05" id="login">送出</button>
+        </div>
+        <small id="" class="form-text text-muted mt-4"><a href="javascript:;" id="forgot-pwd">忘記密碼?</a></small>
+        <!--
+        <div class="row mt-4">
+            <div class="col"><hr></div>
+            <div class="col-1 text-center p-0 pt-1 fiesta-text-primary">或</div>
+            <div class="col"><hr></div>
+        </div>
+        <div class="row text-center mt-3">
+            <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fab fa-google godown"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-facebook-f godown"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fab fa-twitter godown"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        -->
+        <small id="" class="form-text text-muted mt-4"><a href="/signup">還沒有會員嗎? 立即註冊!</a></small>
+    </div>
+    <div class="forgot-pwdlist">
+        <div class="form-area border-radius-05">
+          <div class="row mt-2">
+            <div class="col">
+              <h3>請輸入帳號</h3>
+              <input class="form-control" type="text" id="forgotId" placeholder="帳號">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <button class="btn btn-secondary border-radius-2 my-2" id="backtologin">返回</button>
+              <button class="btn btn-outline-primary border-radius-2 my-2" id="sendforgot">發送驗證信</button>
+            </div>
+          </div>
+        </div>
+    </div>  
+    </div>
+    
 </div>
-    </div>
-</section>
 {% endblock content %}
 {% block script %}
-<script src="{{ url_for('static',filename='js/login.js') }}?version=1.13"></script>
-{% endblock %}
+<script src="{{ url_for('static',filename='js/login.js') }}?version=1.17"></script>
+{% endblock script %}

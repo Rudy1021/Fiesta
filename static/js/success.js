@@ -1,1 +1,0 @@
-setInterval(function(){document.location.href="/"},3000);

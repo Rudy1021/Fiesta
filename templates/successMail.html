@@ -25,7 +25,12 @@
 
 <body id="page-top">
     <section class="content-section pb-5" id="bg-fiesta-img">
-      <div class="check-user">
+      <div class="check-user fail">
+        <div class="title"><i class="fas fa-user-times"></i> 驗證失敗！</div>
+        <div>請重新寄送一次驗證信</div>
+        <button class="btn btn-primary mb-1 buttonclick">返回首頁</button>
+    </div>
+      <div class="check-user success">
           <div class="title"><i class="fas fa-user-check"></i> 驗證成功！</div>
           <div>恭喜您完成驗證，所有功能已開通完畢，快使用Fiesta參加或建立一個活動吧！</div>
           <button class="btn btn-primary mb-1 buttonclick">馬上使用</button>
@@ -34,7 +39,7 @@
   <script src="{{ url_for('static',filename='vendor/jquery/jquery.js') }}"></script>
   <!-- Bootstrap core JavaScript -->
   <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static',filename='js/finish.js') }}?version=1.13"></script>
+  <script src="{{ url_for('static',filename='js/finish.js') }}?version=1.20"></script>
   <!---->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>

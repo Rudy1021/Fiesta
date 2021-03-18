@@ -76,15 +76,15 @@
             </div>
         </div>
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card border-left-warning shadow h-100 py-2 surveyPage">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">
-                                問卷數量
+                                問卷總覽
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800 questionnaire">
-                                -
+                                點此進入
                             </div>
                         </div>
                         <div class="col-auto">
@@ -180,15 +180,6 @@
                         <canvas id="myPieChart" width="301" height="245" class="chartjs-render-monitor" style="display: block; width: 301px; height: 245px;"></canvas>
                       </div>
                       <div class="mt-4 text-center small mb-5 chart-text">
-                        <span class="mr-2">
-                          <i class="fas fa-circle text-main"></i> 早鳥票
-                        </span>
-                        <span class="mr-2">
-                          <i class="fas fa-circle text-success"></i> 優待票
-                        </span>
-                        <span class="mr-2">
-                          <i class="fas fa-circle text-info"></i> 一般票
-                        </span>
                       </div>
                 </div>
             </div>
@@ -230,22 +221,37 @@
                 </div>
                 <div class="card-body">
                     <div class="pt-0 pb-2" style="height:22.4rem !important">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58871.24661090306!2d120.32182016725068!3d22.748567239329926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd553c015717675a9!2z5qWg5qKT6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1591102272159!5m2!1szh-TW!2stw" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                      <div id="map" style="width: 576.25px; height: 324.14px; pointer-events: none;"></div>
+                      <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAIdK6J4jDt08nMJf0E14Gj-hlOYPnOvQg"></script>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-xl-4 col-lg-5">
+    <div class="row">
+      <div class="col-xl-4 col-lg-5">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-main">驗票QRcode</h6>
             </div>
             <div class="card-body">
-                    <img src="" class="QRcode mw-100 mh-100">
+                    <img src="" class="QRcode mw-100 mh-100" title="點擊可以顯示全圖">
             </div>
         </div>
-    </div>
+      </div>
+      <div class="col-xl-4 col-lg-5"></div>
+      <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-main">問卷QRcode</h6>
+          </div>
+          <div class="card-body">
+            <img src="" class="QRcodereview mw-100 mh-100"><!-- title="點擊可以顯示全圖"-->
+          </div>
+        </div>
+      </div>
+  </div>
+
 </div>
 <div class="container-fluid">
     <div class="card shadow mb-4">
@@ -275,6 +281,6 @@
 </div>
 {% endblock content %}
 {% block script %}
-<script src="{{ url_for('static',filename='dashboard/js/datatables.js') }}?version=1.43"></script>
-<script src="{{ url_for('static',filename='dashboard/js/chart-pie.js') }}?version=1.02"></script>
+<script src="{{ url_for('static',filename='dashboard/js/datatables.js') }}?version=1.45"></script>
+<script src="{{ url_for('static',filename='dashboard/js/chart-pie.js') }}?version=1.03"></script>
 {% endblock script %}

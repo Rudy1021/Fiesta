@@ -1,10 +1,82 @@
-﻿{% extends 'base.html' %}
+﻿{% extends 'base-new.html' %}
 {% block title %}{{ act_Name }}{% endblock title %}
 {% block content %}
-<section class="content-section bg-light" id="showActivity">
+<section class="content-section" id="showActivity">
   <div class="container-fluid">
     <div class="showAct2">
-      <div class="row justify-content-md-center">
+      <!--活動介紹-->
+      <div class="row justify-content-md-center showAct-bg">
+        <div class="col-md-4 col-sm-12 text-center align-items-center middle">
+          <h1 class="">活動介紹</h1>
+        </div>
+        <div class="col-md-4 col-sm-12 activity-bg">
+          <img src="{{ url_for('static',filename='img/activity-bg.png')}}" alt="">
+        </div>
+      </div>
+      <div class="col-5">
+        <img class="showAct-img" src="{{ url_for('static',filename='img/activity-bg.png') }}">
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="container-fluid mt-6 mb-5">
+  <!--顯示活動資料區域-->
+  <div class="row justify-content-md-center showAct-area">
+    <!--活動圖片-->
+    <div class="col-md-4 showAct-img mr-0">
+      <div class="card margin-auto border-radius-2">
+        <div class="img-cover border-radius-2">
+          <img src="{{ url_for('static',filename='img/activity-test.png')}}" alt="">
+        </div>
+      </div>
+      <!--<img src="{{ url_for('static',filename='img/activity-test.png')}}" alt="">-->
+    </div>
+    <!--活動敘述-->
+    <div class="col-md-8 showAct-text">
+      <div class="row ">
+        <h3>2019跨年倒數派對嘻哈饒舌對抗賽2.0</h3>
+      </div>
+      <div class="row mt-2">
+        <i class="icon-location-pin fa-lg"></i>
+        <h5>畫廊酒吧/高雄市鼓山區哨船街51號2F</h5>
+      </div>
+      <div class="row mt-2 btn-star">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <span>(</span><span class="stars5">0</span><span>)</span>
+      </div>
+      <div class="row mt-3">
+        <i class="fas fa-qrcode fa-lg"></i><h5>入場時請使用APP裡的QR CODE入場</h6>
+      </div>
+      <div class="row mt-6 buy-btn">
+        <div class="col-12">
+          <button type="button" class="btn btn-primary emailtest">購票</button>  
+        </div>     
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container-fluid mt-2">
+  <hr style="width: 90%;">
+  <div class="row mt-4">
+    <div class="col ml-5 pl-3 mr-5">
+      <i class="fas fa-pen fa-lg"></i>
+      <h3 class="">活動介紹</h3>
+      <h5>
+        位於hotelpoispois一樓的餐廳@ch-eat&drink將化身大舞廳，由亞洲最強傳奇DJ羅百吉帶領新生代呂世宣一想不到超ㄎ一ㄤ組合，帶給你屬於台灣的嘻哈饒舌體驗，加上啤酒無限暢飲，讓你從2018一路嗨到2019~~~~
+      </h5>
+    </div>
+  </div>
+  <div class="row mt-3 ml-5 pl-2 mr-5">
+    
+  </div>
+</section>
+      
+      <!--<div class="row justify-content-md-center">
         <div class="col-lg-8 col-sm-12  showAct-area">
           <div class="row">
             <div class="col">
@@ -14,17 +86,17 @@
           </div>
           <div class="row mb-2">
             <div class="col">
-              <img src="" class="d-block mb-2 text-center" id="act-img">
+              <img src="" class="d-block mb-2 text-center mw-100" id="act-img">
               <div class="row clear-float my-3">
-                <div class="col-7">
+                <div class="col-lg-7 col-sm-12">
                   <h6 class="ml-3" id="startTime">開始時間</h6>
                   <h6 class="ml-3" id="endTime">結束時間</h6>
                 </div>
-                <div class="col-5" id="taglist"></div>
+                <div class="col-lg-5 col-sm-12" id="taglist"></div>
               </div>
               <hr>
               <h6>活動簡介</h6>
-              <div class="ml-2 lh-1 my-3 text-secondary" id="act_Description"></div>
+              <div class="ml-2 lh-1 my-3 text-secondary text-justify" id="act_Description"></div>
             </div>
           </div>
           <div class="row  float-right">
@@ -33,19 +105,13 @@
             <div class="col" id="ticketist">
               <hr>
             </div>
-          </div>           
+          </div>
         </div>
-      </div>
-      <!--
-    <div class="text-center">
-      <br>
-      <a href="#" class="btn btn-primary ml-2" id="QRCODE">建立網址QRCODE</a>
-    </div>
-    -->
-  </div>
+      </div>-->
+  <!--</div>-->
     <!----------------------活動問卷----------------------->
     <!------------------------------ real-time ------------------------------->
-    <div class="real-time" id="real-time">
+    <!--<div class="real-time mt-3" id="real-time">
       <div class="row justify-content-md-center">
         <div class="col-lg-8 col-sm-12 clickback">
           <h5 class="all-title">即時資訊</h5>
@@ -71,160 +137,12 @@
         </div>
         <br>
       </div>
-      <div class="act-question quest" id="act-question">
-        <div class="row justify-content-md-center">
-          <div class="col-lg-8 col-sm-12">
-            <h5 class="all-title">活動問卷</h5>
-            <hr>
-            <div class="question">
-              <div class="row question-title">
-                <div class="col-2 mb-1 text-center"></div>
-                <div class="col-2 mb-1 text-center">極佳</div>
-                <div class="col-2 mb-1 text-center">佳</div>
-                <div class="col-2 mb-1 text-center">普通</div>
-                <div class="col-2 mb-1 text-center">差</div>
-                <div class="col-2 mb-1 text-center">極差</div>
-              </div>
-              <div class="row">
-                <div class="col-2 mb-1 title">總體</div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input All" type="radio" name="All"
-                     value="5" checked></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input All" type="radio" name="All"
-                     value="4" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input All" type="radio" name="All"
-                     value="3" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input All" type="radio" name="All"
-                     value="2" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input All" type="radio" name="All"
-                     value="1" ></div>
-              </div>
-              <div class="row">
-                <div class="col-2 mb-1 title">價錢</div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Money" type="radio" name="Money"
-                     value="5" checked></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Money" type="radio" name="Money"
-                     value="4" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Money" type="radio" name="Money"
-                     value="3" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Money" type="radio" name="Money"
-                     value="2" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Money" type="radio" name="Money"
-                     value="1" ></div>
-              </div>
-              <div class="row">
-                <div class="col-2 mb-1 title">音效</div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Audio" type="radio" name="Audio"
-                     value="5" checked></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Audio" type="radio" name="Audio"
-                     value="4" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Audio" type="radio" name="Audio"
-                     value="3" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Audio" type="radio" name="Audio"
-                     value="2" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input Audio" type="radio" name="Audio"
-                     value="1" ></div>
-              </div>
-              <div class="row">
-                <div class="col-2 mb-1 title">流程</div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input liu" type="radio" name="liu"
-                     value="5" checked></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input liu" type="radio" name="liu"
-                     value="4" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input liu" type="radio" name="liu"
-                     value="3" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input liu" type="radio" name="liu"
-                     value="2" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input liu" type="radio" name="liu"
-                     value="1" ></div>
-              </div>
-              <div class="row">
-                <div class="col-2 mb-1 title">氣氛</div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input mood" type="radio" name="mood"
-                     value="5" checked></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input mood" type="radio" name="mood"
-                     value="4" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input mood" type="radio" name="mood"
-                     value="3" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input mood" type="radio" name="mood"
-                     value="2" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input mood" type="radio" name="mood"
-                     value="1" ></div>
-              </div>
-              <div class="row">
-                <div class="col-2 mb-1 title">燈光</div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input light" type="radio" name="light"
-                     value="5" checked></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input light" type="radio" name="light"
-                     value="4" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input light" type="radio" name="light"
-                     value="3" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input light" type="radio" name="light"
-                     value="2" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input light" type="radio" name="light"
-                     value="1" ></div>
-              </div>
-              <div class="row">
-                <div class="col-2 mb-1 title">動線</div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input move" type="radio" name="move"
-                     value="5" checked></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input move" type="radio" name="move"
-                     value="4" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input move" type="radio" name="move"
-                     value="3" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input move" type="radio" name="move"
-                     value="2" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input move" type="radio" name="move"
-                     value="1" ></div>
-              </div>
-              <div class="row">
-                <div class="col-2 mb-1 title">地點</div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input loc" type="radio" name="loc"
-                     value="5" checked></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input loc" type="radio" name="loc"
-                     value="4" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input loc" type="radio" name="loc"
-                     value="3" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input loc" type="radio" name="loc"
-                     value="2" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input loc" type="radio" name="loc"
-                     value="1" ></div>
-              </div>
-              <div class="row">
-                <div class="col-2 mb-1 title2">工作人員</div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input staff" type="radio" name="staff"
-                     value="5" checked></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input staff" type="radio" name="staff"
-                     value="4" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input staff" type="radio" name="staff"
-                     value="3" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input staff" type="radio" name="staff"
-                     value="2" ></div>
-                <div class="col-2 mb-1 text-center"><input class="form-check-input staff" type="radio" name="staff"
-                     value="1" ></div>
-              </div>
-            </div>
-  
-  
-            <div class="row">
-              <div class="col mt-2">
-                <h6>意見回饋</h6>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <textarea class="form-control" id="Description" rows="7"></textarea>
-              </div>
-            </div>
-            <br>
-          </div>
-        </div>
-      </div>
       <br>
       <div class="text-center">
-        <button type="button" class="btn btn-primary ml-2 join-btn emailtest" data-toggle="modal" data-target="#RemarkModal">參加</button>
-        <button type="button" class="btn btn-primary ml-2 quest" id="submitques">送出問卷</button>
+        <button type="button" class="btn btn-primary ml-2 emailtest joinClick" id="joinClick">參加</button>
+        <button type="button" class="btn btn-primary ml-2 join-btn" data-toggle="modal" data-target="#RemarkModal" style="display:none;">join</button>
       </div>
-  </div>
+   </div>
    <div class="modal fade" id="RemarkModal" tabindex="-1" role="dialog" aria-labelledby="RemarkModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
@@ -244,9 +162,10 @@
          </div>
        </div>
      </div>
-   </div>
-</section>
+   </div>-->
+
+
 {% endblock content %}
 {% block script %}
-<script src="{{ url_for('static',filename='js/showAct.js') }}?version=1.23"></script>
+<script src="{{ url_for('static',filename='js/showAct.js') }}?version=1.24"></script>
 {% endblock %}
